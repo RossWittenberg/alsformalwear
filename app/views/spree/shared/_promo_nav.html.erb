@@ -1,0 +1,22 @@
+<% promoBarLine1 = Content.find_by_description "promo-bar-line-1"%>
+<% promoBarLine2 = Content.find_by_description "promo-bar-line-2"%>
+
+<div class="promo-nav-row">
+	<div class="promo-nav-container container">	
+		<p class="promo-nav-text">
+			<% if promoBarLine1 && promoBarLine1.text %>
+				<%= promoBarLine1.text %>
+			<% else %>
+				ATTENDING PROM? AL'S HAS YOU COVERED!
+			<% end %>
+		</p>
+		<p class="promo-nav-subtext">
+			<% if promoBarLine2 && promoBarLine2.text %>
+				<%= promoBarLine2.text.html_safe %>
+			<% else %>
+				Get a <a href="/discount">Discount Coupon</a> or view <a href="/prom/#rep-form">Prom Offers</a>
+			<% end %>
+		</p>
+	</div>
+	<div class="promo-ex ex"></div>	
+</div>

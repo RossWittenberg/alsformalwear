@@ -1,0 +1,101 @@
+<div class="leads-wrapper" id="weddings" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Pref Location
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Bride First Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Bride Last Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Bride Email
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Groom First Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Groom Last Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Groom Email
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Wedding Date
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Date Submitted
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete event?
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @weddings.each_with_index do |wedding, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td> <%= wedding.location && wedding.location.store_name || "N/A" %> </td>
+					<td> <%= wedding.bride_first_name || "N/A" %> </td>
+					<td> <%= wedding.bride_last_name || "N/A" %> </td>
+					<td> <%= wedding.bride_email || "N/A" %> </td>
+					<td> <%= wedding.groom_first_name || "N/A" %> </td>
+					<td> <%= wedding.groom_last_name || "N/A" %> </td>
+					<td> <%= wedding.groom_email || "N/A" %> </td>
+					<td> <%= wedding.date.strftime("%m/%d/%Y") %> </td>
+					<td> <%= wedding.created_at.strftime("%m/%d/%Y") %> </td>
+					<td><%= button_to('Delete Event', "/events/#{wedding.id}?admin=true",
+          method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+
+					<!-- <td> <%# wedding.school_state || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.school_zip_code || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.tax_id  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.event_name  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.black_tie || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.juniors || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.number_seniors || "N/A"%> </td> -->
+					<!-- <td> <%# wedding.number_juniors  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.first_name  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.last_name  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.contact_title || "N/A"  %> </td> -->
+					<!-- <td> <%# wedding.contact_phone  || "N/A" %> </td> -->
+					<%# user # Spree::User.find wedding.user_id %>
+					<!-- <td> <%# user && user.email  || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.group_code && wedding.group_code.number || "N/A" %> </td> -->
+					<!-- <td> <%# wedding.school_fundraiser %> </td> -->
+					<!-- <td> <%# wedding.prom_rep %> </td> -->
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>
+
+
+

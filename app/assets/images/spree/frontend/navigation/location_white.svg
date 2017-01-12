@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="94px" height="93px" viewBox="0 0 94 93" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.3 (16618) - http://www.bohemiancoding.com/sketch -->
+    <title>Location 2 white</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path id="path-1" d="M0,0.595 L44.656,0.595 L44.656,72 L0,72"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Location-2-white" sketch:type="MSArtboardGroup">
+            <g id="Page-1" sketch:type="MSLayerGroup" transform="translate(25.000000, 11.000000)">
+                <mask id="mask-2" sketch:name="Clip 2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-2"></g>
+                <path d="M22.3279,35.208 C15.6649,35.208 10.2709,29.809 10.2709,23.151 C10.2709,16.493 15.6649,11.094 22.3279,11.094 C28.9819,11.094 34.3809,16.493 34.3809,23.151 C34.3809,29.809 28.9819,35.208 22.3279,35.208 M22.3279,0.595 C9.9939,0.595 -0.0001,10.549 -0.0001,22.879 C-0.0001,44.197 22.3279,72 22.3279,72 C22.3279,72 44.6559,44.193 44.6559,22.879 C44.6559,10.553 34.6619,0.595 22.3279,0.595" id="Fill-1" fill="#FFFFFF" sketch:type="MSShapeGroup" mask="url(#mask-2)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

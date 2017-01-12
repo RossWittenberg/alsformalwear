@@ -1,0 +1,46 @@
+<div class="container print-look-container">	
+	<div class="print print-header">
+		<div class="print-nav-logo">
+			<a href="/"><%= image_tag('spree/frontend/logo-large.png', :alt => 'Als Formal Wear', class: '') %></a>
+		</div>
+	</div>
+	<div class="look-print-subheader">
+		<h3>Build Your Tux</h3>
+		<p class="body-style-1">Congrats! You've built your tux. Take this list to your preferred Al's location to get fitted in store or for pick-up.</p>
+    <button type="button" class="screen print-btn btnLink button-primary">Print</button>
+	</div>
+	<div class="print-products-contaier">
+		<table class="look-print">
+			<thead>
+				<tr>
+					<th class="image"> </th>
+					<th class="item">
+						<h4>ITEM</h4>
+					</th>
+					<th class="style-name">
+						<h4>STYLE NAME</h4>
+					</th>
+					<th class="color">
+						<h4>COLOR</h4>
+					</th>
+					<th class="style-number">
+						<h4>STYLE NUMBER</h4>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @products.each_with_index do |product, i|%>
+						<tr id='product-<%= "#{product[1]}" %>' class="look-print-row product_row <%= 'even' if (i+1)%2==0%> <%= 'odd' if (i+1)%2!=0%>" data-variant-id='<%= "#{product[1]}" %>'>	
+							<td class="image-cell" id="image-<%= "#{product[1]}" %>"></td>
+							<td id="item-<%= "#{product[1]}" %>"></td>
+							<td id="style-name-<%= "#{product[1]}" %>"></td>
+							<td id="color-<%= "#{product[1]}" %>"></td>
+							<td id="style-number-<%= "#{product[1]}" %>"></td>
+						</tr>	
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<a class="print-look" href="/events/print?look_id=#{@look.id}"><h4><%= "www.alsformalwear.com/events/print?look_id=#{@look.id}" %></h4></a>
+	<h4 class="created-at right"> Created on <%= @look.created_at.strftime("%B %d, %Y")%></h4>
+</div>	

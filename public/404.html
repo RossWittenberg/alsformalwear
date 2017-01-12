@@ -1,0 +1,36 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!--><html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">
+    <meta charset="utf-8">
+    <title>Al's Formal Wear</title>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+    <%= csrf_meta_tags %>
+    <%= javascript_include_tag 'spree/frontend/all' %>
+
+  </head>
+  <body class="default">
+    <div class="outer-wrapper">
+      <%= render :partial => 'spree/shared/header_404' %>
+      <div class="container not-foundPage">
+        <div class="row push-80">
+          <div class="col-md-12">
+            <div class="icon-box push-40">
+              <%= image_tag('spree/frontend/icons/dotted-heart.png', :alt => '', class: 'dotted-heart center-block') %>
+            </div>
+            <h2 class="center-text">OOPS!</h2>
+            <h3 class="center-text push-40">THIS PAGE DOES NOT<br />SEEM TO EXIST.</h3>
+            <a href="/" class="btn button-primary center-block"><span>GO HOME</span></a>
+          </div>
+        </div>
+      </div>  
+      <%= render :partial => 'spree/shared/footer' %>
+      <%= render :partial => 'spree/shared/google_analytics' %>
+  </body>
+</html>

@@ -1,0 +1,183 @@
+<div class="no-pad col-md-12 col-lg-12">
+	
+	<div class="col-md-12 col-lg-12 no-pad">
+		<a href="/catalog/admin/locations"><i class="fa fa-arrow-left"></i> Locations Dashboard </a> <br><br>
+	</div>
+	<%=link_to "Edit #{@location.store_name}", edit_admin_location_path(@location), class: 'button cms-button' %><br><br>
+	<h4 class="cms-subheader">General Information</h4>		
+	<div class="col-lg-3 col-md-3">
+		<label>store num</label><br>
+		<p><%= @location.store_num %></p>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<label>store name</label><br>
+		<p><%= @location.store_name %></p>
+	</div>
+		<div class="col-lg-4 col-md-4">
+		<label>shorthand</label><br>
+		<p><%= @location.shorthand %></p>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<label>phone_number</label><br>
+		<p><%= @location.phone_number %></p>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<label>email</label><br>
+		<p><%= @location.email %></p>
+	</div>
+	<h4 class="cms-subheader clear-both">Location</h4>		
+	<div class="col-md-12 col-lg-12 location-map-container">
+		<div class="location-map"></div>  
+    	<div class="location-marker" data-lat="<%=@location.latitude%>" data-lng="<%= @location.longitude%>"> </div>
+		</div>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<label>latitude</label><br>
+		<p><%= @location.latitude %></p>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<label>longitude</label><br>
+		<p><%= @location.longitude %></p>
+	</div>	
+	<div class="col-lg-6 col-md-6">
+		<label>street address</label><br>
+		<p><%= @location.street_address %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>city</label><br>		
+		<p><%= @location.city %></p>
+	</div>	
+	<div class="col-lg-2 col-md-2">
+		<label>state</label><br>
+    <p><%= @location.state%></p>
+	</div>	
+	<div class="col-lg-2 col-md-2">
+		<label>zip code</label><br>
+		<p><%= @location.zip_code %></p>
+	</div>	
+	<div class="col-lg-12 col-md-12">
+		<label>google url</label><br>
+		<p><%= @location.google_url %></p>
+	</div>
+		<div class="col-lg-12 col-md-12">
+		<label>apple url</label><br>
+		<p> <%=@location.apple_url %></p>
+	</div>	
+	<h4 class="clear-both cms-subheader">Managers</h4>		
+	<div class="col-lg-3 col-md-3">
+		<label>manager</label><br>
+		<p><%= @location.manager %></p>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<label>manager email</label><br>
+		<p><%= @location.manager_email %></p>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<label>dist_manager</label><br>
+		<p><%= @location.dist_manager %></p>
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<label>district manager email</label><br>
+		<p><%= @location.district_manager_email %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>regional district manager email</label><br>
+		<p><%= @location.regional_district_manager_email %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>area manager email</label><br>
+		<p><%= @location.area_manager_email %></p>
+	</div>	
+	<h4 class="clear-both cms-subheader">Hours (Use '99' for both 'open' and 'close' fields if closed)</h4>
+	<p class="clear-both cms-subheader">Monday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>mon hours</label><br>
+		<p><%= @location.mon_hours %></p>
+	</div>
+		<div class="col-lg-4 col-md-4">
+		<label>mon open</label><br>
+		<p><%= @location.mon_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>mon close</label><br>
+		<p><%= @location.mon_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Tuesday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>tues hours></label><br>
+		<p><%= @location.tues_hours %></p>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<label>tues open</label><br>
+		<p><%= @location.tues_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>tues close</label><br>
+		<p><%= @location.tues_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Wednesday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>wed hours</label><br>
+		<p><%= @location.wed_hours %></p>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<label>wed open</label><br>
+		<p><%= @location.wed_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>wed close</label><br>
+		<p><%= @location.wed_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Thursday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>thurs hour</label><br>
+		<p><%= @location.thurs_hours %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>thurs open</label><br>
+		<p><%= @location.thurs_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>thurs close</label><br>
+		<p><%= @location.thurs_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Friday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>fri hours</label><br>
+		<p><%= @location.fri_hours %></p>
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<label>fri open</label><br>
+		<p><%= @location.fri_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>fri close</label><br>
+		<p><%= @location.fri_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Saturday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>sat hours</label><br>
+		<p><%= @location.sat_hours %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>sat open</label><br>
+		<p><%= @location.sat_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>sat close </label><br>
+		<p><%= @location.sat_close %></p>
+	</div>
+	<p class="clear-both cms-subheader">Sunday</p>		
+	<div class="col-lg-4 col-md-4">
+		<label>sun_hours </label><br>
+		<p><%= @location.sun_hours %></p>
+	</div>			
+	<div class="col-lg-4 col-md-4">
+		<label>sun open</label><br>
+		<p><%= @location.sun_open %></p>
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<label>sun close</label><br>
+		<p><%= @location.sun_close %></p>
+	</div>	
+</div>

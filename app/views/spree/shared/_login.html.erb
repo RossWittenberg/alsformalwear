@@ -1,0 +1,25 @@
+<div class="<%= 'alert' if flash[:errors].present? %>">
+	<%= flash[:errors] %>
+</div>
+
+<% if params[:look_id].present? %>
+	<% redirect_url = "#{params[:after_login_redirect]}?look_id=#{params[:look_id]}" %>
+<% else %>
+	<% redirect_url = "#{params[:after_login_redirect]}" %>
+<% end %>
+
+<%= form_for Spree::User.new, :as => :spree_user, :url => spree.create_new_session_path do |f| %>  
+  <%= f.hidden_field :after_login_redirect, value: redirect_url %>
+  <div class="col-md-12 col-sm-12 no-pad">
+    <div class="placeholder-slide"></div>
+    <%= f.email_field :email, :class => 'username-field moving-placeholder', :tabindex => 1, autofocus: true, autocomplete: :off, placeholder: "EMAIL ADDRESS" %>
+  </div>
+  <div class="col-md-12 col-sm-12 no-pad">
+    <div class="placeholder-slide"></div>
+    <%= f.password_field :password, :class => 'password-field moving-placeholder', :tabindex => 2, placeholder: "PASSWORD" %>
+  </div>
+  <div class="forgot-pw-link">
+    <%= link_to Spree.t(:forgot_password), spree.recover_password_path, class: "body-style-2 underline" %>
+  </div>
+  <%= f.submit Spree.t(:login), :class => 'button-primary login-button', :tabindex => 3 %>
+<% end %>

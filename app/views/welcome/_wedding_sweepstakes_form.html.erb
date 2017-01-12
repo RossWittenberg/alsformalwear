@@ -1,0 +1,193 @@
+<div class="row social-event-text">
+  <div class="col-md-8">
+    <h3>Register for the Ultimate Wedding Giveaway</h3>
+
+    <% if weddingFormText2 && weddingFormText2.text %>
+      <%= weddingFormText2.text.html_safe %>
+    <% else%>
+      <h3>Prize includes these items:</h3>
+      
+      <ul>
+        <li>Forever Love Photography Package - Value $1899</li>
+        <li>Essential Videography Package - Value $899</li>
+        <li>Essential DJ Package - Value $899</li>
+        <li>Engagement Photo Package - Value $150</li>
+        <li>100 each Save The Date Cards - (choice of 5 styles) Value $100</li>
+        <li>Wedding Invitations - Your choice to $300</li>
+        <li>Up to 10 Free Tuxedo Rentals - approximate value $2000</li>
+      </ul>
+      
+      <p class="disclaim">The contest to determine the winners will be held at the executive corporate offices of Formal Specialists, Ltd., 7807 Main Street, Houston, Texas,77030 month of December 2016 (date TBD). Due to the wedding services coverage areas, the winning wedding ceremony must take place in a geographic metropolitan market where we provide these services.</p>
+    <% end %>  
+
+    <% if @user %>
+    
+    <a id="error-message-scroll"></a>
+    <div class="message-wrapper"></div>
+    
+    <div class="row social-event-form">
+      <%= form_tag('/events/create_with_group_code', remote: true, onsubmit: "_gaq.push(['_trackEvent', 'Landing Pages', 'New Wedding Sweepstakes', 'Weddings']);") do %>
+        <%= hidden_field_tag "event[event_type]", "wedding" %>
+        <%= (hidden_field_tag "event[id]", "") unless @weddings.present? %>
+        <%= hidden_field_tag "event[is_group]", true %>
+        <%= hidden_field_tag "form_type", "wedding sweepstakes" %>
+        <%= hidden_field_tag "email", @user.email, class: "email" %>
+
+
+        
+        <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            <!-- FIRST COLUMN -->  
+            <div class='<%= "col-md-5" if @weddings.present? %>  <%= "col-md-6" if @weddings.blank? %> col-sm-5 col-xs-12' >
+              <h3 class="<%= 'hidden' if @weddings %>">NEW WEDDING</h3>
+              <h3 class="<%= 'hidden' unless @weddings %>">NEW WEDDING</h3>
+              <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[event_name]", nil, placeholder: 'NAME YOUR WEDDING', autocomplete: false, class: 'moving-placeholder' %>
+              </div>
+              <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+                <%= text_field_tag "event[date]", nil, class: "datepicker", placeholder: 'WEDDING DATE', readonly: true  %>
+              </div>
+            </div>
+            <% if @weddings.present? %>
+            <!-- SECOND COLUMN -->
+            <div class="col-md-2 col-sm-2 col-xs-12">
+              <p class="or-separator"> - or - </p>
+            </div>
+            <% end %>
+            <!-- THIRD COLUMN -->
+            <% if @weddings.present? %>
+              <div class="col-md-5 col-sm-5 col-xs-12">
+                <h3>SELECT WEDDING</h3>
+                <%= select_tag "event[id]", options_from_collection_for_select(@weddings, 'id', 'event_name'), { prompt: 'SELECT WEDDING', class: 'measurement-form-field' } %>
+              </div>
+            <% end %>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <h3>YOUR CONTACT INFORMATION</h3>
+              </div>
+            
+          </div>
+          
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[first_name]", @user.first_name || nil, placeholder: 'FIRST NAME', class: 'first_name moving-placeholder' %>
+              </div>
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[last_name]", @user.last_name || nil, placeholder: 'LAST NAME', class: 'last_name moving-placeholder' %>
+              </div>
+            
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <%= select_tag "event[role]", options_for_select( ['Bride', 'Groom', 'Other'], 'I AM THE:' ), prompt: "I AM THE", class: 'role measurement-form-field' %>
+              </div>
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[street_address]", nil, placeholder: 'MAILING ADDRESS', class: 'moving-placeholder' %>
+              </div>
+            
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[city]", nil, placeholder: 'CITY', class: 'moving-placeholder' %>
+              </div>
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="row state-zip">
+                  <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                    <%= select_tag "event[state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'short-field measurement-form-field' %>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                    <div class="placeholder-slide short-field"></div>
+                    <%= text_field_tag "event[zip_code]", nil, placeholder: 'ZIPCODE', class: 'short-field moving-placeholder' %>
+                  </div>
+                </div>
+              </div>
+            
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <div class="placeholder-slide"></div>
+                <%= text_field_tag "event[contact_phone]", @user.phone_number || nil, placeholder: 'PHONE', class: "phone-number moving-placeholder" %>
+              </div>
+              <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+                <%= select_tag "event[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'measurement-form-field' %>
+              </div>
+            
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+
+          <!-- FIRST COLUMN -->
+          <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+            <h3>BRIDE'S INFORMATION</h3>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[bride_first_name]", nil, placeholder: 'FIRST NAME', class: 'bride_first_name moving-placeholder' %>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[bride_last_name]", nil, placeholder: 'LAST NAME', class: 'bride_last_name moving-placeholder' %>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= email_field_tag "event[bride_email]", nil, placeholder: 'EMAIL', class: "bride_email moving-placeholder" %>
+            </div>
+          </div>
+
+          <!-- SECOND COLUMN -->
+          <div class="col-md-6 col-sm-6 col-sm-6 col-xs-12">
+            <h3>GROOM'S INFORMATION</h3>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[groom_first_name]", nil, placeholder: 'FIRST NAME', class: 'groom_first_name moving-placeholder' %>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[groom_last_name]", nil, placeholder: 'LAST NAME', class: 'groom_last_name moving-placeholder' %>
+            </div>
+            <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12">
+              <div class="placeholder-slide"></div>
+              <%= email_field_tag "event[groom_email]", nil, placeholder: 'EMAIL', class: "groom_email moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 col-sm-12">
+            <button type="button" class='occasion-submit-button button-primary wedding-sweepstakes-submit-button'>SIGN UP</button>
+          </div>
+          
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-md-12 col-xs-12 col-sm-12 col-lg-12 login-button-wrapper">
+        <p>Please login to view details.</p>
+        <%= link_to(spree.login_path( { after_login_redirect: "wedding/#wedding-sweepstakes" }), class: "btn button-primary login") do%>LOGIN / SIGN UP<% end %>
+      </div>
+    <% end %>
+    <div class="occasion-showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

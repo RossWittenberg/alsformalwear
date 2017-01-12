@@ -1,0 +1,189 @@
+<div class="row social-event-text">
+  <div class="col-md-8">
+    <% if promFormText2 && promFormText2.text %>
+      <%= promFormText2.text.html_safe %>
+    <% else%>
+      <h3>Being an Al's Prom Rep is Easy</h3>
+      <ul>
+        <li>Give Al's Formal Wear discount cards to your friends and classmates for huge discounts on their tuxedos.</li>
+        <li>When 5 of your friends use your code to rent their tuxedos, yours is *FREE!</li>
+        <li>They'll SAVE BIG on their tuxedo and you get yours *FREE!</li>
+      </ul>
+
+      <h3>Benefits:</h3>
+      <ul>
+        <li>Opportunity to earn a *FREE TUXEDO!</li>
+        <li>Save your friends money on their tuxedo rental!</li>
+      </ul>
+
+      <h3>Responsibilities:</h3>
+
+      <ul>
+        <li>Distribute cards to classmates at school</li>
+        <li>Post your discount card and code on your Facebook and Instagram</li>
+        <li>Keep the store manager informed of your progress</li>
+      </ul>
+    <% end %>
+    <p class="disclaim">* 5 of your friends’ tuxedo rentals must be paid in full 24 hours before your free rental is applied.</p>
+
+    <% if @user %>
+      <a id="error-message-scroll"></a>
+      <div class="message-wrapper"></div>
+      
+      <div class="row social-event-form">
+        <%= form_tag ('/'), remote: true, onsubmit: "_gaq.push(['_trackEvent', 'Landing Pages', 'New School Rep', 'Schools']);" do %>
+          <%= hidden_field_tag "event[event_type]", "prom" %>
+          <%= (hidden_field_tag "event[id]", "") unless @school_events.present? %>
+          <%= hidden_field_tag "event[is_group]", true %>
+          <%= hidden_field_tag "form_type", "prom rep" %>
+          <%= hidden_field_tag "event[prom_rep]", true %>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>SCHOOL INFORMATION</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[orgname]", nil, placeholder: 'SCHOOL NAME', class: 'prom-orgname event_org_name moving-placeholder', id: "high_school_search_prom" %>
+              <%# text_field_tag "event[orgname]", nil, placeholder: 'SCHOOL NAME', class: 'prom-orgname event_org_name moving-placeholder' %>
+
+
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[school_city]", nil, placeholder: 'CITY', class: 'event_school_city moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="row state-zip">
+                <div class="col-md-6 col-sm-6">
+                  <%= select_tag "event[school_state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'prom-state event_school_state short-field measurement-form-field' %>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="placeholder-slide short-field"></div>
+                  <%= text_field_tag "event[school_zip_code]", nil, placeholder: 'ZIPCODE', class: 'short-field prom-school-zip-code event_school_zip_code moving-placeholder' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 col-xs-12 in-form-line-break"></div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>YOUR CONTACT INFORMATION</h3>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[first_name]", @user.first_name || nil, placeholder: 'FIRST NAME', class: 'prom-first-name first_name event_first_name moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[last_name]", @user.last_name || nil, placeholder: 'LAST NAME', class: 'prom-last-name last_name event_last_name moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[street_address]", nil, placeholder: 'MAILING ADDRESS', class: "prom-street-address event_street_address moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[city]", nil, placeholder: 'CITY', class: "prom-city city event_city moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="row state-zip">
+                <div class="col-md-6 col-sm-6">
+                  <%= select_tag "event[state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'short-field prom-state measurement-form-field event_state' %>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="placeholder-slide short-field"></div>
+                  <%= text_field_tag "event[zip_code]", nil, placeholder: 'ZIPCODE', class: 'event_zip_code short-field prom-zip-code moving-placeholder' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[contact_phone]", @user.phone_number || nil, placeholder: 'PHONE', class: "phone-number event_phone_number moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "event[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'event_location_id measurement-form-field prom-location-id' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "event[school_year]", options_for_select(['Freshman','Sophomore','Junior','Senior']), prompt: "SCHOOL YEAR", class: 'measurement-form-field event_school_year' %>
+            </div>
+            <div class="col-md-6 col-sm-6"></div>
+          </div>
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <h3>EVENT INFO</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <!-- FIRST COLUMN -->  
+              <div class='<%= "col-md-5" if @school_events.present? %>  <%= "col-md-6" if @school_events.blank? %> col-sm-5 col-xs-12' >
+                <h3>Create Event</h3>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div class="placeholder-slide"></div>
+                  <%= text_field_tag "event[event_name]", nil, placeholder: 'NAME YOUR EVENT', class: 'event_event_name moving-placeholder' %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <%= text_field_tag "event[date]", nil, placeholder: 'EVENT DATE', class: 'event_date datepicker prom-date', id: "prom-rep-date-picker", readonly: true %>
+                </div>
+              </div>
+              <!-- SECOND COLUMN -->
+              <% if @school_events.present? %>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                  <p class="or-separator"> - or - </p>
+                </div>
+              <% end %>  
+              <!-- THIRD COLUMN -->
+              <% if @school_events.present? %>
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                  <h3>Select Event</h3>
+                  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                    <%= select_tag "event[id]", options_from_collection_for_select(@school_events, 'id', 'event_name'), { prompt: 'SELECT EVENT', class: 'measurement-form-field event_id', id: 'event_id' } %>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12">
+            <button type="button" class='occasion-submit-button button-primary als-rep-submit-button'>SIGN UP</button>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-md-12 col-sm-12 col-xs-12 col-lg-12 login-button-wrapper">
+        <p>Please login to view details.</p>
+        <%= link_to(spree.login_path( { after_login_redirect: "prom/#rep-form" }), class: "btn button-primary login") do%>LOGIN / SIGN UP<% end %>
+      </div>
+    <% end %>
+    <div class="occasion-showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,222 @@
+page,description,instructions,text,content_type,alt_tag
+global,promo-bar-line-1,"Wrap links in <a href=""link URL"">text</a> tags",ATTENDING PROM? AL'S HAS YOU COVERED!,text,
+global,promo-bar-line-2,"Wrap links in <a href=""link URL"">text</a> tags",Get a Discount Coupon or view Prom Offers,text,
+home,image-slider-1,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,image-slider-1
+home,image-slider-2,Ideal image size X px x X px optimized jpeg,,image,image-slider-2
+home,image-slider-3,Ideal image size X px x X px optimized jpeg,,image,image-slider-3
+home,image-slider-4,Ideal image size X px x X px optimized jpeg,,image,image-slider-4
+home,image-slider-5,Ideal image size X px x X px optimized jpeg,,image,image-slider-5
+home,image-slider-title-1,Keep under 50 characters,Take 20% Off Retail Accessories March 13th - 19th,text,
+home,image-slider-title-2,Keep under 50 characters,Smile Wide On Your Special Day,text,
+home,image-slider-title-3,Keep under 50 characters,Dance the Night Away,text,
+home,image-slider-title-4,Keep under 50 characters,,text,
+home,image-slider-title-5,Keep under 50 characters,,text,
+home,image-slider-button-text-1,Keep under 20 characters,STORE FINDER,text,
+home,image-slider-button-text-2,Keep under 20 characters,SHOP WEDDINGS,text,
+home,image-slider-button-text-3,Keep under 20 characters,SHOP PROM,text,
+home,image-slider-button-text-4,Keep under 20 characters,,text,
+home,image-slider-button-text-5,Keep under 20 characters,,text,
+home,image-slider-button-link-1,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",/locations,link,
+home,image-slider-button-link-2,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",/wedding,link,
+home,image-slider-button-link-3,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",/prom,link,
+home,image-slider-button-link-4,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",,link,
+home,image-slider-button-link-5,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",,link,
+wedding,wedding-header-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,wedding-header-image
+wedding,wedding-header-title,Keep under 25 characters,"Engaged? 
+Congratulations",text,
+wedding,wedding-header-button-text,Keep under 50 characters,VIEW OFFERS,text,
+wedding,wedding-header-button-link,"Use just URL extension with '/' if internal (/prom), and full URL with 'http://' or 'https://' if external (www.info.alsformalwear.com)",/wedding#form-top,link,
+wedding,wedding-promo-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,wedding-promo-image
+wedding,wedding-promo-title,Keep under 25 characters,"Destination
+Wedding?",text,
+wedding,wedding-promo-text,,Fit in with your beautiful surroundings with the Island Collection,text,
+wedding,wedding-form-title-2,,WEDDING SWEEPSTAKES,text,
+wedding,wedding-form-text-2,,"Prize includes these items:
+
+Forever Love Photography Package - Value $1899
+Essential Videography Package - Value $899
+Essential DJ Package - Value $899
+Engagement Photo Package - Value $150
+100 each Save The Date Cards - (choice of 5 styles) Value $100
+Wedding Invitations - Your choice to $300
+Up to 10 Free Tuxedo Rentals - approximate value $2000
+The contest to determine the winners will be held at the executive corporate offices of Formal Specialists, Ltd., 7807 Main Street, Houston, Texas,77030 month of December 2016 (date TBD). Due to the wedding services coverage areas, the winning wedding ceremony must take place in a geographic metropolitan market where we provide these services.",text,
+prom,prom-header-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,prom-header-image
+prom,prom-header-title,Keep under 30 characters,"Prom Night? 
+Al's has your look",text,
+prom,prom-header-button-text,Keep under 50 characters,MAKE APPOINTMENT,text,
+prom,prom-header-button-link,"Use just URL ending if internal (/prom), and full URL if external (www.info.alsformalwear.com)",,link,
+prom,prom-promo-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,prom-promo-image
+prom,prom-promo-title,Keep under 30 characters,"How does a free 
+rental sound?",text,
+prom,prom-promo-text,,"If that's music to your ears, then listen up! Sign up to be an Al's Formal Wear Prom Representative. Get five friends to rent their tuxedos from Al's and get yours for free!",text,
+prom,prom-promo-button-text,Keep under 50 characters,SIGN UP,text,
+prom,prom-promo-button-link,"Use just URL ending if internal (/prom), and full URL if external (www.info.alsformalwear.com)",/prom/#rep-form,link,
+prom,prom-prom-form-title-1,,SCHOOL FUNDRAISING CASH BACK PROGRAM,text,
+prom,prom-form-text-1,,"We supply you with a unique group code to distribute throughout your organization, family and friends to use for any formal social events.
+Al's will pay $5.00 for every tuxedo rental discount code your organization members use.*
+It really is that easy.
+
+But wait, there is more.
+
+Al's provides Personal Service and is committed to providing your organization the best service. Our specially trained store managers are professional and ready to assist you. We are positive that you will be satisfied with our staff and merchandise.
+* The money that is earned will be presented in the form of a check payable to your organization. For example, if 100 of your attendees redeem the Al's Formal Wear Fundraising discount card, Al's will send your organization a check for $500!
+
+",text,
+prom,prom-form-title-2,,BECOME A PROM REP / AL'S REPRESENTATIVE,text,
+prom,prom-form-text-2,,"Being an Al's Prom Rep is Easy
+
+Give Al's Formal Wear discount cards to your friends and classmates for huge discounts on their tuxedos.
+When 5 of your friends use your code to rent their tuxedos, yours is *FREE!
+They'll SAVE BIG on their tuxedo and you get yours *FREE!
+Benefits:
+
+Opportunity to earn a *FREE TUXEDO!
+Save your friends money on their tuxedo rental!
+Responsibilities:
+
+Distribute cards to classmates at school
+Post your discount card and code on your Facebook and Instagram
+Keep the store manager informed of your progress
+* 5 of your friends’ tuxedo rentals must be paid in full 24 hours before your free rental is applied.
+
+",text,
+prom,prom-form-title-3,,SCHOOL GROUP SALES,text,
+prom,prom-form-text-3,,"Buy formal apparel for your band, orchestra, or other school group.",text,
+prom,prom-form-title-4,,PROM-REP WORK STUDY PROGRAM,text,
+prom,prom-form-text-4,,"Introducing Prom-Rep Work Study Program (Scholarship Program formerly).
+
+First, sign-up for Prom-Rep account here to receive your Prom-Rep number instantly.
+Next, you need to reach out your school contact or faculty member to sign-up for School Fundraising Program account here; where you can get added as referral via Referral Name field and start making $5 on each tuxedo rental along with the school accruing $5 on each tuxedo rental as well.
+Referral denominations would be $5 each tuxedo rental; payable when minimum of $100 is accumulated.
+All questions and/or correspondence pertaining to this contest shall be addressed to:
+Marketing Department
+Formal Specialists, Ltd.
+7807 Main Street
+Houston, Texas 77030",text,
+social-event,social-event-header-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,social-event-header-image
+social-event,social-event-header-title,Keep under 30 characters,"Let's Party
+the Night Away",text,
+social-event,social-event-header-button-text,Keep under 50 characters,VIEW OFFERS,text,
+social-event,social-event-header-button-link,"Use just URL ending if internal (/prom), and full URL if external (www.info.alsformalwear.com)",/social-event/#social-fund,link,
+social-event,social-event-promo-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,social-event-promo-image
+social-event,social-event-promo-title,Keep under 30 characters,"How does a free 
+rental sound?",text,
+social-event,social-event-promo-text,,"If that's music to your ears, then listen up! Sign up to be an Al's Formal Wear Prom Representative. Get five friends to rent their tuxedos from Al's and get yours for free!",text,
+social-event,social-event-promo-button-text,Keep under 50 characters,SIGN UP,text,
+social-event,social-event-promo-button-link,"Use just URL ending if internal (/prom), and full URL if external (www.info.alsformalwear.com)",/prom/#rep-form,link,
+social-event,social-event-form-title-1,,SOCIAL EVENT FUNDRAISING,text,
+social-event,social-event-form-text-1,,"
+Join our Fraternity / Sorority / Gala / Mardi Gras Krewe / Banquet Community Partner Program & kick start your fund-raising today!
+
+Here is how the program works:
+
+We supply you with the rental discount cards and a unique event code. Put your event code on the cards, distribute them to everyone planning on attending your formal event.
+Al's will pay $5.00* for every tuxedo rental discount card brought in with your event code on it.
+It really is that easy.
+
+But wait, there is more.
+
+Al's provides Personal Service and is committed to providing your organization the best service. Our specially trained store managers are professional and ready to assist you. We are positive that you will be satisfied with our staff and merchandise.
+We offer promotional posters to put up that are customizable for your events.
+Al’s managers will come to your meetings to hand out discount cards, measure for your event rentals and even put up a display with real product for your members to see!
+Sign Up and Let's Get Started!
+
+* The money that is earned will be presented in the form of a check payable to your organization. For example, if 100 of your attendees redeem the Al's Formal Wear Fund-raising discount card, Al's will send your organization a check for $500!
+",text,
+quinceanera,quinceanera-header-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,quinceanera-header-image
+quinceanera,quinceanera-header-title,Keep under 30 characters,"Let's Party
+the Night Away",text,
+quinceanera,quinceanera-header-button-text,Keep under 50 characters,VIEW OFFERS,text,
+quinceanera,quinceanera-header-button-link,"Use just URL ending if internal (/prom), and full URL if external (www.info.alsformalwear.com)",/social-event/#social-fund,link,
+about,about-header-image,Ideal image size X px x X px optimized jpeg. 1 slider required.,,image,about-header-image
+about,history-text,Be sure to use <br> for paragraph breaks,"Al’s Formal Wear began with one tuxedo store, opened by Al Sankary in the Dallas area in 1952. A few years later, Sankary's brother-in-law Alan 'Al' Gaylor, along with wife Lillian, opened the first Houston store in the downtown area, officially making Al's Formal Wear a family business. With the two Als working together, they were destined for greatness. As the years went by, the business continued to grow, and they successfully outfitted customers through decades of fashion trends.
+
+Al's Formal Wear currently has multiple stores located in Texas, Oklahoma, Louisiana, and Colorado. Al's wholesale division, Ascot Formal Wear, supplies formalwear shops across the United States with tuxedos.
+
+With Al Gaylor’s son, Stuart, now at the helm, Al’s Formal Wear has continued to grow, opening more stores in new markets, with many more to come. While Al Gaylor passed in April 2008, we hope to make him proud by continuing to offer our customers the best formal wear and customer service.",text,
+contact,faq-title-1,,When should I order my tuxedo or suit?,text,
+contact,faq-title-2,,Do I need an appointment to reserve my tuxedo?,text,
+contact,faq-title-3,,How much of a deposit do I have to put down at the time I reserve my tuxedo?,text,
+contact,faq-title-4,,When should I pick-up my tuxedo for my special event?,text,
+contact,faq-title-5,,When should I return my tuxedo?,text,
+contact,faq-title-6,,I can't find my cell phone. I may have left it in the pocket of my tux. Is it lost forever?,text,
+contact,faq-title-7,,How can I locate the store nearest me?,text,
+contact,faq-title-8,,What are the terms of the Discount Card?,text,
+contact,faq-title-9,,Should my tuxedo match my date's dress?,text,
+contact,faq-title-10,,"My date says she can't decide between ""fuchsia"" and ""chartreuse."" Are those really colors? And how the heck am I going to match them?",text,
+contact,faq-title-11,,,text,
+contact,faq-title-12,,,text,
+contact,faq-title-13,,,text,
+contact,faq-title-14,,,text,
+contact,faq-title-15,,,text,
+contact,faq-text-1,,"You should never worry about how late it is – we never runs out of great style. But sometimes the most in-demand brands and styles get reserved early, so the sooner you can make your reservation, the more likely you'll get your first choice of style and color.
+
+We recommend reserving your tux or suit as soon as possible and at least three weeks in advance of the day of your event. But if that last-minute opportunity presents itself, we can outfit you even the day before your event.
+
+Tip: paying in full at the time of your reservation will ensure that your tuxedo pickup process is quick and seamless.",text,
+contact,faq-text-2,,"Come on in – you never need an appointment. If you want to avoid the lines, Tuesdays and Wednesdays tend to be the best times to visit. You can also call the most convenient location for more inside info on when to come in.",text,
+contact,faq-text-3,,"Al's makes it convenient for you to rent a tuxedo, depending on your budget and preference:
+
+You can pay $40 when you reserve the tux, and it goes toward the price of the rental; simply pay the balance when you pick it up.
+
+You can pay the rental in full at the time you reserve it. The advantage with paying in full is a speedy in-and-out process if the store is busy on the day you pick up your tux.",text,
+contact,faq-text-4,,"The day before the prom is the ideal day to come in, try it on and make sure everything fits. If you put extra time in the gym before prom and the tux needs a little alteration, there will be time to do it.
+
+After trying on your tux in the dressing room, don’t forget to bring all your accessories with you!",text,
+contact,faq-text-5,,"Please return your tux to Al's the next business day. Make sure you remove personal items from all pockets, and don't forget to bring all the accessories, as well as all pieces of the tux, so you're not charged for them.",text,
+contact,faq-text-6,,"We hope not! Sometimes tuxedos are returned with personal items left in the pockets, and if that happens, we turn them over to Lost and Found. We suggest you call Lost and Found at our Corporate Office as soon as possible: 713-791-1888 ext. 0.",text,
+contact,faq-text-7,,"To locate an Al's by phone, just dial your area code then 730-4-TUX. To locate a store online, visit our Store Locator on our website.",text,
+contact,faq-text-8,,"To receive the discount, this coupon must be presented at time of purchase; it is not redeemable for cash. No other discounts or promotions apply and cannot be combined with any other offer. Limit 1 per customer. The $40 Rental Discount may be used toward the rental of any tuxedo or suit at any Al's Formal Wear location. The rental must be ordered 7 days in advance of event, and the Basic Collection is not included. The 20% Retail Discount is applicable only towards in-stock merchandise for in-store retail items purchased. See store for details. Expires 12/31/2016.",text,
+contact,faq-text-9,,"Yes – but talk to your date about her preference! There are many ways to coordinate as a couple: you can go ""matchy-matchy"" by having your accessories (the vest or cummerbund and tie) match the color of her dress. Or if she prefers, you can stick with a neutral and let your date's dress color pop.",text,
+contact,faq-text-10,,"Al's Color Match™ ensures that there is the perfect match – if not several great options – to coordinate with your date's dress. Simply mouse over any of the 64 color swatches on the screen, and see the dizzying number of color coordination options that are available at Al’s Formal Wear.",text,
+contact,faq-text-11,,,text,
+contact,faq-text-12,,,text,
+contact,faq-text-13,,,text,
+contact,faq-text-14,,,text,
+contact,faq-text-15,,,text,
+contact,prom-faq-title-1,,What are the latest styles for prom?,text,
+contact,prom-faq-title-2,,What is the price of a tuxedo rental for prom?,text,
+contact,prom-faq-title-3,,Do you rent prom dresses?,text,
+contact,prom-faq-title-4,,"I just met a great girl, and I really want to take her to the prom, but it's this weekend. Is it too late?",text,
+contact,prom-faq-title-5,,"Ok, I think I know everything I need to know about renting a tuxedo from Al’s. Got any advice for the big night? I’m a little nervous!",text,
+contact,prom-faq-title-6,,,text,
+contact,prom-faq-title-7,,,text,
+contact,prom-faq-title-8,,,text,
+contact,prom-faq-title-9,,,text,
+contact,prom-faq-title-10,,,text,
+contact,prom-faq-text-1,,"You want to be stylish and cutting edge, but you also want to be able to look at your prom photo 20 years from now and not wonder, ""What was I thinking?"" We have three new styles to meet that requirement, and all have modern fit or slim fit sizes available. No matter your size or shape, there's sure to be a cut that makes the most of your assets and gives you the freedom and comfort to move.
+
+First, check out the exclusive Michael Kors tuxedo, a jacket with a notch lapel, two buttons and side vents with flat front pants. Complement it with a matching vest if you like!
+
+Or choose the new Allure by Jean Yves in Slate Blue. No satin lapel on this hot number. The jacket has self-piping trim, two buttons, flap pockets and side vents. You'll be the height of sophistication with the matching flat front pants and matching vest. It's not quite gray and it's not quite blue – it's an awesome blend of both.
+
+If your date has her heart set on a classic style, check out Doni Barassi's Black Label. A single-button coat has a satin trimmed shawl lapel and no vents. It is irresistibly sexy with skinny flat front pants and a skinny black tie.
+
+For more hot prom looks, check out our our ""Build Your Tux"" feature.",text,
+contact,prom-faq-text-2,,"When you trust Al's to outfit your prom memories, you're assured that you will look great whether you're on a tight budget or cost is no object!
+
+Tuxedos start at $59.99. Get our $40 Discount Card and use it on any rental starting at $129.99, bringing that cost down to only $89.99 plus tax and damage waiver.
+
+We have packages to fit anyone’s needs. A pants, shirt and tie package is only $49.99. Need everything but the coat? Get it all – shirt, pants, vest, tie and shoe for just $89.99.
+
+If you are interested in a free rental tux, sign up to be an Al's Formal Wear Prom Representative. Get five friends to rent their tuxedos from Al's and get yours for free! See our formal wear consultants for the 4-1-1 on this amazing offer; some restrictions do apply.
+
+*Basic Collection is not included, and the orders must be placed at least seven days in advance.",text,
+contact,prom-faq-text-3,,"Unfortunately, we do not. For many young ladies, a prom (or wedding) dress is a keepsake item, much like a letter jacket or class ring, and is usually not a garment that they are willing to wear and return!",text,
+contact,prom-faq-text-4,,"
+Never let anything stand in the way of the best night of your life, no matter how short the notice. At Al's, we never run out of tuxedos. Come on in – even if it's the day before – you’re sure to find something to make you look like a million bucks just in the nick of time.",text,
+contact,prom-faq-text-5,,"The hard part is deciding what to wear, where to eat and what kind of flowers to purchase. Everything else should be a piece of cake! In order to be a perfect gentleman, make a great first impression on her parents and show her an unforgettable evening, follow these tips:
+
+Pay attention to the tiniest details. Those dark pants and those shiny black shoes call for black socks, not the white gym socks you always wear. Smell nice, but don't bathe in cologne. You've paid attention to your hair, but make sure your eyebrows are under control and that you didn't miss a spot while shaving. And last but not least – check those teeth and pop a breath mint!
+
+Make a good first impression and start the evening on a good note. Pick up your date in person and on time – ring the doorbell, exchange pleasantries, compliment her on how beautiful she looks, and tolerate the photo op with a smile and great attitude – she will appreciate that and so will her parents!
+
+Dinner etiquette. It's simple: If the table is already set, begin with the utensils that are placed outside and work your way in, toward your plate, with each course. Make the OK sign with both your hands. Your left hand forms a ""b"" – that's where your bread plate is. Your right hand forms a ""d"" – that's where your drink should be placed. B for bread, D for drink! No elbows on the table, never divorce the salt and pepper, place your napkin in your lap and remember to reward your server with a good tip. 20% of the total bill is a good rule of thumb.
+
+At-prom behavior. Your date is the most important person in the room. Be friendly with your bros but don't ignore your date.",text,
+contact,prom-faq-text-6,,,text,
+contact,prom-faq-text-7,,,text,
+contact,prom-faq-text-8,,,text,
+contact,prom-faq-text-9,,,text,
+contact,prom-faq-text-10,,,text,

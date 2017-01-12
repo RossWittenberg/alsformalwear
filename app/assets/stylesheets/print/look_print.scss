@@ -1,0 +1,186 @@
+@import '../spree/frontend/colors';
+@import '../spree/frontend/global';
+@import '../spree/frontend/typography';
+@import '../spree/frontend/buttons-and-inputs';
+
+
+
+.look-print-subheader {
+  font-size: 24px;
+  margin: 80px auto 0;
+  text-align: center;
+  text-transform: uppercase;
+  width: 470px;
+
+  p {
+    font-size: 16px;
+    text-transform: none;
+  }
+}
+
+.print-products-contaier {
+
+  &:before {
+    background-color: $grey-light;
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 40px 0;
+    width: 100%;
+  }
+  &:after {
+    background-color: $grey-light;
+    content: '';
+    display: block;
+    height: 1px;
+    margin: 20px 0;
+    width: 100%;
+  }
+}
+
+table.look-print {
+  margin-bottom: 20px;
+  width: 100%;
+
+  th {
+
+    padding: 15px;
+    h4{
+      color: #707070;
+      font-size: 14px;
+    }
+  }
+
+  td {
+    padding: 15px;
+
+    // &.image-cell {
+    //   padding: 5px 15px;
+    // }
+  }
+}
+
+
+.look-print-row {
+  &.even {
+    background-color: $white;
+  }
+
+  &.odd {
+    background-color: $grey-light;
+  }
+}
+
+a.print-look {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+
+  h4 {
+    color: #707070;
+    text-decoration: underline;
+
+    &:hover {
+      color: $grey-dark;
+    }
+  }
+}
+
+h4.created-at {
+  color: #707070;
+  margin-bottom: 60px;
+}
+
+.print-btn {
+  margin-top: 20px;
+}
+
+
+
+
+@media screen {
+  .print {
+    display: none;
+  }
+}
+
+@media print {
+
+  h4 {
+    font-size: 10px;
+  }
+  .screen {
+    display: none;
+  }
+
+  .print-nav-logo{
+    margin: 0 auto;
+    width: 300px;
+    img {
+      width: 300px;
+    }
+  }
+  table.look-print {
+    margin-bottom: 20px;
+    width: 100%;
+
+    th {
+      color: #707070;
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      text-align: left;
+      padding: 8px;
+    }
+
+    td {
+      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-size: 12px;
+      padding: 0 8px;
+
+      &.image-cell {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .look-print-row {
+    &.even,
+    &.odd {
+      background-color: $white;
+    }
+  }
+  
+  .look-print-subheader {
+    font-size: 24px;
+    margin: 20px auto;
+    text-transform: uppercase;
+    width: 470px;
+  }
+
+  .print-products-contaier {
+
+    &:before {
+      margin: 20px 0;
+    }
+  }
+  a.print-look {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin-bottom: 10px;
+    h4 {
+      color: #707070;
+      text-decoration: underline;
+    }
+  }
+
+  h4.created-at {
+    color: #707070;
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+}
+
+
+

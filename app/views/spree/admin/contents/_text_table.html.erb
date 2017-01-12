@@ -1,0 +1,38 @@
+<div class="leads-wrapper" id="text" >
+	<% if @text_contents.present? %>
+	  <table class="leads" >
+	  	<thead class="leads-table-header">
+	  		<tr>
+					<th>
+						<div class="inner-th-wrapper">
+							Description
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper">
+							Text
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper delete">
+							Edit Text?
+						</div>
+					</th>
+	  		</tr>
+	  	</thead>
+	    <% @text_contents.each do |content| %>
+	    	<tbody>
+	    		<tr>
+						<td> <%= content.description%> </td>
+						<td> <%= content.text %> </td>
+						<td><%=link_to "Edit", edit_admin_content_path(content), class: 'button cms-button' %></td>	
+	    		</tr>
+	    	</tbody>
+			<% end %>  
+	  </table>
+	<% else %>
+		<div class="col-md-12 col-lg-12">
+			<p>there is no text content to manage for this page</p>	
+		</div>	
+	<% end %>  
+</div>

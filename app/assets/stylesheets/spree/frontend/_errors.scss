@@ -1,0 +1,57 @@
+
+.not-foundPage {
+	margin-top: 75px;
+
+	.icon-box {
+		width: 100%;
+
+		img {
+			height: auto;
+			width: 110px; 
+		}
+
+	}
+
+	a.btn {
+		position: relative;
+		@extend %h4;
+		border-radius: 3px;
+		height: 50px;
+		padding: 2px 40px 0;
+		text-transform: uppercase;
+		transition: all .3s ease-in-out;
+
+		&.button-primary {
+			background-color: $black;
+			border: 2px solid $black;
+			color: $white;
+			font-family: $sans-serif-medium;
+			font-size: 14px;
+
+			&:hover {
+				background-color: $grey-light;
+				border: 2px solid $grey-light;
+				color: $white;
+				cursor: pointer;
+				outline: 0;
+			}
+		}
+		
+		@media (min-width: $small-break) { 
+			max-width: 260px;
+		}
+
+		span {
+			display: inline-block;
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 50%;
+			margin: 0 auto;
+			transform: translateY(-50%);
+			-webkit-transform: translateY(-50%);
+
+		}
+
+	}
+}

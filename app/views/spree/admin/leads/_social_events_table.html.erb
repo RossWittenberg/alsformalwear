@@ -1,0 +1,153 @@
+<div class="leads-wrapper" id="social-events" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Organization Name
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Organization Address
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Organization City	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Organization State	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Organization Zip	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Federal Tax ID	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Referral	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Event Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Black Tie Event?	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Will Jr. Attend?	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						# Seniors	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						# Juniors	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Rep First Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Rep Last Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Title 
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Phone
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Email	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Preferred Al's Store	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Group Code	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Date Submitted	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Social Event Fundraiser?
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete event?
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @social_events.each_with_index do |social_event, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td> <%= social_event.orgname || "N/A" %> </td>
+					<td> <%= social_event.school_street_address || "N/A" %> </td>
+					<td> <%= social_event.school_city || "N/A" %> </td>
+					<td> <%= social_event.school_state || "N/A" %> </td>
+					<td> <%= social_event.school_zip_code || "N/A" %> </td>
+					<td> <%= social_event.tax_id  || "N/A" %> </td>
+					<td> <%= social_event.referral_name  || "N/A" %> </td>
+					<td> <%= social_event.event_name  || "N/A" %> </td>
+					<td> <%= social_event.black_tie || "N/A" %> </td>
+					<td> <%= social_event.juniors || "N/A" %> </td>
+					<td> <%= social_event.number_seniors || "N/A"%> </td>
+					<td> <%= social_event.number_juniors  || "N/A" %> </td>
+					<td> <%= social_event.first_name  || "N/A" %> </td>
+					<td> <%= social_event.last_name  || "N/A" %> </td>
+					<td> <%= social_event.contact_title || "N/A"  %> </td>
+					<td> <%= social_event.contact_phone  || "N/A" %> </td>
+					<% user = Spree::User.find social_event.user_id %>
+					<td> <%= user && user.email  || "N/A" %> </td>
+					<td> <%= social_event.location && "#{social_event.location.store_name} - #{social_event.location.store_num}" || "N/A" %> </td>
+					<td> <%= social_event.group_code && social_event.group_code.number || "N/A" %> </td>
+					<td> <%= social_event.created_at.strftime("%m/%d/%Y") %> </td>
+					<td> <%= social_event.social_event_fundraiser %> </td>
+					<td><%= button_to('Delete Event', "/events/#{social_event.id}?admin=true",
+          method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>

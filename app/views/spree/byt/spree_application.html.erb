@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head data-hook="inside_head">
+    <%= render :partial => 'spree/shared/head', locals: { custom_meta_tags: @custom_meta_tags } %>
+  </head>
+  <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+    <div class="outer-wrapper">
+      <%= render :partial => 'spree/shared/make_appointment_form' %>
+      <%= render :partial => 'spree/shared/header' %>
+      <div id="wrapper" class="<%= (params[:controller] == 'spree/products' && params[:action] == 'show') || (['measurements', 'spree/user_sessions', 'spree/user_registrations', 'welcome', 'events'].include?(params[:controller]) ) ? 'container-fluid' : 'container' %>">
+        <%= render :partial => 'spree/shared/sidebar' if content_for? :sidebar %>
+        <div id="content" class="" data-hook>
+        <%= render :partial => 'spree/shared/form_success_message' %>
+        <%= render :partial => 'spree/shared/occasion_success_message' %>
+        <%= yield %>
+        </div>
+        <%= yield :templates %>
+      </div>
+  	</div>
+    <div class="footer-and-analytics">
+      <%= render :partial => 'spree/shared/footer' %>
+      <%= render :partial => 'spree/shared/addthis_script' %>
+      <%= render :partial => 'spree/shared/google_analytics' %>
+    </div>
+  </body>
+</html>

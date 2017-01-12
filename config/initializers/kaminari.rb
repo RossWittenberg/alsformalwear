@@ -1,0 +1,1 @@
+Spree::Product::ActiveRecord_Relation.include Kaminari::PageScopeMethods

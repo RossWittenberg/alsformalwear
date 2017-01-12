@@ -1,0 +1,219 @@
+<!-- MANAGED CONTENT VARIABLES -->
+<% weddingHeaderImage = @wedding_contents.find_by_description "wedding-header-image" || nil %>
+<% weddingHeaderImageMobile = @wedding_contents.find_by_description "wedding-header-image-mobile" || nil %>
+<% weddingHeaderTitle = @wedding_contents.find_by_description "wedding-header-title" || nil %>
+<% weddingHeaderButtonText = @wedding_contents.find_by_description "wedding-header-button-text" || nil %>
+<% weddingHeaderButtonLink = @wedding_contents.find_by_description "wedding-header-button-link" || nil %>
+<% weddingPromoImage = @wedding_contents.find_by_description "wedding-promo-image" || nil %>
+<% weddingPromoTitle = @wedding_contents.find_by_description "wedding-promo-title" || nil %>
+<% weddingPromoText = @wedding_contents.find_by_description "wedding-promo-text" || nil %>
+<% weddingFormTitle1 = @wedding_contents.find_by_description "wedding-form-title-1" || nil %>
+<% weddingFormText1 = @wedding_contents.find_by_description "wedding-form-text-1" || nil %>
+<% weddingFormTitle2 = @wedding_contents.find_by_description "wedding-form-title-2" || nil %>
+<% weddingFormText2 = @wedding_contents.find_by_description "wedding-form-text-2" || nil %>
+<!-- PAGE CONTENT -->
+<div class="landingWrapper">
+  <div class="row landing-hero wedding-hero">
+    <div class="hero-caption wedding">
+      <!-- Loader -->
+      <div class="slider-loader-wrapper">
+          <div class="loader">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+              </svg>
+          </div>
+      </div>
+      <div class="col-md-5 col-md-offset-6 col-sm-offset-6">
+        <% if weddingHeaderTitle && weddingHeaderTitle.text %>
+          <%= weddingHeaderTitle.text.html_safe %>
+        <% else %>
+          <h1>Engaged?</h1>
+          <h1>Congratulations!</h1>
+        <% end %>
+        <% if weddingHeaderButtonLink && weddingHeaderButtonLink.text %>
+          <% buttonLink = "#{weddingHeaderButtonLink.text}"%>
+        <% else %>
+          <% buttonLink = '#form-top'%>
+        <% end %>  
+        <a href="<%= buttonLink %>" class="btn button-primary wedding">
+          <% if weddingHeaderButtonText && weddingHeaderButtonText.text %>
+            <%= weddingHeaderButtonText.text %>
+          <% else %>
+            VIEW OFFERS
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+<!-- BACKSTRETCH WITH MANAGED CONTENT -->
+  <script>
+    <% if weddingHeaderImage.image? && weddingHeaderImageMobile.image?  %>
+      <% weddingHeroImageUrl = "#{weddingHeaderImage.image.url}" || "asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg')"%>
+      <% weddingHeroImageMobileUrl = "#{weddingHeaderImageMobile.image.url}" || "asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg')"%>
+      if ($(window).width() < 767) {
+        $(".wedding-hero").backstretch("<%= weddingHeroImageUrl %>");
+      } else {
+        $(".wedding-hero").backstretch("<%= weddingHeroImageMobileUrl %>", {centeredY: false});
+      }
+      $(window).resize(function(){
+        if ($(window).width() < 767) {
+          $(".wedding-hero").backstretch("<%= weddingHeroImageUrl %>");
+        } else {
+          $(".wedding-hero").backstretch("<%= weddingHeroImageMobileUrl %>), {centeredY: false}");
+        }
+      });
+    <% else %>
+        if ($(window).width() < 767) {
+        $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg') %>');
+      } else {
+        $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg') %>', {centeredY: false});
+      }
+      $(window).resize(function(){
+        if ($(window).width() < 767) {
+          $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg') %>');
+        } else {
+          $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg') %>', {centeredY: false});
+        }
+      });
+    <% end %>
+  </script>
+  <div class="container occasion-steps">
+    <div class="row">
+      <h2 class="headline">Getting it right for your big day</h2>
+      <p class="headline">Al&#8217;s makes arranging your wedding a breeze in four easy steps!</p>
+    </div>
+    <%= render partial: "occasion_steps" %>
+  </div>  
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "color_blocks" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_color_blocks" %>
+  </div>
+  <div class="row landing-hero destination-hero">
+    <div class="hero-caption wedding">
+      <div class="hero-text destination-wedding">
+        <% if weddingPromoTitle && weddingPromoTitle.text %>
+          <%= weddingPromoTitle.text.html_safe %>
+        <% else %>
+          <h1>Destination</h1>
+          <h1>Wedding?</h1>
+        <% end %>
+        <p class="hidden-sm hidden-xs">Fit in with your beautiful surroundings with the Island Collection.</p>
+      </div>
+    </div>
+  </div>
+<!-- BACKSTRETCH WITH MANAGED CONTENT -->
+  <script>
+    <% if weddingHeaderImage.image? %>
+      <% weddingHeroImageUrl = "#{weddingHeaderImage.image.url}" || "asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg')"%>
+      <% weddingHeroImageMobileUrl = "#{weddingHeaderImageMobile.image.url}" || "asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg')"%>
+      if ($(window).width() < 767) {
+        $(".wedding-hero").backstretch("<%= weddingHeroImageUrl %>");
+      } else {
+        $(".wedding-hero").backstretch("<%= weddingHeroImageMobileUrl %>), {centeredY: false}");
+      }
+      $(window).resize(function(){
+        if ($(window).width() < 767) {
+          $(".wedding-hero").backstretch("<%= weddingHeroImageUrl %>");
+        } else {
+          $(".wedding-hero").backstretch("<%= weddingHeroImageMobileUrl %>), {centeredY: false}");
+        }
+      });
+    <% else %>
+        if ($(window).width() < 767) {
+        $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg') %>');
+      } else {
+        $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg') %>', {centeredY: false});
+      }
+      $(window).resize(function(){
+        if ($(window).width() < 767) {
+          $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCoupleMobile.jpg') %>');
+        } else {
+          $(".wedding-hero").backstretch('<%= asset_url('spree/frontend/landing-page/AllureSlateCouple.jpg') %>', {centeredY: false});
+        }
+      });
+    <% end %>
+  </script>
+  <script>
+    <% if weddingPromoImage.image? %>
+      <% weddingPromoImage = "#{weddingPromoImage.image.url}" || "asset_url('spree/frontend/landing-page/destination.jpg')"%>
+      $(".destination-hero").backstretch("<%= weddingPromoImage %>, {centeredY: false}");
+    <% else %>
+      $(".destination-hero").backstretch('<%= asset_url('spree/frontend/landing-page/destination.jpg') %>', {centeredY: false});
+    <% end %>  
+  </script>
+  <a id="wedding-gallery"></a>
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "destination_collection_slider" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_destination_collection_slider" %>
+  </div>
+  <div class="container-fluid group-offers-wrapper">
+  <a id="group-offers"></a>
+    <div class="row group-offers-header wedding-header">
+      <div class="col-md-12">
+        <%= image_tag 'spree/frontend/icons/group-offers.svg' %>
+        <h2>WEDDING OFFERS</h2>
+        <p>Don't break the bank to look your best on the big day. Check out our special wedding offers below.</p>
+      </div>
+    </div>
+    <div class="container group-offers-form-wrapper">
+      <div class="row form-line-break"></div>
+      <a id="form-top"></a>   
+      <a id="wedding-discount"></a>
+      <h3 class="form-dropdown closed wedding-discount-open">CUSTOM WEDDING DISCOUNT FORM</h3>
+      <%= render partial: "wedding_discount_form" %>
+      <div class="row form-line-break"></div>
+      <a id="wedding-sweepstakes"></a>
+      <h3 class="form-dropdown closed">
+        <% if weddingFormTitle2 && weddingFormTitle2.text %>
+          <%= weddingFormTitle2.text %>
+        <% else %>
+          WEDDING SWEEPSTAKES
+        <% end %>
+      </h3>
+      <%= render partial: "wedding_sweepstakes_form", locals: { weddingFormText2: weddingFormText2 } %>
+    </div>  
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="row line-break"></div>
+    </div>
+  </div>
+  <div class="row landing-hero serviceOffering">
+    <h2>AL&#8217;S WEDDING SERVICES</h2>
+    <p>In addition to styling you for your next special event, check out our other wedding offerings. </p>
+    <div class="container services">
+      <div class="row">
+        <div class="col-md-6">
+          <a href="http://www.alsphotography.com/" target="_blank"><%= image_tag 'spree/frontend/icons/camera.svg'%></a>
+          <h3>PHOTOGRAPHY PACKAGES</h3>
+          <p>Capture the important moments of your life with one of our many photography packages! Each package includes the opportunity to work with one our award-winning professional photographers. After your event, you will receive a DVD with all of the high resolution images,  and online hosting to share your memories with friends and family.</p>
+          <a href="http://www.alsphotography.com/" target="_blank" class="btn button-primary services">PHOTO PACKAGES</a>
+        </div>
+        <div class="col-md-6">
+          <a href="http://www.alsphotography.com/Packages.aspx?Type=2"><%= image_tag 'spree/frontend/icons/video.svg'%></a>
+          <h3>VIDEO PACKAGES</h3>
+          <p>Cherish your wedding for years to come by selecting one of our Video Packages. From the vows to the first dance, our professionals will catch all the moments that you will want to remember forever.</p>
+          <a href="http://www.alsphotography.com/Packages.aspx?Type=2" class="btn button-primary services">VIDEO PACKAGES</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <a href="/out-of-town-measurements"><%= image_tag 'spree/frontend/icons/airplane.svg'%></a>
+          <h3>OUT OF TOWN MEASUREMENTS</h3>
+          <p>No matter where your special event is located, Al’s can help outfit your special day. Submit your measurements, and we’ll find a style that will suit you.</p>
+          <a href="/out-of-town-measurements" class="btn button-primary services">SUBMIT MEASUREMENTS</a>
+        </div>
+        <div class="col-md-6">
+          <a href="http://www.alsphotography.com/Packages.aspx?Type=1" target="_blank"><%= image_tag 'spree/frontend/icons/dj.svg'%></a>
+          <h3>DJS</h3>
+          <p>Dance your night away with one of our all-inclusive DJ Packages. Each package includes a highly qualified Master of Ceremonies, continuous music, a customized playlist, and event lighting to enhance the dance floor. For $100 less we can assign your DJ!</p>
+          <a href="http://www.alsphotography.com/Packages.aspx?Type=1" target="_blank" class="btn button-primary services">DJ PACKAGES</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

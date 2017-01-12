@@ -1,0 +1,441 @@
+<% imageSlider1 = @home_contents.find_by_description "image-slider-1"  || nil %>
+<% imageSlider2 =  @home_contents.find_by_description "image-slider-2" || nil %>
+<% imageSlider3 =  @home_contents.find_by_description "image-slider-3" || nil %>
+<% imageSlider4 =  @home_contents.find_by_description "image-slider-4" || nil %>
+<% imageSlider5 =  @home_contents.find_by_description "image-slider-5" || nil %>
+<% imageSliderTitle1 =  @home_contents.find_by_description "image-slider-title-1" || nil %>
+<% imageSliderTitle2 =  @home_contents.find_by_description "image-slider-title-2" || nil %>
+<% imageSliderTitle3 =  @home_contents.find_by_description "image-slider-title-3" || nil %>
+<% imageSliderTitle4 =  @home_contents.find_by_description "image-slider-title-4" || nil %>
+<% imageSliderTitle5 =  @home_contents.find_by_description "image-slider-title-5" || nil %>
+<% imageSliderButtonText1 =  @home_contents.find_by_description "image-slider-button-text-1" || nil %>
+<% imageSliderButtonText2 =  @home_contents.find_by_description "image-slider-button-text-2" || nil %>
+<% imageSliderButtonText3 =  @home_contents.find_by_description "image-slider-button-text-3" || nil %>
+<% imageSliderButtonText4 =  @home_contents.find_by_description "image-slider-button-text-4" || nil %>
+<% imageSliderButtonText5 =  @home_contents.find_by_description "image-slider-button-text-5" || nil %>
+<% imageSliderButtonLink1 =  @home_contents.find_by_description "image-slider-button-link-1" || nil %>
+<% imageSliderButtonLink2 =  @home_contents.find_by_description "image-slider-button-link-2" || nil %>
+<% imageSliderButtonLink3 =  @home_contents.find_by_description "image-slider-button-link-3" || nil %>
+<% imageSliderButtonLink4 =  @home_contents.find_by_description "image-slider-button-link-4" || nil %>
+<% imageSliderButtonLink5 =  @home_contents.find_by_description "image-slider-button-link-5" || nil %>
+<% belowSliderTitle = @home_contents.find_by_description "below-slider-title" || nil %>
+
+<div class="row homeSlider">
+    <!-- Loader -->
+    <div class="slider-loader-wrapper">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+        </div>
+    </div>
+    <ul class="bxslider">
+    <!-- Slide #1 -->
+        <% if imageSlider1 && imageSlider1.image?  %>
+            <% imageUrl = imageSlider1.image.url %>
+            <li id="slide-1" style='<%= "background-image: url(#{imageUrl}) !important;"%>' >
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle1.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink1.text || "/group-offers" %> class="btn button-large-secondary"><%= imageSliderButtonText1.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% else%>
+            <li id="slide-1">
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle1.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href="/group-offers" class="btn button-large-secondary">VIEW GROUP OFFERS</a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+
+    <!-- Slide #2 -->
+        <% if imageSlider2 && imageSlider2.image?  %>
+            <% imageUrl = imageSlider2.image.url %>
+            <li id="slide-2" style='<%= "background-image: url(#{imageUrl}) !important;"%>' >
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle2.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink2.text || "/group-offers" %> class="btn button-large-secondary"><%= imageSliderButtonText2.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% else%>
+            <li id="slide-2">
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle2.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink2.text || "/group-offers"%> class="btn button-large-secondary"><%= imageSliderButtonText2.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+
+    <!-- Slide #3 -->
+        <% if imageSlider3 && imageSlider3.image?  %>
+            <% imageUrl = imageSlider3.image.url %>
+            <li id="slide-3" style='<%= "background-image: url(#{imageUrl}) !important;"%>' >
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle3.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink3.text || "/group-offers" %> class="btn button-large-secondary"><%= imageSliderButtonText3.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% else%>
+            <li id="slide-3">
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle3.text).html_safe || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink3.text || "/group-offers" %> class="btn button-large-secondary"><%= imageSliderButtonText3.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    <!-- Slide #4 -->
+        <% if imageSlider4 && imageSlider4.image?  %>
+            <% imageUrl = imageSlider4.image.url %>
+            <li id="slide-4" style='<%= "background-image: url(#{imageUrl}) !important;"%>' >
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle4 && imageSliderTitle4.text && (imageSliderTitle4.text).html_safe) || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink4.text || "/group-offers" %> class="btn button-large-secondary"><%= imageSliderButtonText4.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    <!-- Slide #5 -->
+    <%#binding.pry%>
+        <% if imageSlider5 && imageSlider5.image?  %>
+            <% imageUrl = imageSlider5.image.url %>
+            <li id="slide-5" style='<%= "background-image: url(#{imageUrl}) !important;"%>' >
+                <div class="slide-overlay"></div>
+                <div class="home-slider-caption slider-caption">
+                    <%= (imageSliderTitle5 && imageSliderTitle5.text && (imageSliderTitle5.text).html_safe) || ("<h1>Al’s Is Here To<br />Help You Dress Your Best</h1>").html_safe %>
+                    <div class="btnWrap">
+                        <a href=<%= imageSliderButtonLink5.text || "/group-offers"%> class="btn button-large-secondary"><%= imageSliderButtonText5.text || "VIEW GROUP OFFERS" %></a>
+                    </div>
+                </div>
+            </li>
+        <% end %>
+    </ul>
+
+</div>
+    
+<div class="container landing-page-container">
+    <div class="row">
+        <div id="section-1" class="col-md-12 section">
+            <% if belowSliderTitle && belowSliderTitle.text.present? %>
+                <%= belowSliderTitle.text.html_safe %>
+            <% else %>        
+                <h2>PLANNING FOR A SPECIAL EVENT?</h2>
+                <p class="body-style-1">Whether it’s a Prom or a Wedding, Al’s Formal Wear has you covered.</p>
+            <% end %>
+            <div class="mosaicWrap">
+                <div class="mosaic-container">
+                    <div class="box">
+                        <div class="col-xs-6 col-sm-12 col-md-4 tiles-left">
+                            <div class="tile wedding">
+                                <a href="/wedding" class="box">
+                                    <h2><span>Wedding</span></h2>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-md-8 tiles-right hidden-xs">
+                            <div class="row">
+                                <div class="col-md-12 tiles-top">
+                                    <div class="tile formal">
+                                        <a href="/prom" class="box">
+                                            <h2><span>Prom /<br class="rwd-break"> Formal</span></h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-6 tiles-bottom">
+                                    <div class="tile quince">
+                                        <a href="/quinceanera" class="box">
+                                            <h2><span>Quinceañera</span></h2>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-md-6 tiles-bottom">
+                                    <div class="tile social" style="padding-top: 50%;">
+                                        <a href="/social-event" class="box">
+                                            <h2><span>Social<br class="rwd-break"> Events</span></h2>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-8 tiles-right visible-xs">
+                            <div class="tile formal">
+                                <a href="/prom" class="box">
+                                    <h2><span>Prom /<br class="rwd-break"> Formal</span></h2>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-8 tiles-right visible-xs">
+                            <div class="tile quince">
+                                <a href="/quinceanera" class="box">
+                                    <h2><span>Quinceañera</span></h2>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 col-md-8 tiles-right visible-xs">
+                            <div class="tile other-event">
+                                <a href="/social-event" class="box">
+                                    <h2><span>Social<br class="rwd-break"> Events</span></h2>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "color_blocks" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_color_blocks" %>
+  </div>
+
+    <div class="row">
+        <div class="divider"></div>
+    </div>
+        
+    <div id="section-3" class="col-md-12 section">
+        <h2>FIND YOUR NEAREST LOCATION</h2>
+        <p class="body-style-1">With multiple locations in TX, OK, LA &amp; CO, Al’s offers convenience and accessibility.</p>
+        <div class="row">
+            <div class="col-md-8 mapWrapper">
+                <div id="map-canvas"></div>
+                <script>
+                var LocationModel = Backbone.Model.extend({
+                    id: null,
+                    store_num: null,
+                    store_name: null,
+                    street_address: null,
+                    city: null,
+                    state: null,
+                    zip_code: null,
+                    phone_number: null,
+                    manager: null,
+                    dist_manager: null,
+                    latitude: null,
+                    longitude: null,
+                    mon_hours: null,
+                    tues_hours: null,
+                    wed_hours: null,
+                    thurs_hours: null,
+                    fri_hours: null,
+                    sat_hours: null,
+                    sun_hours: null,
+                    updated_at: null
+                });
+                var LocationCollection = Backbone.Collection.extend({
+                    url: '/locations',
+                    model: LocationModel,
+                    parse: function(response){
+                        return response.locations;
+                    }
+                });
+                window.allLocations = new LocationCollection();
+                function initMap() {
+                    var medicalCenterStoreCoordinates = new google.maps.LatLng(29.6948746, -95.4154877);
+                    window.allLocationsMap = new google.maps.Map(document.getElementById('map-canvas'), {
+                        zoom: 16,
+                        center: medicalCenterStoreCoordinates,
+                        mapTypeControl: false,
+                        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        scrollwheel: false,
+                        draggable: false
+                    });
+                    window.allLocationsAutocomplete = new google.maps.places.Autocomplete(
+                            (document.getElementById('mapSearch')),
+                            {
+                                types: ['geocode'],
+                                componentRestrictions: {'country': 'us'}
+                            }
+                    );
+                    window.allLocationsAutocomplete.addListener('place_changed', redirectToLocationsPage);
+                    window.allLocationsInfoWindow = new google.maps.InfoWindow({
+                        content: '',
+                        maxWidth: 350
+                    });
+                    var marker_img = '<%= asset_url("spree/frontend/icons/location2.png") %>';
+                    window.allLocationsMarkers = [];
+                    window.allLocations.fetch().then(function () {
+                        window.allLocations.each(function (location) {
+                            var storeCoordinates = new google.maps.LatLng(location.get('latitude'), location.get('longitude'));
+                            var marker = new google.maps.Marker({
+                                position: storeCoordinates,
+                                map: window.allLocationsMap,
+                                icon: marker_img,
+                                title: location.get('store_name'),
+                                locationID: location.id //custom key-value pair used to identify which marker was clicked
+                            });
+                            marker.addListener('click', function () {
+                                //'this' refers to the current marker which was clicked
+                                window.allLocationsInfoWindow.setContent(getInfoWindowContent(window.allLocations.get(this.locationID)));
+                                window.allLocationsInfoWindow.open(window.allLocationsMap, this);
+                            });
+                            window.allLocationsMarkers.push(marker);
+                        });
+                        $('body').trigger('all-locations-map-initialised');
+                        window.allLocationsMapInitialised = true;
+                    });
+                }
+                function getInfoWindowContent(location){
+                    if (BROWSER.isIphone() === "true"){
+                        var url = location.get('apple_url');
+                    } else {
+                        var url = location.get('google_url');
+                    }
+                    var content = '' +
+                            '<div class="map-info-window-container">' +
+                            '<div class="row map-store-title-container">' +
+                            '<div class="col-md-6 col-xs-9 map-store-title-text">' +
+                            location.get('store_name') +
+                            '</div>';
+                    if(typeof location.get('distance') !== 'undefined'){
+                        content +=
+                                '<div class="col-md-6 col-xs-3 map-store-distance map-store-title-text text-right">' +
+                                Math.round10(location.get('distance'), -1) + ' mi' +
+                                '</div>';
+                    }
+                    content += '</div>' +
+                            '<div class="row map-store-information-container">' +
+                            '<div class="col-md-6 col-sm-6 col-xs-6 map-store-information-text map-store-information-first-column">' +
+                            location.get('street_address') + '<br>' +
+                            location.get('city') + ', ' + location.get('state') + ' ' + location.get('zip_code') +
+                            '</div>' +
+                            '<div class="col-md-6 col-sm-6 col-xs-6 map-store-information-text map-store-information-second-column">' +
+                            '<div class="map-icon map-store-timings-icon"></div>' + getTodayStoreTimings(location, false) +
+                            '<br>' +
+                            '<div class="map-telephone-icon-container">' +
+                            '<div class="map-icon map-telephone-icon"></div> <a class="map-store-information-text" href="tel:'+ location.get('phone_number') +'">' + location.get('phone_number') + '</a>' +
+                            '</div>' +
+                            '</div>' +
+                            
+                            '<div class="row">' +
+                            '<div class="col-md-12 text-center">' +
+                            '<a class="btn map-directions-button" href="' + url +'" target="_blank">DIRECTIONS</a>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>';
+                    return content;
+                }
+                function getTodayStoreTimings(locationID, onlyStart){
+                    var store = window.allLocations.get(locationID);
+                    var days = [
+                        'sun',
+                        'mon',
+                        'tues',
+                        'wed',
+                        'thurs',
+                        'fri',
+                        'sat'
+                    ];
+                    var today = new Date().getDay();
+                    var hours = store.get([days[today] + '_hours']);
+                    if(hours !== 'Closed'){
+                        var amPmSplit = hours.split(/\-/);
+                        if(onlyStart){
+                            if(amPmSplit[0].trim() == "12"){
+                                hours = 'Opens at ' + amPmSplit[0].trim() + ':00 pm';
+                            } else {
+                                hours = 'Opens at ' + amPmSplit[0].trim() + ':00 am';
+                            }
+                        } else {
+                            if(amPmSplit[0].trim() == "12"){
+                                hours = amPmSplit[0].trim() + ':00 pm - ' + amPmSplit[1].trim() + ':00 pm';
+                            } else {
+                                hours = amPmSplit[0].trim() + ':00 am - ' + amPmSplit[1].trim() + ':00 pm';
+                            }
+                        }
+                    } else {
+                        hours = 'Closed Today'
+                    }
+                    return hours;
+                }
+                function centerMaptoStore(store){
+                    var storeCoordinates = new google.maps.LatLng(store.get('latitude'), store.get('longitude'));
+                    window.allLocationsMap.setCenter(storeCoordinates);
+                    window.allLocationsMap.setZoom(16);
+                }
+                function openMapInfoWindow(store){
+                    window.allLocationsInfoWindow.setContent(getInfoWindowContent(store));
+                    var marker = _.findWhere(window.allLocationsMarkers, {locationID: store.id});
+                    window.allLocationsInfoWindow.open(window.allLocationsMap, marker);
+                }
+                function displayStoreOnMap(store){
+                    var center = new google.maps.LatLng(store.latitude, store.longitude);
+                    window.allLocationsMap.setCenter(center);
+                }
+                function redirectToLocationsPage(){
+                    var place = window.allLocationsAutocomplete.getPlace();
+                    var searchTerm = encodeURIComponent($('#mapSearch').val());
+                    var url = '/locations/?';
+                    var lat = place.geometry.location.lat();
+                    var lng = place.geometry.location.lng();
+                    if(place.types[0] === 'administrative_area_level_1'){
+                        var state = place['address_components'][0]['short_name'];
+                        url += 'search_type=state&search_state=' + state;
+                    } else {
+                        url += 'search_type=place';
+                    }
+                    url += '&search_term='+ searchTerm + '&search_lat=' + lat + '&search_lng=' + lng;
+                    window.location.href = url;
+                }
+                $(document).ready(function(){
+                    window.homepageSearchedPlace = null;
+                    if(typeof window.allLocationsMapInitialised === 'undefined'){
+                        window.allLocationsMapInitialised = false;
+                    }
+                    if(Cookies.get('neareststore') != undefined){
+                        displayStoreOnMap(Cookies.getJSON('neareststore'));
+                    } else {
+                        $('body').on('neareststorelocated', function(){
+                            displayStoreOnMap(Cookies.getJSON('neareststore'));
+                        });
+                    }
+                });
+                </script>
+            </div>
+            <div class="col-md-4">
+                <div class="search-map">
+                    <h4>SEARCH BY</h4>
+                    <p class="body-style-1">Not the location you’re looking<br class="rwd-break-mob"> for? <br class="rwd-break">Find the right one for you</p>
+                         <div>
+                            <input type="text" class="form-control" id="mapSearch" placeholder="CITY, STATE or ZIP">
+                        </div>                      
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+</div>
+<!-- 
+<script>
+    $("#slide-1").backstretch('<%# asset_url('spree/frontend/landing-page/slide1.png') %>', {centeredY: false});
+    $("#slide-2").backstretch('<%# asset_url('spree/frontend/landing-page/slide2.png') %>', {centeredY: false});
+    $("#slide-3").backstretch('<%# asset_url('spree/frontend/landing-page/slide3.png') %>', {centeredY: false});
+    $("#slide-5").backstretch('<%# asset_url('spree/frontend/landing-page/slide5.png') %>', {centeredY: false});
+</script>
+ -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&callback=initMap&libraries=places"></script>

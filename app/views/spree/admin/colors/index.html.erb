@@ -1,0 +1,25 @@
+<div class="container content-breadcrumb">
+	<a href="/catalog/admin/contents"><i class="fa fa-arrow-left"></i> Back to Content Dashboard</a>
+</div>
+<div class="container">
+	<div id="tabs">
+	  <ul>
+	    <li><a href="#als-colors">Al's Colors</a></li>
+	    <li><a href="#competitor-colors">Competitor Colors</a></li>
+	  </ul>
+	  <%= render partial: "spree/admin/colors/als_colors_table" %>
+	  <%= render partial: "spree/admin/colors/competitor_colors_table" %>
+	</div>
+</div>
+<div class="col-lg-12 col-md-12 no-pad">
+	<div class="col-lg-3 col-md-3">
+		<%=link_to "Add a new Al's color", {action: 'new'}, class: 'button cms-button' %>
+		<br>
+		<br>	
+	</div>
+	<div class="col-lg-9 col-md-9">
+		<%=link_to "Add a new competitor color", {action: 'new_competitor_color'}, class: 'button cms-button' %>
+		<br>
+		<br>	
+	</div>
+</div>

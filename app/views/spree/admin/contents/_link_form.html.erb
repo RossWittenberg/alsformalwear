@@ -1,0 +1,10 @@
+<%= f.hidden_field :content_type, value: "link" %>
+<div class="no-pad col-md-12 col-lg-12">
+  <%= f.label :instructions %>:<br />
+  <p><%= @content.instructions%></p>
+</div>
+<div class="no-pad col-md-12 col-lg-12">
+  <%= f.label :text %>:<br />
+  <%= f.text_field :text %>
+</div>
+<br /><br />

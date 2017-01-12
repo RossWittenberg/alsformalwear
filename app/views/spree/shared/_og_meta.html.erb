@@ -1,0 +1,18 @@
+<% if @product %>
+  <meta property="og:title" content="<%= @product.designer.upcase if @product.designer %>" />
+  <meta property="og:description" content="<%= @product.name %>" />
+<% else %>
+  <meta property="og:title" content="Look Great. Wonderful Memories." />
+  <meta property="og:description" content="At Al's Formal Wear our mission is to help you look your best. We are committed to find you a suit or tux that fits properly and will make you feel confident walking into your next formal event." />
+<% end %>
+
+<% if @variant %>
+  <meta property="og:image" content="<%= @variant.display_image.attachment(:full) %>" />
+  <meta property="og:url" content="<%= "www.alsformalwear.com/catalog/products/#{@variant.slug}?variant_id=#{@variant.id}" %>" />
+<% elsif params[:look_id] %>
+  <meta property="og:url" content="<%= "www.alsformalwear.com/catalog/byt?look_id=#{params[:look_id]}" %>" />
+  <meta property="og:image" content="<%= asset_url('spree/frontend/stack-color.png') %>" />
+<% else %>
+  <meta property="og:url" content="www.alsformalwear.com/" />
+  <meta property="og:image" content="<%= asset_url('spree/frontend/stack-color.png') %>" />
+<% end %>

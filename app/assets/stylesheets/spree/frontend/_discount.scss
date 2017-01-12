@@ -1,0 +1,167 @@
+.discount-coupon-wrapper {
+  margin: 60px auto 40px;
+  text-align: center;
+
+  .disclaim {
+    font-family: 'SabonLT-Bold';
+    font-size: 14px;
+    color: #7C7C7C;
+    line-height: 24px;
+    margin-bottom: 16px;
+    margin-left: 15px;
+    margin-top: 4px;
+    text-align: left;
+  }
+
+  .message-wrapper.alert {
+    text-align: left;
+  }
+
+  .discount-coupon-header,
+  .cap-header {
+    margin-bottom: 20px;
+    p {
+      line-height: 1.667;
+      font-family: "SabonLT-Bold";
+      font-size: 16px;
+    }
+    ul {
+      margin-left: 20px;
+      li {
+        line-height: 1.667;
+        font-family: "SabonLT-Bold";
+        font-size: 16px;
+      }
+    }
+  }
+  .cap-header {
+    p {
+      text-align: left;
+    }
+    ul {
+      list-style: disc;
+      li {
+        text-align: left;
+      }
+    }
+  }
+
+  .discount-coupon, .cap-form-wrapper {
+    text-align: left;
+
+    form {
+      .measurement-form-field {
+        border: 1px solid #d4d4d4;
+        max-width: initial;
+        padding-left: 16px;
+        padding-top: 5px;
+      }
+
+      input {
+        position: relative;
+        z-index: 998;
+      }
+
+      input[type="text"],
+      input[type="date"],
+      .measurement-form-field {
+        font-family: "SabonLT-Bold";
+        font-size: 14px;
+        height: 50px;
+        margin-top: 20px;
+        width: 100%;
+      }
+
+      input[type="date"] {
+        padding-left: 16px;
+      }
+
+      button.discount-coupon-button,
+      button.cap-button {
+        margin: 20px 0 40px;
+        width: 100%;
+        @media (min-width: 767px) and (max-width: 991px) {
+          max-width: 300px;
+        }
+        @media screen and (max-width: 991px) {
+          margin: 20px 0 0 0;
+        }
+      }
+      button.cap-button {
+        margin-left: 15px;
+        width: auto;
+      }
+      
+      .check-terms,
+      p.terms {
+        display: inline-block;
+      }
+
+      .check-terms {
+        margin: 39px 5px 0 19px;
+        vertical-align: top;
+        @media screen and (max-width: 991px) {
+          margin: 20px 0 40px 0;
+        }
+      }
+      .check-terms:focus,
+      .check-terms:active {
+        outline: 0;
+      }
+      p.terms {
+        margin: 35px 0 0 10px;
+        width: 90%;
+        @media screen and (max-width: 991px) {
+          margin: 16px 0 40px 10px;
+        }
+      }
+      .placeholder-slide {
+        width: calc(100% - 20px);
+        height: 10px;
+        font-size: 10px;
+        font-family: 'Sabon-RomanOsF';
+        background-color: transparent;
+        display: inline-block;
+        margin: 0;
+        padding: 6px 0 0 16px;
+        position: absolute;
+        top: 16px;
+        z-index: 999;
+        &.short-field {
+          margin-left: 0;
+        }
+        @media(max-width: 1199px) {
+          padding: 0 0 0 16px;
+          top: 22px
+        }
+        @media(max-width: 991px) {
+          top: 23px
+        }
+        @media(max-width: 767px) {
+          left: 50%;
+          padding: 2px 0 0 21px;
+          text-align: left;
+          top: 21px;
+          transform: translateX(-50%);
+          -webkit-transform: translateX(-50%);
+        }
+      }
+    }
+    p.disclaim {
+      font-family: 'SabonLT-Bold';
+      font-size: 14px;
+      color: #7C7C7C;
+      line-height: 24px;
+      margin-bottom: 16px;
+      margin-left: 15px;
+      margin-top: 4px;
+    }
+  }
+  .cap-form-wrapper {
+    position: relative;
+    .showbox {
+      position: absolute;
+      bottom: -70px;
+    }
+  }
+}

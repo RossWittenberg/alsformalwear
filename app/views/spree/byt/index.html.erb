@@ -1,0 +1,243 @@
+<div class="container" id="catalog-container">
+  <div class="row">
+
+  <div class="row" id="products-container">
+    <div class="col-md-2" id="categories-navigation-container">
+
+      <h4 class="filter-navigation-header">BROWSE BY</h4>
+
+      <nav class="sidebar-item">
+        <div class="down-caret active" data-toggle-for="product-categories-container"></div>
+        <h4 class='taxonomy-root category-header'>Category</h4>
+        <span class="down-caret-button-area"></span>
+        <ul id="product-categories-container"></ul>
+      </nav>
+
+      <h4 class="filter-navigation-header" id="filter-by-header">FILTER BY</h4>
+
+      <div>
+        <nav class="sidebar-item">
+          <div class="down-caret active" data-toggle-for="colors-filter-section-container"></div>
+          <h4 class='taxonomy-root category-header'>Color</h4>
+          <%= text_field_tag "color[search]", nil, placeholder: "SEARCH BY COLOR", class: "color-search" %>
+          <span class="down-caret-button-area"></span>
+          <div id="colors-filter-section-container">
+            <div id="parent-color-name-container" class="body-style-3 text-center">
+
+            </div>
+            <div id="selected-parent-color-block-container" class="selected-color-block-container">
+
+            </div>
+            <div id="selected-child-color-block-container" class="selected-color-block-container">
+
+            </div>
+            <div id="child-color-name-container" class="body-style-3 text-center" style="display:none;">
+
+            </div>
+
+            <div class="row" id="filter-colors-container">
+
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <div id="filter-categories-container">
+
+      </div>
+    </div>
+    <div class="visible-xs visible-sm">
+      <button class="byt-button filter-button">FILTERS</button>
+    </div>
+    <div class="col-md-10" id="byt-products-container">
+      <% if params[:keyword] %>
+        <h4 class="filter-navigation-header" style="margin-left: 15px;">SEARCHED: <%= (params[:keyword]).gsub("_"," ").capitalize %></h4>
+      <% end %>
+      <div style="margin: 40px auto; width: 210px;" class="text-center no-results-message hidden">  
+        <h4></h4>No Results Found</h4>
+        <a class="a-btn btn button-primary" href="/catalog/products?category=all">Browse All Products</a>
+      </div>  
+      <ul id="products" class="col-md-12 col-lg-12 no-pad inline product-listing">
+
+      </ul>
+      <div class="col-md-12 text-center">
+        <button id="load-more-products-button" disabled="disabled" loading-in-progress="false"></button>
+      </div>
+      <div class="col-md-12 text-center" id="load-more-products-loader-container">
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script type="text/template" id="byt-step1-category-template">
+    <div class="col-md-9 step1-category-name">
+      <a class="step1-category-link-empty"><h4>{{- displayName }}</h4></a>
+      {{ if(selected != null){ print ('<h4>' + selected.get('product_name') + '</h4>'); } }}
+    </div>
+      {{ if(selected != null){ print ('<div class="col-md-2 col-md-offset-1 step1-category-link step1-category-link-selected"></div>'); } else { print ('<div class="col-md-2 col-md-offset-1 step1-category-link step1-category-link-empty"></div>'); } }}
+</script>
+
+<script type="text/template" id="byt-step1-category-mobile-template">
+  <div class="col-xs-12 mobile-category-image">
+    <img class="byt1-step1-category-image" id="mobile-category-{{- slug }}">
+  </div>
+  <div class="col-xs-12 mobile-category-image mobile-category-selected-icon">
+    {{ if(selected != null){ print ('<img id="mobile-checked-icon">'); } else { print ('<img id="mobile-plus-icon">'); } }}
+  </div>
+</script>
+
+<script type="text/template" id="byt-product-category-template">
+  <a class="product-category-link body-style-3" data-slug="{{- slug }}">{{- displayName }}</a>
+</script>
+
+<script type="text/template" id="byt-product-template">
+    <div class="product-image">
+      <% if @user %>  
+        <span id="add-to-text-{{-variant_id}}" class="hidden add-to heart-text body-style-1">Add to Favorites</span>
+        <span id="remove-from-text-{{-variant_id}}" class="hidden remove-from heart-text body-style-1">Remove from Favorites</span>
+        <span id="{{- variant_id }}" data-favorite="true" class="hidden heart-wrapper heart-{{- variant_id }}  favorite-heart red-heart"></span>
+        <span id="{{- variant_id }}" data-favorite="false" class="heart-wrapper heart-{{- variant_id }}  favorite-heart grey-heart"></span>
+        <div id="showbox-{{- variant_id }}" class="mini-showbox hidden">
+          <div class="mini-loader">
+            <svg class="mini-circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+            </svg>
+          </div>
+        </div>
+      <% end %>
+      <img itemprop="image" class="catalog-image" src="{{- image_url_large }}" alt="{{- variant_id }} thumb">
+    </div>
+    <div class="passive-product-info-overlay" style="display: block;">
+    </div>
+    <div class="passive-product-info" style="display: block;">
+      <a class="info catalog-product-brand passive" itemprop="designer" title="{{- designer }}">{{- designer }}</a>
+      <a class="info catalog-product-name passive" itemprop="name" title="{{- product_name }}">{{- product_name }}</a>
+      {{ if(style_number){ print ('<a class="info catalog-product-number passive" itemprop="name" title="'+style_number+'">Style '+style_number+'</a>'); } }}
+    </div>
+    <div class="active-product-info-overlay" style="display: none;">
+    </div>
+    <div class="active-product-info" style="display: none;">
+      <a class="info catalog-product-brand" itemprop="designer" title="{{- designer }}">{{- designer }}</a>
+      <a class="info catalog-product-name" itemprop="name" title="{{- product_name }}">{{- product_name }}</a>
+      {{ if(style_number){ print ('<a class="info catalog-product-number active" itemprop="name" title="'+style_number+'">Style '+style_number+'</a>'); } }}
+      {{ if(image_url_byt != '/assets/images/spree/frontend/noimage.png'){ print ('<button class="catalog-button add-to-tux-button no-modal-button"><a class="no-modal-button">add to tux</a></button>'); } }}
+      <button class="catalog-button product-details-button"><a itemprop="url">product details</a></button>
+    </div>
+    <div class="showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+        </svg>
+      </div>
+    </div>
+</script>
+
+<script type="text/template" id="byt-product-mobile-template">
+  <% if @user %>  
+    <span id="add-to-text-{{-variant_id}}" class="hidden add-to heart-text body-style-1">Add to Favorites</span>
+    <span id="remove-from-text-{{-variant_id}}" class="hidden remove-from heart-text body-style-1">Remove from Favorites</span>
+    <span id="{{- variant_id }}" data-favorite="true" class="hidden heart-wrapper heart-{{- variant_id }}  favorite-heart red-heart"></span>
+    <span id="{{- variant_id }}" data-favorite="false" class="heart-wrapper heart-{{- variant_id }}  favorite-heart grey-heart"></span>
+    <div id="showbox-{{- variant_id }}" class="mini-showbox hidden">
+      <div class="mini-loader">
+        <svg class="mini-circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+        </svg>
+      </div>
+    </div>
+  <% end %>
+  <a href={{- product_path }}>
+    <div class="product-list-item">
+        <div class="product-image">
+          <img itemprop="image" class="catalog-image" src="{{- image_url_large }}" alt="{{- variant_id }} thumb">
+        </div>
+        <div class="passive-product-info-overlay" style="display: block;">
+        </div>
+        <div class="passive-product-info" style="display: block;">
+          <a class="info catalog-product-brand passive" itemprop="designer" title="{{- designer }}">{{- designer }}</a>
+          <a class="info catalog-product-name passive" itemprop="name" title="{{- product_name }}">{{- product_name }}</a>
+          {{ if(style_number){ print ('<a class="info catalog-product-number passive" itemprop="name" title="'+style_number+'">Style '+style_number+'</a>'); } }}
+        </div>
+        <div class="active-product-info-overlay" style="display: none;">
+        </div>
+        <div class="active-product-info" style="display: none;">
+          <a class="info catalog-product-brand" itemprop="designer" title="{{- designer }}">{{- designer }}</a>
+          <a class="info catalog-product-name" itemprop="name" title="{{- product_name }}">{{- product_name }}</a>
+        </div>
+    </div>
+  </a>
+    
+  <div>
+    {{ if(image_url_byt != '/assets/images/spree/frontend/noimage.png'){ print ('<button class="catalog-button add-to-tux-button no-modal-button"><a class="no-modal-button">add to tux</a></button>'); } }}
+  </div>
+  <div class="showbox hidden">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
+      </svg>
+    </div>
+  </div>
+</script>
+
+<script type="text/template" id="byt-product-information-modal-template">
+    <div class="modal fade" id="byt-product-information-modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-md-12 pull-right">
+                <p><button type="button" class="close" aria-label="Close" id="byt-product-information-modal-close-button"><span aria-hidden="true">&times;</span></button></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6" id="byt-product-information-modal-image-container">
+                <img class="byt-modal-product-image" src="{{- image_url_full }}">
+              </div>
+              <div class="col-md-5">
+                <h2 class="byt-modal-product-designer">{{- designer }}</h2>
+                <p class="byt-modal-product-name">{{- product_name }}</p>
+                <h4 class="byt-modal-product-style-number light-grey">Style No. {{- style_number }}</h4>
+                <p class="byt-modal-product-description">{{ print(description); }}</p>
+                <div class="text-center">
+                  <button id="byt-modal-add-to-tux-button" class="col-md-8">add to tux</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</script>
+
+<script type="text/template" id="filter-categories-template">
+  <nav class="sidebar-item">
+    <div class="down-caret" data-toggle-for="filter-category-{{- slug }}"></div>
+    <h4 class='taxonomy-root category-header'>{{ print(s(displayName).humanize().value()); }}</h4>
+    <span class="down-caret-button-area"></span>
+    <ul class="filter-category" id="filter-category-{{- slug }}" style="display:none">
+
+    </ul>
+  </nav>
+</script>
+
+<script type="text/template" id="filter-choice-template">
+    <li class="filter-choice">
+      <input id="filter-choice-{{- filterCategory }}-{{- slug }}" type="checkbox" class="filter-choice-checkbox" data-filter-category="{{- filterCategory  }}" data-filter-choice="{{- slug }}" {{ (selected) ? print ('checked') : print ('') }}">
+      <label for="filter-choice-{{- filterCategory }}-{{- slug }}" class="body-style-3 byt-filter-label">{{- displayName }}</label>
+    </li>
+</script>
+<script type="text/template" id="color-filter-square-template">
+  <div class="col-md-3 col-xs-4 color-filter-square {{- type }}-color-filter-square" data-color-hex="{{- hex }}" data-color-label="{{- displayName }}" style="background-color: {{- hex }}; border: {{- border}}">
+    <div class="color-filter-border"></div>
+  </div>
+</script>
+<script type="text/template" id="loader-template">
+<li class="loader-container">
+  <div class="loader">
+    <svg class="circular" viewBox="25 25 50 50">
+      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+    </svg>
+  </div>
+</li>
+</script>

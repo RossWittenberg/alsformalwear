@@ -1,0 +1,189 @@
+<div class="row social-event-text">
+  <div class="col-md-8">
+    <% if promFormText1 && promFormText1.text %>
+      <%= promFormText1.text.html_safe %>
+    <% else%>
+      <ul>
+        <li>We supply you with a unique group code to distribute throughout your organization, family and friends to use for any formal social events.</li>
+        <li>Al's will pay $5.00 for every tuxedo rental discount code your organization members use.*</li>
+      </ul>
+
+      <h3>It really is that easy.</h3>
+
+      <h3>But wait, there is more.</h3>
+
+      <ul>
+        <li>Al's provides Personal Service and is committed to providing your organization the best service. Our specially trained store managers are professional and ready to assist you. We are positive that you will be satisfied with our staff and merchandise.</li>
+      </ul>
+    <% end %>  
+    
+    <p class="disclaim">* The money that is earned will be presented in the form of a check payable to your
+organization. For example, if 100 of your attendees redeem the Al's Formal Wear Fundraising discount card, Al's will send your organization a check for $500!</p>
+    
+    <% if @user %>
+      <a id="error-message-scroll"></a>
+      <div class="message-wrapper"></div>
+    
+      <div class="row social-event-form">
+        <%= form_tag('/events/create_with_group_code', remote: true, onsubmit: "_gaq.push(['_trackEvent', 'Landing Pages', 'New School Fundraiser', 'Schools']);") do %>
+          <%= hidden_field_tag "event[event_type]", "prom" %>
+          <%= hidden_field_tag "event[school_fundraiser]", true %>
+          <%= (hidden_field_tag "event[id]", "") unless @school_events.present? %>
+          <%= hidden_field_tag "event[is_group]", true %>
+          <%= hidden_field_tag "form_type", "school fundraiser" %>
+
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <h3>SCHOOL / ORGANIZATION INFO</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[orgname]", nil, placeholder: 'SCHOOL NAME', class: "event_orgname moving-placeholder", id: "high_school_search_fundraiser" %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[street_address]", nil, placeholder: 'MAILING ADDRESS', class: "event_street_address moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[city]", nil, placeholder: 'CITY', class: "event_city moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="row state-zip">
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                  <%= select_tag "event[state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'short-field measurement-form-field event_state' %>
+                </div>
+                <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+                  <div class="placeholder-slide short-field"></div>
+                  <%= text_field_tag "event[zip_code]", nil, placeholder: 'ZIPCODE', class: 'short-field event_zip_code moving-placeholder' %>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[tax_id]", nil, placeholder: 'FEDERAL TAX ID (if known)', class: "event_tax_id fed-tax-id moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[referral_name]", nil, placeholder: 'REFERRAL NAME', class: "event_referral_name moving-placeholder" %>
+            </div>
+          </div>
+    
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 col-xs-12 in-form-line-break"></div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <h3>YOUR CONTACT INFORMATION</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[first_name]", @user.first_name || nil, placeholder: 'FIRST NAME', class: "event_first_name moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[last_name]",  @user.last_name || nil, placeholder: 'LAST NAME', class: "event_last_name moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[contact_title]", nil, placeholder: 'TITLE', class: "event_contact_title moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "event[contact_phone]", @user.phone_number || nil, placeholder: 'PHONE', class: "event_contact_phone phone-number moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <%= select_tag "event[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'event_location_id measurement-form-field' %>
+            </div>
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12"></div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 col-xs-12 in-form-line-break"></div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-lg-6 col-xs-12">
+              <h3>EVENT INFO</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <!-- FIRST COLUMN -->  
+              <div class='<%= "col-md-5" if @school_events.present? %>  <%= "col-md-6" if @school_events.blank? %> col-sm-5 col-xs-12' >
+                <h3>Create Event</h3>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div class="placeholder-slide"></div>
+                  <%= text_field_tag "event[event_name]", nil, placeholder: 'NAME YOUR EVENT', class: 'event_event_name moving-placeholder' %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div class="placeholder-slide"></div>
+                  <%= text_field_tag "event[number_seniors]", nil, placeholder: 'NUMBER OF MALE SENIORS', class: 'event_number_seniors moving-placeholder' %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <%= select_tag "event[juniors]", options_for_select( [['YES', true],['NO', false]] ), {class: 'event_juniors measurement-form-field', prompt: 'WILL JUNIORS ATTEND?'} %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <div class="placeholder-slide"></div>
+                  <%= text_field_tag "event[number_juniors]", nil, placeholder: 'NUMBER OF MALE JUNIORS', class: 'event_number_juniors hidden moving-placeholder' %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <%= select_tag "event[black_tie]", options_for_select( [['YES', true],['NO', false]] ), {class: ' event_black_tie event measurement-form-field', prompt: 'BLACK TIE EVENT?'} %>
+                </div>
+                <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                  <%= text_field_tag "event[date]", nil, placeholder: 'EVENT DATE', class: "event_date datepicker", readonly: true %>
+                </div>
+              </div>
+              <!-- SECOND COLUMN -->
+              <% if @school_events.present? %>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                  <p class="or-separator"> - or - </p>
+                </div>
+              <% end %>  
+              <!-- THIRD COLUMN -->
+              <% if @school_events.present? %>
+                <div class="col-md-5 col-sm-5 col-xs-12">
+                  <h3>Select Event</h3>
+                  <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                    <%= select_tag "event[id]", options_from_collection_for_select(@school_events, 'id', 'event_name'), { prompt: 'SELECT EVENT', class: 'measurement-form-field event_id' } %>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+
+          <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+            <button type="button" class='occasion-submit-button button-primary school-fundraiser-sweepstakes-submit-button'>SIGN UP</button>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-md-12 login-button-wrapper">
+        <p>Please login to view details.</p>
+        <%= link_to(spree.login_path( { after_login_redirect: "prom/#school-fund" }), class: "btn button-primary login") do%>LOGIN / SIGN UP<% end %>
+      </div>
+    <% end %>
+    <div class="occasion-showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

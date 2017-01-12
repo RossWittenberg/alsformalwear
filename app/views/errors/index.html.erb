@@ -1,0 +1,809 @@
+<div class="row" style="position:relative" id="all-locations-page-container">
+  <div class="col-md-8 col-lg-8" id="all-location-map-container">
+    <h4 id="all-locations-scroll-to-link">All Locations</h4>
+    <div id="all-locations-map-canvas"></div>
+  </div>
+  <div class="col-md-8 visible-xs visible-sm">
+    <div class="text-center location-large-pointer-icon"></div>
+    <h3 class="col-md-12 text-center all-locations-title">SEARCH FOR LOCATIONS</h3>
+    <p class="all-locations-description text-center">With multiple store locations across four states, your nearest Al’s is always just around the corner.</p>
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <input type="text" class="col-md-8 col-md-offset-2 light-grey" id="all-locations-search-input-mobile" placeholder="CITY, STATE, ZIP">
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+    <br>
+  <div class="col-md-4 text-center" id="location-listing-container">
+    <div class="hidden-xs hidden-sm">
+        <div class="text-center location-large-pointer-icon"></div>
+        <h3 class="col-md-12 text-center all-locations-title">SEARCH FOR LOCATIONS</h3>
+        <p class="all-locations-description text-center">With multiple store locations across four states, your nearest Al’s is always just around the corner.</p>
+        <div class="row">
+          <input type="text" class="col-md-8 col-md-offset-2 light-grey" id="all-locations-search-input" placeholder="CITY, STATE, ZIP">
+        </div>
+    </div>
+    <br>
+    <div id="search-results-locations-container">
+
+    </div>
+  </div>
+</div>
+
+<div class="row all-locations-wrapper">
+    
+
+    <div class="location-column col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+        <h3 class="all-locations-header">Colorado</h3>
+    </div>
+
+
+    <% @colorado_locations.each do |location| %>
+        <div class="location-column col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="row store-information-title-container">
+                <div class="row store-description-text-wrapper">   
+                    <div class="col-md-12 text-left store-description-text">
+                        <strong class="store-information-title">
+                            <%= location.store_name %>
+                        </strong>
+                    </div>
+                </div>        
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        Al's Formal Wear Store
+                    </div>
+                </div>    
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <%= "#{location.street_address}"%><br>
+                        <%="#{location.city}, #{location.state} #{location.zip_code}" %>
+                    </div>
+                </div>
+
+                <div class="row store-description-text-wrapper">
+                    <div class="col-md-6 col-xs-6 text-left store-description-text">
+                        <a href="tel:<%= location.phone_number%>"class="store-description-text mobile-phone-rollover">
+                            <%= location.phone_number%>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <a class="red-roll-over" href="/locations/<%= location.store_num %>">
+                            View More Details
+                        </a>
+                    </div>
+                </div> 
+                <hr class="locations-hr">   
+            </div>
+        </div>
+    <% end %> 
+    <div class="location-column col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+        <h3 class="all-locations-header">Louisiana</h3>
+    </div>
+
+    <% @louisiana_locations.each do |location| %>
+        <div class="location-column col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="row store-information-title-container">
+                <div class="row store-description-text-wrapper">   
+                    <div class="col-md-12 text-left store-description-text">
+                        <strong class="store-information-title">
+                            <%= location.store_name %>
+                        </strong>
+                    </div>
+                </div>        
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        Al's Formal Wear Store
+                    </div>
+                </div>    
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <%= "#{location.street_address}"%><br>
+                        <%="#{location.city}, #{location.state} #{location.zip_code}" %>
+                    </div>
+                </div>
+
+                <div class="row store-description-text-wrapper">
+                    <div class="col-md-6 col-xs-6 text-left store-description-text">
+                        <a href="tel:<%= location.phone_number%>"class="store-description-text mobile-phone-rollover">
+                            <%= location.phone_number%>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <a class="red-roll-over" href="/locations/<%= location.store_num %>">
+                            View More Details
+                        </a>
+                    </div>
+                </div> 
+                <hr class="locations-hr">   
+            </div>
+        </div>
+    <% end %> 
+    <div class="location-column col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+        <h3 class="all-locations-header">Oklahoma</h3>
+    </div>
+    <% @oklahoma_locations.each do |location| %>
+        <div class="location-column col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="row store-information-title-container">
+                <div class="row store-description-text-wrapper">   
+                    <div class="col-md-12 text-left store-description-text">
+                        <strong class="store-information-title">
+                            <%= location.store_name %>
+                        </strong>
+                    </div>
+                </div>        
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        Al's Formal Wear Store
+                    </div>
+                </div>    
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <%= "#{location.street_address}"%><br>
+                        <%="#{location.city}, #{location.state} #{location.zip_code}" %>
+                    </div>
+                </div>
+
+                <div class="row store-description-text-wrapper">
+                    <div class="col-md-6 col-xs-6 text-left store-description-text">
+                        <a href="tel:<%= location.phone_number%>"class="store-description-text mobile-phone-rollover">
+                            <%= location.phone_number%>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <a class="red-roll-over" href="/locations/<%= location.store_num %>">
+                            View More Details
+                        </a>
+                    </div>
+                </div> 
+                <hr class="locations-hr">   
+            </div>
+        </div>
+    <% end %> 
+    <div class="location-column col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+        <h3 class="all-locations-header">Texas</h3>
+    </div>
+    <% @texas_locations.each do |location| %>
+        <div class="location-column col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <div class="row store-information-title-container">
+                <div class="row store-description-text-wrapper">   
+                    <div class="col-md-12 text-left store-description-text">
+                        <strong class="store-information-title">
+                            <%= location.store_name %>
+                        </strong>
+                    </div>
+                </div>        
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        Al's Formal Wear Store
+                    </div>
+                </div>    
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <%= "#{location.street_address}"%><br>
+                        <%="#{location.city}, #{location.state} #{location.zip_code}" %>
+                    </div>
+                </div>
+
+                <div class="row store-description-text-wrapper">
+                    <div class="col-md-6 col-xs-6 text-left store-description-text">
+                        <a href="tel:<%= location.phone_number%>"class="store-description-text mobile-phone-rollover">
+                            <%= location.phone_number%>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="store-description-text-wrapper row">
+                    <div class="col-md-12 text-left store-description-text">
+                        <a class="red-roll-over" href="/locations/<%= location.store_num %>">
+                            View More Details
+                        </a>
+                    </div>
+                </div> 
+                <hr class="locations-hr">   
+            </div>
+        </div>
+    <% end %>  
+</div>     
+
+
+<script type="text/template" id="store-location-template">
+  <div class="row store-information-title-container">
+    <div class="col-md-7 col-xs-6 text-left">
+      <strong class="store-information-title">{{- store_name }}</strong>
+    </div>
+    <div class="col-md-3 col-xs-3 text-left">
+      <a href="" class="store-information-title">{{ (typeof distance !== 'undefined') ? print(Math.round10(distance, -1) + ' mi') : print('') }}</a>
+    </div>
+    <div class="col-md-2 hidden-xs hidden-sm text-right">
+      <div class="store-listing-arrow store-listing-down-arrow-icon"></div>
+    </div>
+    <div class="col-xs-offset-1 col-xs-2 visible-xs visible-sm text-right">
+      <div class="store-listing-arrow store-listing-down-arrow-icon"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-left store-description-text">
+      Al's Formal Wear Store
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-left store-description-text">
+      {{- street_address }}, {{- city }} {{- state }} {{- zip_code }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-left store-description-text">
+      {{ print(getTodayStoreTimings(id, true)) }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-left store-description-text">
+      <a class="red-roll-over" href="/locations/{{- store_num }}"> View More Details </a>
+    </div>
+  </div>
+
+  <div class="store-extra-information">
+
+      <div class="row">
+        <div class="col-md-6 col-xs-6 text-left store-description-text">
+          <a href="tel:{{- phone_number }}"class="store-description-text mobile-phone-rollover">{{- phone_number }}</a>
+          <div class="store-description-phone-icon" data-phone-number="{{- phone_number }}"></div>
+        </div>
+        
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button class="btn byt-button store-description-make-appointment-button">MAKE AN APPOINTMENT</button>
+        </div>
+        <div class="col-md-12 text-center">
+          <a class="btn byt-button store-description-directions-button" target="_blank">DIRECTIONS</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-left store-timings-hours-text">
+          <strong>Hours</strong>
+        </div>
+      </div>
+      {{ print(displayStoreTimings(id)) }}
+      </div>
+  </div>
+</script>
+
+<script>
+    var LocationModel = Backbone.Model.extend({
+        id: null,
+        store_num: null,
+        store_name: null,
+        street_address: null,
+        city: null,
+        state: null,
+        zip_code: null,
+        phone_number: null,
+        manager: null,
+        dist_manager: null,
+        latitude: null,
+        longitude: null,
+        mon_hours: null,
+        tues_hours: null,
+        wed_hours: null,
+        thurs_hours: null,
+        fri_hours: null,
+        sat_hours: null,
+        sun_hours: null,
+        updated_at: null
+    });
+
+    var LocationCollection = Backbone.Collection.extend({
+        url: '/locations',
+        model: LocationModel,
+        parse: function(response){
+            return response.locations;
+        }
+    });
+
+    var LocationView = Backbone.View.extend({
+        tagName: 'div',
+        className: 'store-location',
+        events: {
+            'click .store-information-title': 'showLocationDetails',
+            'click .store-description-text': 'showLocationDetails',
+            'click .store-description-make-appointment-button': 'openAppointmentModal',
+            'click .store-description-directions-button': 'descriptionDirections'
+        },
+        initialize: function(){
+            this.template = _.template($('#store-location-template').html());
+        },
+        render: function(){
+            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.attr('data-location-id', this.model.id);
+            return this;
+        },
+        showLocationDetails: function(){
+            if(this.$('.store-extra-information:first').is(':hidden')){
+                centerMaptoStore(this.model);
+                openMapInfoWindow(this.model);
+                this.$('.store-listing-arrow').removeClass('store-listing-down-arrow-icon').addClass('store-listing-up-arrow-icon');
+            } else {
+                this.$('.store-listing-arrow').removeClass('store-listing-up-arrow-icon').addClass('store-listing-down-arrow-icon');
+            }
+            this.$('.store-extra-information').toggle();
+        },
+        openAppointmentModal: function() {
+            var self = this;
+            $('#aptModal').modal('show');
+            $('#aptModal').off('shown.bs.modal');
+            $('#aptModal').on('shown.bs.modal', function(){
+                $('#appointment_location_idSelectBoxItText').attr('data-val', self.model.id).text(self.model.get('state') + ': ' + self.model.get('city') + ' - ' + self.model.get('store_name') + ' ' + self.model.get('zip_code'));
+                $('#appointment_location_id option[value=' + self.model.id + ']').attr('selected', 'selected'); //The browser would automatically take care of unselecting the previously selected choice
+            });
+        },
+        descriptionDirections: function() {
+            if (BROWSER.isIphone() === "true"){
+                buttonURL = this.model.attributes.apple_url;
+            } else {
+                buttonURL = this.model.attributes.google_url;
+            }
+
+            this.$('.store-description-directions-button').attr('href', buttonURL);
+        }
+    });
+
+    var LocationCollectionView = Backbone.View.extend({
+        el: '#search-results-locations-container',
+        initialize: function(){
+            this.collection.on('reset', function(){
+                //Here 'this' refers to the instance of LocationCollectionView because it was passed as the third param for 'on'
+                this.render();
+            }, this);
+        },
+        render: function(){
+            var self = this;
+            self.$el.empty();
+            this.collection.each(function(model){
+                var locationView = new LocationView({model: model});
+                self.$el.append(locationView.render().$el);
+            });
+            var firstStore = this.collection.at(0);
+            var firstStoreCoordinates = new google.maps.LatLng(firstStore.get('latitude'), firstStore.get('longitude'));
+            window.allLocationsMap.setCenter(firstStoreCoordinates);
+            window.allLocationsMap.setZoom(10);
+            window.footerOffset = $('footer').offset().top - 100;
+            if(window.userLocationSearched){
+                _.each(window.allLocationsMarkers, function(marker, arrKey){
+                    if(typeof self.collection.get(marker.locationID) === 'undefined'){
+                        window.allLocationsMarkers[arrKey].setVisible(false);
+                    } else {
+                        window.allLocationsMarkers[arrKey].setVisible(true);
+                    }
+                });
+            }
+        }
+    });
+
+    window.allLocations = new LocationCollection();
+    window.searchResultLocations = new LocationCollection();
+
+    function initMap() {
+
+        var medicalCenterStoreCoordinates = new google.maps.LatLng(29.6948746, -95.4154877);
+
+        window.allLocationsMap = new google.maps.Map(document.getElementById('all-locations-map-canvas'), {
+            zoom: 16,
+            center: medicalCenterStoreCoordinates,
+            mapTypeControl: false,
+            navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            scrollwheel: false,
+            draggable: false
+            
+        });
+
+        window.allLocationsAutocomplete = new google.maps.places.Autocomplete(
+                (document.getElementById('all-locations-search-input')),
+                {
+                    types: ['geocode'],
+                    componentRestrictions: {'country': 'us'}
+                }
+        );
+
+        window.allLocationsAutocompleteMobile = new google.maps.places.Autocomplete(
+                (document.getElementById('all-locations-search-input-mobile')),
+                {
+                    types: ['geocode'],
+                    componentRestrictions: {'country': 'us'}
+                }
+        );
+
+        window.allLocationsAutocomplete.addListener('place_changed', onPlaceChanged);
+        window.allLocationsAutocompleteMobile.addListener('place_changed', onPlaceChangedMobile);
+
+        window.allLocationsInfoWindow = new google.maps.InfoWindow({
+            content: '',
+            maxWidth: 350
+        });
+
+        var marker_img = '<%= asset_url("spree/frontend/icons/location2.png") %>';
+
+        window.allLocationsMarkers = [];
+        window.allLocations.fetch().then(function(){
+            window.allLocations.each(function(location){
+                var storeCoordinates = new google.maps.LatLng(location.get('latitude'), location.get('longitude'));
+                var marker = new google.maps.Marker({
+                    position: storeCoordinates,
+                    map: window.allLocationsMap,
+                    icon: marker_img,
+                    title: location.get('store_name'),
+                    locationID: location.id //custom key-value pair used to identify which marker was clicked
+                });
+                marker.addListener('click', function() {
+                    //'this' refers to the current marker which was clicked
+                    window.allLocationsInfoWindow.setContent(getInfoWindowContent(window.allLocations.get(this.locationID)));
+                    window.allLocationsInfoWindow.open(window.allLocationsMap, this);
+                    var storeListing = $('.store-location[data-location-id='+ this.locationID + ']');
+                    if(! storeListing.length > 0 ){
+                        window.searchResultLocations.reset([window.allLocations.get(this.locationID)]);
+                        storeListing = $('.store-location[data-location-id='+ this.locationID + ']');
+                    }
+                    storeListing.children('.store-listing-arrow').removeClass('store-listing-down-arrow-icon').addClass('store-listing-up-arrow-icon');
+                    storeListing.children('.store-extra-information').show();
+                    if(document.documentElement.clientWidth > 768){
+                        smoothScroll(storeListing.offset().top - 140);
+                    }
+                });
+                window.allLocationsMarkers.push(marker);
+            });
+            $('body').trigger('all-locations-map-initialised');
+            window.allLocationsMapInitialised = true;
+        });
+    }
+
+    function getInfoWindowContent(location){
+        if (BROWSER.isIphone() === "true"){
+            var url = location.get('apple_url');
+        } else {
+            var url = location.get('google_url');
+        }
+        var content = '' +
+                '<div class="map-info-window-container">' +
+                '<div class="row map-store-title-container">' +
+                '<div class="col-md-6 col-xs-9 map-store-title-text">' +
+                location.get('store_name') +
+                '</div>';
+        if(typeof location.get('distance') !== 'undefined'){
+            content +=
+                    '<div class="col-md-6 col-xs-3 map-store-distance map-store-title-text text-right">' +
+                    Math.round10(location.get('distance'), -1) + ' mi' +
+                    '</div>';
+        }
+        content += '</div>' +
+                '<div class="row map-store-information-container">' +
+                    '<div class="col-md-6 col-xs-12 map-store-information-text map-store-information-first-column">' +
+                        location.get('street_address') + '<br>' +
+                        location.get('city') + ', ' + location.get('state') + ' ' + location.get('zip_code') +
+                    '</div>' +
+                    '<div class="col-md-6 hidden-xs hidden-sm map-store-information-text map-store-information-second-column">' +
+                        '<div class="map-icon map-store-timings-icon"></div>' + getTodayStoreTimings(location, false) +
+                        '<br>' +
+                        '<div class="map-telephone-icon-container">' +
+                            '<div class="map-icon map-telephone-icon"></div> <a class="map-store-information-text" href="tel:'+ location.get('phone_number') +'">' + location.get('phone_number') + '</a>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="col-xs-12 map-store-timings-icon-container-mobile visible-xs visible-sm map-store-information-text">' +
+                        '<div class="map-icon map-store-timings-icon"></div>' + getTodayStoreTimings(location, false) +
+                    '</div>' +
+                    '<div class="col-xs-12 visible-xs visible-sm map-telephone-icon-container map-store-information-text">' +
+                        '<div class="map-icon map-telephone-icon"></div> <a class="map-store-information-text" href="tel:'+ location.get('phone_number') +'">' + location.get('phone_number') + '</a>' +
+                    '</div>' +
+                '</div>' +
+                '<div class="row">' +
+                    '<div class="col-md-12 text-center">' +
+                        '<a class="btn map-directions-button" href="' + url +'" target="_blank">DIRECTIONS</a>' +
+                    '</div>' +
+                '</div>' +
+                '</div>';
+        return content;
+    }
+
+    function onPlaceChanged() {
+        window.userLocationSearched = true;
+        var place = window.allLocationsAutocomplete.getPlace();
+        var latlng = {
+            latitude: place.geometry.location.lat(),
+            longitude: place.geometry.location.lng()
+        };
+        if(place.types[0] === 'administrative_area_level_1'){
+            var state = place['address_components'][0]['short_name'];
+            searchLocationsByState(state, latlng);
+        } else {
+            searchLocationsByPlace(latlng);
+        }
+    }
+
+    function onPlaceChangedMobile() {
+        window.userLocationSearched = true;
+        var place = window.allLocationsAutocompleteMobile.getPlace();
+        var latlng = {
+            latitude: place.geometry.location.lat(),
+            longitude: place.geometry.location.lng()
+        };
+        if(place.types[0] === 'administrative_area_level_1'){
+            var state = place['address_components'][0]['short_name'];
+            searchLocationsByState(state, latlng);
+        } else {
+            searchLocationsByPlace(latlng);
+        }
+    }
+
+    function searchLocationsByState(state, latlng){
+        var locations = getLocationsWithinState(state);
+        if(locations.length < 1){
+            searchLocationsByPlace(latlng);
+        } else {
+            window.searchResultLocations.reset(locations);
+        }
+    }
+
+    function searchLocationsByPlace(latlng){
+        getNearestLocations(latlng).then(function(response){
+            window.searchResultLocations.reset(response.locations);
+        });
+    }
+
+    function getLocationsWithinState(state){
+        return window.allLocations.where({state: state});
+    }
+
+    function getNearestLocations(latlng){
+        return $.ajax({
+            url: '/locations/nearest',
+            data: {
+                'format': 'json',
+                'location': latlng
+            }
+        });
+    }
+
+    function displayStoreOnMap(store){
+        var center = new google.maps.LatLng(store.latitude, store.longitude);
+        window.allLocationsMap.setCenter(center);
+    }
+
+    function displayStoreTimings(locationID){
+        var store = window.allLocations.get(locationID);
+        var days = {
+            'sun': 'Sunday',
+            'mon': 'Monday',
+            'tues': 'Tuesday',
+            'wed': 'Wednesday',
+            'thurs': 'Thursday',
+            'fri': 'Friday',
+            'sat': 'Saturday'
+        };
+        var html = '';
+        _.each(days, function(dayLabel, daySlug){
+            var hours = store.get([daySlug + '_hours']);
+            if(hours !== 'Closed'){
+                var amPmSplit = hours.split(/\-/);
+                if(amPmSplit[0].trim() == "12"){
+                    hours = amPmSplit[0].trim() + ':00 pm - ' + amPmSplit[1].trim() + ':00 pm';
+                } else {
+                    hours = amPmSplit[0].trim() + ':00 am - ' + amPmSplit[1].trim() + ':00 pm';
+                }
+            }
+            html += '' +
+                    '<div class="row store-timings-row">' +
+                        '<div class="col-md-4 col-xs-4 text-left">'
+                        + dayLabel +
+                        '</div>' +
+                    '   <div class="col-md-6 col-xs-offset-2 col-xs-6 col-md-offset-2">'+ hours +'</div>' +
+                    '</div>'
+        });
+        return html;
+    }
+
+    function getTodayStoreTimings(locationID, onlyStart){
+        var store = window.allLocations.get(locationID);
+        var days = [
+            'sun',
+            'mon',
+            'tues',
+            'wed',
+            'thurs',
+            'fri',
+            'sat'
+        ];
+        var today = new Date().getDay();
+        var hours = store.get([days[today] + '_hours']);
+        if(hours !== 'Closed'){
+            var amPmSplit = hours.split(/\-/);
+            if(onlyStart){
+                if(amPmSplit[0].trim() == "12"){
+                    hours = 'Opens at ' + amPmSplit[0].trim() + ':00 pm';
+                } else {
+                    hours = 'Opens at ' + amPmSplit[0].trim() + ':00 am';
+                }
+            } else {
+                if(amPmSplit[0].trim() == "12"){
+                    hours = amPmSplit[0].trim() + ':00 pm - ' + amPmSplit[1].trim() + ':00 pm';
+                } else {
+                    hours = amPmSplit[0].trim() + ':00 am - ' + amPmSplit[1].trim() + ':00 pm';
+                }
+            }
+        } else {
+            hours = 'Closed Today'
+        }
+        return hours;
+    }
+
+    function centerMaptoStore(store){
+        var storeCoordinates = new google.maps.LatLng(store.get('latitude'), store.get('longitude'));
+        window.allLocationsMap.setCenter(storeCoordinates);
+        window.allLocationsMap.setZoom(16);
+    }
+
+    function openMapInfoWindow(store){
+        window.allLocationsInfoWindow.setContent(getInfoWindowContent(store));
+        var marker = _.findWhere(window.allLocationsMarkers, {locationID: store.id});
+        window.allLocationsInfoWindow.open(window.allLocationsMap, marker);
+    }
+
+    function searchFromUrl(){
+        var latlng = {
+            latitude: $.urlParam('search_lat'),
+            longitude: $.urlParam('search_lng')
+        };
+        switch($.urlParam('search_type')){
+            case 'state':
+                var state = $.urlParam('search_state');
+                searchLocationsByState(state, latlng);
+                break;
+            case 'place':
+                searchLocationsByPlace(latlng);
+                break;
+        }
+    }
+
+    function displayLocationFromUrl(){
+        var store = window.allLocations.get($.urlParam('location_id'));
+        centerMaptoStore(store);
+        var marker = _.findWhere(window.allLocationsMarkers, {locationID: store.id});
+        google.maps.event.trigger(marker, 'click');
+    }
+
+    $(document).ready(function(){
+        if(typeof window.allLocationsMapInitialised === 'undefined'){
+            window.allLocationsMapInitialised = false;
+        }
+        new LocationCollectionView({collection: window.searchResultLocations});
+        if($.urlParam('search_type') != null){
+            window.userLocationSearched = true;
+            $('#all-locations-search-input').val(decodeURIComponent($.urlParam('search_term')));
+            $('#all-locations-search-input-mobile').val(decodeURIComponent($.urlParam('search_term')));
+            if(window.allLocationsMapInitialised){
+                searchFromUrl();
+            } else {
+                $('body').on('all-locations-map-initialised', function(){
+                    searchFromUrl();
+                });
+            }
+        } else if($.urlParam('location_id') != null){
+            if(window.allLocationsMapInitialised){
+                displayLocationFromUrl();
+            } else {
+                $('body').on('all-locations-map-initialised', function(){
+                    displayLocationFromUrl();
+                });
+            }
+        } else {
+            if(Cookies.get('neareststore') != undefined){
+                displayStoreOnMap(Cookies.getJSON('neareststore'));
+            } else {
+                $('body').on('neareststorelocated', function(){
+                    displayStoreOnMap(Cookies.getJSON('neareststore'));
+                });
+            }
+        }
+        window.footerOffset = $('footer').offset().top - 100;
+        window.allLocationMapContainerHeight = $('#all-location-map-container').height();
+        window.allLocationsMapContainerWidth = $('#all-location-map-container').width();
+        window.allLocationMapContainerLeftOffset =$('#all-location-map-container').offset().left;
+        window.allLocationsListingContainerOffset = $('#all-location-map-container').width();
+        if(document.documentElement.clientWidth > 768) {
+            $(document).on('scroll', function () {
+                var allLocationsMapOffset = $('#all-location-map-container').offset().top + window.allLocationMapContainerHeight;
+                var searchResultsContainerOffset = $('#search-results-locations-container').offset().top - 100;
+                
+                var hideMapOffSet = $('#header').height() + $('#all-locations-page-container').height() -90;
+
+
+                if (window.scrollY > hideMapOffSet ){
+                    $('#all-location-map-container').hide();
+                } else {
+                    $('#all-location-map-container').show();
+                }
+
+                if (window.scrollY > 147 && ( ( window.scrollY + $('footer').height() < window.footerOffset ) || ($('#search-results-locations-container').height() >= 490 && window.scrollY < searchResultsContainerOffset) )) {
+                    $('#all-location-map-container').css({
+                        'position': 'fixed',
+                        'top': '125px',
+                        'left': 'auto',
+                        'width': window.allLocationsMapContainerWidth + 'px',
+                        'margin-top': '0px'
+                    });
+                    $('#location-listing-container').css({
+                        position: 'relative',
+                        left: window.allLocationsMapContainerWidth + 'px'
+                    });
+                } else if (allLocationsMapOffset > window.footerOffset) {
+                    if ($('#search-results-locations-container').height() >= 490) {
+                        console.log("second condition with search results")
+
+                        $('#all-location-map-container').css({
+                            'position': 'absolute',
+                            'top': 'auto',
+                            'left': 'auto',
+                            'bottom': '70px',
+                            'margin-top': '0px'
+                        });
+                        $('#location-listing-container').css({
+                            position: 'relative',
+                            top: 'auto',
+                            left: window.allLocationsMapContainerWidth + 'px'
+                        });
+                    } else {
+                        $('#all-location-map-container').css({
+                            'position': 'relative',
+                            'top': window.footerOffset - window.allLocationMapContainerHeight - 250,
+                            'left': 'auto',
+                            'margin-top': '0px'
+                        });
+                        $('#location-listing-container').css({
+                            position: 'relative',
+                            top: 'auto',
+                            left: '15px'
+                        });
+                    }
+                } else {
+                    console.log("third condition")
+
+                    $('#all-location-map-container').css({
+                        'position': 'static',
+                        'top': 'auto',
+                        'left': 'auto',
+                        'margin-top': '20px'
+                    });
+                    $('#location-listing-container').css({
+                        'position': 'static',
+                        'top': 'auto',
+                        'left': 'auto'
+                    })
+                }
+                var headerHeight = $('#header').height() + 400;
+                $(document).resize(function(event) {
+                    var headerHeight = $('#header').height() + 400;
+                    var allLocationsOffSet = $('.all-locations-wrapper').offset().top - headerHeight ;
+                });
+                var allLocationsOffSet = $('.all-locations-wrapper').offset().top - headerHeight;
+            });
+            $('.store-description-phone-icon').on('click', function(){
+                openInNewTab('tel:' + this.attr('data-phone-number'));
+            });
+        }
+    });
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?v=3.22&signed_in=true&callback=initMap&libraries=places"></script>

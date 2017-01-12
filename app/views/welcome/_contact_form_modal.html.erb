@@ -1,0 +1,65 @@
+<div class="message-wrapper"></div>
+
+<%= form_tag('/events/create_with_group_code', remote: true, class: "contact-form") do %>
+  
+ <div class="col-md-12 col-sm-12">
+    <h2>GET IN TOUCH</h2>
+  </div>
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-6 col-sm-6">
+      <div class="placeholder-slide"></div>
+      <%= text_field_tag "contact[first_name]", @user && @user.first_name || nil, placeholder: 'FIRST NAME', class: 'moving-placeholder' %>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="placeholder-slide"></div>
+      <%= text_field_tag "contact[last_name]", @user && @user.last_name || nil, placeholder: 'LAST NAME', class: 'moving-placeholder' %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-6 col-sm-6">
+      <div class="placeholder-slide"></div>
+      <%= text_field_tag "contact[contact_email]", @user && @user.email || nil, placeholder: 'EMAIL ADDRESS', class: 'moving-placeholder' %>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <div class="placeholder-slide"></div>
+      <%= text_field_tag "contact[contact_phone]", @user && @user.phone_number || nil, placeholder: 'PHONE', class: 'phone-number moving-placeholder' %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-6 col-sm-6">
+      <div class="placeholder-slide"></div>
+      <%= text_field_tag "contact[zip_code]", nil, placeholder: 'ZIPCODE', class: 'moving-placeholder' %>
+    </div>
+    <div class="col-md-6 col-sm-6">
+      <%= select_tag "contact[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'measurement-form-field' %>
+    </div>
+  </div>
+
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-6 col-sm-6">
+      <%= select_tag "contact[subject]", options_for_select( [['Customer Service', 'csr@alsformalwear.com'], ['Individual Sales', 'onlinesales@alsformalwear.com'], ['Group / Org. Sales', 'groupsales@alsformalwear.com'], ['Online Store Question', 'onlinesales@alsformalwear.com'], ['Human Resources', 'hr2@alsformalwear.com'], ['Donation Requests', 'marketing@alsformalwear.com'], ['Website Question', 'webmaster@alsformalwear.com'], ['Other', 'info1@alsformalwear.com']] ), prompt: "SELECT SUBJECT", class: 'role measurement-form-field' %>
+    </div>
+    <div class="col-md-6 col-sm-6"></div>
+  </div>
+
+  <div class="col-md-12 col-sm-12">
+    <div class="placeholder-slide message-holder"></div>
+    <%= text_area_tag "contact[message]", nil, placeholder: 'MESSAGE', class: 'moving-placeholder' %>
+  </div>
+
+  <div class="col-md-12 col-sm-12">
+    <div class="col-md-5 col-sm-5 no-pad">
+      <button type="button" class='button-primary form-submit-button contact-submit-button'>SEND</button>
+    </div>
+  </div>
+
+  <% end %>
+  <div class="showbox hidden">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+  </div>

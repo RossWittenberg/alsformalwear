@@ -1,0 +1,114 @@
+<div id="aptModal" class="modal fade make-appointment" role="dialog">
+  <div class="modal-dialog">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="col-md-10 col-md-offset-1 modal-body">
+      <%= form_tag( '/events/create_with_group_code', remote: true, class: "appointment-form" ) do %>
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <h2>MAKE AN APPOINTMENT</h2>
+          <div class="message-wrapper"></div>
+
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[first_name]", @user && @user.first_name || nil, placeholder: 'FIRST NAME*', class: 'moving-placeholder' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[last_name]", @user && @user.last_name || nil , placeholder: 'LAST NAME*', class: 'moving-placeholder' %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[contact_email]", @user && @user.email || nil, placeholder: 'EMAIL*', class: 'moving-placeholder' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[contact_phone]", @user && @user.phone_number || nil, placeholder: 'PHONE*', class: 'moving-placeholder' %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[zip_code]", nil, placeholder: 'ZIPCODE*', class: 'moving-placeholder' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <% @locations = Location.all.order(state: :asc).order(city: :asc).order(store_name: :asc) %>
+            <%= select_tag "appointment[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE*", class: 'measurement-form-field' %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <%= select_tag "appointment[contact_time]", options_for_select([['Morning'],['Afternoon'],['Evening']]), prompt: "BEST TIME OF CONTACT*", class: 'measurement-form-field' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <%= select_tag "appointment[contact_method]", options_for_select([['Call'],['Email'],['Text'],['Mail']]), prompt: "BEST METHOD OF CONTACT*", class: 'measurement-form-field' %>
+          </div>
+        </div>
+    
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <%= text_field_tag "appointment[appointment_date]", nil, placeholder: 'APPOINTMENT DATE*', class: "appointment-datepicker", readonly: true %>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-12 col-lg-6">
+            <p class="appointment-time-message hidden">Please choose a store and a date to select a time for your appointment. </p>
+            <p class="appointment-store-closed-message hidden">The store you have chosen is closed on this day. Please select another date or another store to schedule an appointment.</p>
+            <%= time_select "appointment[apt_time]", nil, { simple_time_select: true, ampm: true, minute_step: 15, time_separator: "", start_hour: 10, end_hour: 18, prompt: {hour: 'HOUR', minute: 'MIN'} }, class: 'measurement-form-field' %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6">
+            <%= select_tag "appointment[appointment_reason]", options_for_select([['Wedding'],['Quinceañera'],['Social Event'],['Prom/Formal'],['Other']]), prompt: "REASON FOR VISIT*", class: 'measurement-form-field moving-placeholder', id: 'appointment_reason' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <%= text_field_tag "appointment[approximate_event_date]", nil, placeholder: 'APPROXIMATE EVENT DATE*', class: "appointment-datepicker", readonly: true %>
+          </div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-6 col-sm-6 hidden">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[other_explain]", nil, placeholder: 'TELL US YOUR REASON FOR VISIT', class: 'moving-placeholder' %>
+          </div>
+          <div class="col-md-6 col-sm-6 wedding-det hidden">
+            <%= select_tag "appointment[wedding_apt_details]", options_for_select([['Initial Appointment'],['Post Bridal-Show Appointment'],['Invitations Appointment'],['Retail Appointment'],['Open Event Appointment'],['Photography Appointment'],['Groom&rsquo;s Try On (GTO)'],['Wedding Maintenance'],['Final Review']]), prompt: "DETAILS", class: 'measurement-form-field' %>
+          </div>
+          <div class="col-md-6 col-sm-6">
+            <div class="placeholder-slide"></div>
+            <%= text_field_tag "appointment[group_code]", nil, placeholder: 'GROUP CODE (if applicable)', class: 'moving-placeholder' %>
+          </div>
+          <div class="col-md-6 col-sm-6"></div>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="placeholder-slide message-text"></div>
+          <%= text_area_tag "appointment[message]", nil, placeholder: 'MESSAGE', class: 'moving-placeholder' %>
+        </div>
+
+        <div class="col-xs-12 col-lg-12 col-md-12 col-sm-12">
+          <div class="col-md-5 col-sm-5 no-pad">
+            <%= button_tag "CONFIRM", class: "form-submit-button appointment-submit-button button-primary", type: "button" %>
+            <!-- <button type="button" class='appointment-submit-button button-primary'>CONFIRM</button> -->
+          </div>
+        </div>
+
+      <% end %>
+      <div class="showbox hidden">
+        <div class="loader">
+          <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+          </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+development:
+  aws_access_key_id: ENV['AWS_ACCESS_KEY_ID']
+  aws_secret_access_key: ENV['AWS_SECRET_KEY_ID']
+  bucket_base_name: ENV['S3_BUCKET_NAME']
+
+production:
+  access_key_id: ENV['AWS_ACCESS_KEY_ID']
+  secret_access_key: ENV['AWS_SECRET_KEY_ID']
+  bucket_base_name: ENV['S3_BUCKET_NAME']
+
+

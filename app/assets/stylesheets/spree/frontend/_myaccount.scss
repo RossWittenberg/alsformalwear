@@ -1,0 +1,513 @@
+.mobile-logout {
+  margin: 15px 0 -15px 0;
+  text-decoration: underline;
+	a {
+		color: #d4d4d4;
+		font-size: 14px;
+		position: relative;
+    z-index: 30000;
+	}
+}
+
+.my-measurements-wrapper {
+	
+	.field {
+		margin-bottom: 45px;
+	}
+
+	label {
+		margin-bottom: 15px;
+	}
+	a {
+		button {
+			@media (max-width: 767px) {
+				float: none;
+				margin-left: 15px;
+    		width: calc(100% - 30px);
+			}
+		}
+	}
+}
+
+.edit-account-details {
+	font-size: 14px;
+	text-decoration: underline;
+}
+
+.account-container {
+
+	.accordion-section-content label { display: inline-block; }
+
+	#measurement_height_field { 
+		float: left;
+		width: 100%;
+	}
+
+	.edit-info {
+		color: $grey-light;
+		display: inline-block;
+		font-size: 14px;
+    padding: 0 10px;
+		text-decoration: underline;
+
+		a {
+			color: $grey-light;
+			font-size: 14px;
+			text-decoration: underline;
+		}
+	}
+
+	a {
+
+		&:focus {
+			outline: 0;
+			text-decoration: none;
+			
+		}
+
+		&.btnLink{
+			@extend %h4;
+			display: block;
+			border-radius: 3px;
+			height: 50px;
+			padding: 16px 0 0;
+			width: 100%;
+			@media (min-width: 767px) and (max-width: 991px) {
+				width: 300px;
+			}
+			text-align: center;
+			text-decoration: none;
+
+			&:focus {
+				color: $white;
+			}
+		}
+
+		&.button-primary {
+			
+			text-transform: uppercase;
+			transition: all .3s ease-in-out;
+			background-color: $black;
+			border: 2px solid $black;
+			color: $white !important;
+			font-family: $sans-serif-medium;
+			font-size: 14px;
+			&:hover {
+				background-color: $red-shade-6;
+				border: 2px solid $red-shade-6;
+				color: $white;
+				cursor: pointer;
+				outline: 0;
+				text-decoration: none;
+			}
+			
+		}
+	}
+
+	.btnWrapper { padding-bottom: 100px; }
+
+	.subHead {
+    margin-bottom: 30px;
+	}
+
+	h6 {
+		color: $black;
+		font-family: $sans-serif-demi;
+		font-size: 10px;
+		letter-spacing: 1px;
+		line-height: 1.3;
+	}
+
+	.share-area {
+		padding-top: 80px;
+		p.share-text {
+			display: none;
+		}
+		h6, div.social{
+			display: inline-block;
+		}
+		div.social {
+			margin-bottom: -10px;
+			margin-left: 10px;
+			div.share-icons {
+				a {
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+
+	.body-style-1 { 
+		
+		&.smaller {
+			font-size: 15px;
+		}
+	}
+
+	.accordion-section-title {
+		&:hover {
+			color: $red-shade-6;
+		}
+	}
+
+	#accordion-1 {
+
+		&.accordion-section-content {
+
+			@media (max-width: 767px) {
+
+				padding-left: 15px;
+			}
+			
+		}
+
+	}
+
+	#accordion-2 {
+
+		.accordion-event-section-title {
+
+			@media (max-width: 767px) { 
+
+				padding-left: 15px;
+
+				span {
+					position: absolute;
+					right: 15%;
+					top: 50%;
+					-webkit-transform: translateY(-50%);
+  					-ms-transform: translateY(-50%);
+					transform: translateY(-50%);
+				}
+			}
+		}
+	}
+
+	#accordion-3 {
+
+		@media (max-width: 767px) { 
+			.no-pad-left {
+				padding-left: 15px !important;
+			}
+
+			input[type="submit"] {
+				display: block;
+				width: 90%;
+				margin: 0 auto;
+				float: none;
+			}
+		}
+
+	}
+
+}
+
+/*----- Accordion -----*/
+.accordion-event, .accordion-event * {
+	-webkit-box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	box-sizing:border-box;
+}
+
+.accordion-event {
+	overflow:hidden;
+	margin-bottom: 40px;
+}
+
+.accordion-event-section {
+	float: left;
+	width: 100%;
+	border-bottom:1px solid $grey-light-3;
+}
+
+/*----- Section Titles -----*/
+.accordion-event-section-title {
+	width: 100%;
+	padding:40px 0;
+	display:inline-block;
+	@include transition(all linear 0.15s);
+	/* Type */
+	color: $black;
+	font-family: $sans-serif-demi;
+	font-size: 18px;
+	letter-spacing: 1px;
+	line-height: 1.3;
+	position: relative;
+
+	&::before, &::after {
+		/* arrow icon in CSS - for element with nested unordered lists */
+		content: '';
+		position: absolute;
+		top: 50%;
+		margin-top: -1px;
+		display: inline-block;
+		height: 2px;
+		width: 10px;
+		background: $black;
+		-webkit-backface-visibility: hidden;
+		backface-visibility: hidden;
+		right: 20px;
+		@include transform-origin(9px 50%);
+		@include transition(width .2s, transform .2s);
+	}
+
+	&::before {
+		@include transform(rotate(135deg));
+	}
+
+	&::after {
+		@include transform(rotate(45deg));
+	}
+
+	&.active::before {
+		@include transform(rotate(-135deg));
+	}
+
+	&.active::after {
+		@include transform(rotate(-45deg));
+	}
+
+	&:first-letter { text-transform: uppercase; }
+
+	label {
+		color: $black;
+		font-family: $sans-serif-demi;
+		font-size: 18px;
+		letter-spacing: 1px;
+		line-height: 1.3;
+		margin-bottom: 0;
+
+		&:first-letter { text-transform: uppercase; }
+	}
+
+	span {
+		@extend %h4;
+		display: inline-block;
+		position: absolute;
+		right: 150px;
+	}
+}
+
+.accordion-event-section-title.active, .accordion-event-section-title:hover {
+	/* Type */
+	text-decoration:none;
+	color: $black;
+}
+
+.accordion-event-section:last-child .accordion-event-section-title {
+	border-bottom:none;
+}
+
+/*----- Section Content -----*/
+.look-desc-wrapper {
+	margin-bottom: 20px;
+}
+.accordion-event-section-content {
+	float: left;
+	width: 100%;
+	padding: 0 0 40px 0;
+	display:none;
+	@media (max-width: 767px){
+		padding: 15px 0 40px 15px;
+	}
+
+	.event-details {
+		margin-top: -10px;
+	}
+
+	.edit-info-wrapper {
+    float: left;
+    padding-right: 15px;
+    position: relative;
+		
+		.edit-info {
+			padding: 0;
+			a {
+				color: $grey-light;
+				padding-right: 15px;
+			}
+		}
+
+		span {
+			color: $grey-light;
+		}
+	}
+	.account-apt {
+		cursor: pointer;
+		.account-calendar,
+		.account-apt-text {
+			display: inline-block;
+			margin: 20px 20px 20px 0;
+		}
+		.account-calendar {
+			img {
+				max-width: 28px;
+				max-height: 35px;
+			}
+		}
+		.account-apt-text {
+			h4 {
+				font-size: 12px;
+				font-weight: 900;
+				position: relative;
+		    top: 2px;
+			}
+		}
+	}
+	.body-style-1 {
+    font-size: 16px;
+		line-height: 1.5;
+		padding-top: 6px;
+	}
+	.look-desc {
+		margin-top: -27px;
+		@media (max-width: 991px) { 
+			margin-top: 20px;
+		}
+		.body-style-1 {
+			line-height: 1;
+			padding: 0;
+	    font-weight: 600;
+		}
+		a.button-primary {
+			max-width: 250px;
+		}
+	}
+	h4 {
+		font-size: 13.5px;
+		font-weight: 900;
+	}
+	table {
+		margin-top: -20px;
+		width: 100%;
+		tr {
+			td {
+				max-width: 40%;
+				padding: 2px 0;
+				&.constraint {
+					max-width: 60%;
+					padding-left: 15px;
+				}
+			}
+		}
+	}
+
+	.account-offer-wrapper {
+		background: asset_url('spree/frontend/partycard.svg');
+		background-size: 100% 100%;
+		background-repeat: no-repeat;
+    margin-top: -20px;
+    max-width: 350px;
+		@media (max-width: 991px) { 
+    	margin-top: 40px;
+    }
+		@include aspect-ratio(1,1);
+		h3, p, button {
+	    left: 50%;
+	    margin: 0 auto;
+	    position: absolute;
+	    text-align: center;
+	    top: 20%;
+	    transform: translateX(-50%);
+	    -webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+      width: calc(100% - 90px);
+		}
+		p {
+			font-size: 16px;
+			line-height: 1.8;
+			top: 37%;
+		}
+
+		button {
+			bottom: 15%;
+			max-width: 65%;
+	    top: initial;
+		}
+		h2 {
+	    background-color: #fff;
+	    display: inline-block;
+	    left: 50%;
+	    line-height: 1;
+	    padding: 8px 8px 2px 8px;
+	    position: absolute;
+	    top: calc(37% + 30px);
+	    transform: translateX(-50%);
+	    -webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			@media (min-width: 768px) and (max-width: 991px) {
+				top: 50%;
+			}
+		}
+		@media (min-width: 992px) and (max-width: 1199px) {
+			h3 {
+    		top: 13%;
+    	}
+    	p {
+    		top: 32%;
+    	}
+    	button {
+		    bottom: 12%;
+    	}
+		}
+		@media (min-width: 768px) and (max-width: 991px) {
+    	h3 {
+    		top: calc(50% - 60px);
+    	}
+    	p {
+    		top: calc(50% - 30px);
+    	}
+    	button {
+    		top: calc(50% + 30px);
+    	}
+    }
+    @media (max-width: 991px) {
+    	padding-left: 0;
+    	padding-right: 0;
+    }
+	}
+}
+
+.acnt-details {
+
+	h4 {
+		margin-bottom: 10px;
+		margin-top: 0;
+		line-height: 2.57;
+	}
+
+	.body-style-1 {
+		line-height: 1.99;
+		margin-bottom: 10px;
+		min-height: 35px;
+	}
+
+	.form-group {
+		margin-bottom: 10px;
+		.phone-number {
+	    height: auto;
+	    padding-bottom: 4px;
+	    padding-top: 4px;
+	    width: 100%;
+		}
+	}
+
+	.form-control {
+		height: auto;
+		padding: 4px 15px;
+	}
+
+	input[type="submit"].submit-user-info {
+		width: 100%;
+		max-width: 100%;
+		margin-top: 5px;
+	}
+
+}
+
+input.button-primary {
+	&.submit-measurements {
+		padding-top: 2px;
+		margin-bottom: 60px;
+	}
+}

@@ -1,0 +1,127 @@
+@import '../frontend/colors';
+@import '../frontend/global';
+@import '../frontend/typography';
+
+
+.admin-content {
+	margin: 40px auto;
+  float: left;
+  clear: both; 
+}
+
+.cms-button {
+	color: $white !important;
+	margin-top: 20px;
+}
+
+.content-index-wrapper {
+	margin: 20px 0;
+}
+
+.content-breadcrumb {
+	margin-bottom: 20px;
+}
+
+.cms-content-dashboard-link {
+	font-size: 15px;
+	letter-spacing: 2px;
+	font-weight: 600;
+	line-height: 4;
+	&:hover {
+		color: $red;
+		-webkit-transition: color 0.1s ease-in-out, color 0.3s ease-in-out;
+    -moz-transition: color 0.3s ease-in-out, color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out, color 0.3s ease-in-out;
+	  transition: color 0.3s ease-in-out, color 0.3s ease-in-out;
+	}
+}
+
+.cms-content-dashboard-header {
+	font-size: 18px;
+	color: $red;
+	&:before {
+    content: "";
+    height: 2px;
+    width: 50px;
+    margin: 6px 8px 6px 0;
+    display: inline-block;
+    background-color: $grey-light;
+	}
+	&:after {
+    content: "";
+    height: 2px;
+    width: 50px;
+    margin: 0 8px 6px 8px;
+    display: inline-block;
+    background-color: $grey-light;
+	}
+}
+
+.cms-success {
+  color: $green-success;
+  font-family: $sans-serif-medium;
+  margin-bottom: 0;
+  padding: 0;
+
+  &.row {
+    padding-top: 20px;
+  }
+
+  &:before {
+    background: asset-url('spree/frontend/success-check.svg') no-repeat;
+    background-size: cover;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    margin-right: 8px;
+    width: 20px;
+  }
+
+  &:after {
+    background-color: $green-success;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 10px 0 10px;
+    width: 100%;
+  }
+}
+
+.cms-alert {
+  color: $red;
+  font-family: $sans-serif-medium;
+  margin-bottom: 0;
+  margin-top: 20px;
+  text-align: left;
+
+  li, ul {
+    display: inline-block;
+  }
+
+  &:before {
+    background: asset-url('spree/frontend/error-exclaim.png') no-repeat;
+    background-size: cover;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    margin-right: 8px;
+    width: 20px;
+  }
+
+  &:after {
+    background-color: $red;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.cms-subheader {
+  margin-top: 0;
+}
+
+img.manager-image {
+  width: 100%;
+}

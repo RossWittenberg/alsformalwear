@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.4.4 (17249) - http://www.bohemiancoding.com/sketch -->
+    <title>Phone</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Explore-Collection-Hover" sketch:type="MSArtboardGroup" transform="translate(-431.000000, -17.000000)" fill="#FFFFFF">
+            <g id="DESKTOP-Header" sketch:type="MSLayerGroup">
+                <g id="Navi/Banner" sketch:type="MSShapeGroup">
+                    <g id="Navi-1">
+                        <g id="Location" transform="translate(140.000000, 15.000000)">
+                            <path d="M303.692969,14.6933102 C301.515676,16.8692277 298.993152,18.9516166 297.995971,17.9544357 C296.569659,16.5281231 295.689389,15.2847417 292.542423,17.8141426 C289.396833,20.3421682 291.813449,22.0284355 293.195749,23.4093591 C294.791238,25.0048486 300.738562,23.4946353 306.617116,17.6174573 C312.494294,11.7389039 314.000381,5.79157936 312.403516,4.1960899 C311.021217,2.81241542 309.343202,0.39717448 306.815177,3.54276448 C304.285776,6.68835448 305.527782,7.56862452 306.956845,8.99631251 C307.9499,9.99349342 305.868886,12.5160173 303.692969,14.6933102 L303.692969,14.6933102 Z" id="Phone"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

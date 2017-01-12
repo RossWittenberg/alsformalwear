@@ -1,0 +1,513 @@
+<div class="row">
+	<div class="container measureGroup">
+		<div class="oot-message-wrapper"></div>		
+		<h3>MY MEASUREMENTS</h3>
+		<h3 class="wedding-details-title">Wedding Details</h3>
+		<div class="row wedding-details">
+			<div class="col-md-12 col-sm-12">
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[bride_name]", nil, placeholder: "BRIDE'S FULL NAME", class: "moving-placeholder" %>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[groom_name]", nil, placeholder: "GROOM'S FULL NAME", class: "moving-placeholder" %>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[group_number]", nil, placeholder: 'GROUP NUMBER', class: "moving-placeholder" %>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<%= select_tag "measurements[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'measurement-form-field' %>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[contact_first]", nil, placeholder: "YOUR FIRST NAME", class: "moving-placeholder" %>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[contact_last]", nil, placeholder: "YOUR LAST NAME", class: "moving-placeholder" %>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				<div class="col-md-6 col-sm-6">
+					<%= text_field_tag "measurements[date]", nil, placeholder: "EVENT DATE", class: "datepicker"  %>
+				</div>
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[contact_email]", nil, placeholder: 'EMAIL', class: "moving-placeholder" %>
+				</div>
+			</div>
+
+			<div class="col-md-12 col-sm-12">
+				<div class="col-md-6 col-sm-6">
+					<div class="placeholder-slide"></div>
+					<%= text_field_tag "measurements[contact_phone]", nil, placeholder: "PHONE", class: "phone-number moving-placeholder"  %>
+				</div>
+			</div>
+
+			<div class="measurement-response-message"></div>
+		</div>
+		<div class="panel-group" id="accordion">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="arrow-down">
+							Suit Size
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden suit-size"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseTwo" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/fit/classic.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Customarily, what is your suit size? Slim Fit is a little more tailored, while the Classic Fit provides more room through the seat and thighs</p>
+								<!-- suit size -->
+								<!-- <input type="hidden" name="id" value="<%# @measurement.id %>" id="measurement_id"> -->
+								
+								<%= label_tag "suit_size" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "suit_size", options_for_select( @suit_sizes ), class: "measurement-form-field" %>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="arrow-down">
+							Chest Overarm
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden chest-overarm"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseThree" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-3">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/chest_overarm.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">With arms at side, place tape around the broadest part of the chest and shoulders.</p>
+								<!-- chest overarm -->
+								
+								<%= label_tag "chest_overarm" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= number_field_tag "chest_overarm", '', class: "measurement-form-field" %><p class="metric"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="arrow-down">
+							Chest Underarm
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden chest-underarm"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseFour" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-3">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/chest-underarm.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">With arms outward, place the tape under the arms and around the broadest part of his chest. Lower arms to the side and relax. Tape should be snug, but you should be able to move freely with one finger between the body and the tape.</p>
+								<!-- chest underarm -->
+								
+								<%= label_tag "chest_underarm" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= number_field_tag "chest_underarm", '', class: "measurement-form-field"%><p class="metric"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFive" class="arrow-down">
+							Pants Waist
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden pants-waist"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseFive" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/pants-waist.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Place tape around the waist at the level of the navel. This is the height at which formal trousers should be worn. Make sure tape is snug but can move freely, as this should still be comfortable.</p>
+								<!-- pants waist -->
+								
+								<%= label_tag "pants_waist" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= number_field_tag "pants_waist", '', class: "measurement-form-field"%><p class="metric"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseSix" class="arrow-down">
+							Pants Hip
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden pants-hip"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseSix" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/pants_hips.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Place tap around the hips, making sure the tape is snug but can move freely.</p>
+								<!-- pants hip -->
+								
+								<%= label_tag "pants_hip" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= number_field_tag "pants_hip", '', class: "measurement-form-field"%><p class="metric"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseSeven" class="arrow-down">
+							Pants Outseam
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden pants-outseam"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseSeven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/pants_outseam.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Looking straight ahead, place the start of tape at the side of waist at the navel level. Stretch tape down side of length until you reach the top heel of the dress shoe.</p>
+								<!-- pants outseam -->
+								
+								<%= label_tag "pants_outseam" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= number_field_tag "pants_outseam", '', class: "measurement-form-field"%><p class="metric"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseEight" class="arrow-down">
+							Shirt Collar
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden shirt-collar"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseEight" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-3">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/shirt_collar.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Place tape around neck at the level the collar would be buttoned. Place one finger between the neck and make sure the tape is snug but moves freely.</p>
+								<!-- shirt collar -->
+								
+								<%= label_tag "shirt_collar" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "shirt_collar", options_for_select( @shirt_collars ), { class: "measurement-form-field" } %><p class="metric select"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseNine" class="arrow-down">
+							Shirt Sleeve
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden shirt-sleeve"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseNine" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/shirt-sleeve.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">Looking straight ahead and keeping arms at your side, place the start of the tape at the base of the neck, at the center of the spine. Move tape over the top of the shoulder and down the arm, just below the wrist bone. Round measurement to closest inch mark.</p>
+								<!-- shirt sleeve -->
+								
+								<%= label_tag "shirt_sleeve" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "shirt_sleeve", options_for_select( @shirt_sleeves ), { class: "measurement-form-field" } %><p class="metric select"> IN.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTen" class="arrow-down">
+							Shoe Size
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden shoe-size"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseTen" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-3">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/shoes.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">What is your shoe size?</p>
+								<!-- shoe size -->
+								
+								<%= label_tag "shoe_size" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "shoe_size", options_for_select( @shoe_sizes ), { class: "measurement-form-field" } %>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseEleven" class="arrow-down">
+							Height
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden height-feet"></span><span class="entry hidden height-inches"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseEleven" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/height.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">What is your height?</p>
+								<!-- height -->
+								
+								<div class="no-pad-left col-lg-6 col-md-6 col-sm-6 col-xs-6">
+									<%= label_tag "height_feet", "Height (feet)" %><br>
+									<!-- <div class="message-wrapper"></div> -->
+									<%= select_tag "height_feet", options_for_select( (3..8).to_a.map(&:to_i) ), { class: "measurement-form-field" } %><p class="metric height">FT.</p>
+								</div>
+								<div class="no-pad-left col-lg-6 col-md-6 col-sm-6 col-xs-6 no-pad-right">
+									<%= label_tag "height_inches", "Height (inches)" %><br>
+									<!-- <div class="message-wrapper"></div> -->
+									<%= select_tag "height_inches", options_for_select( (0..11).to_a.map(&:to_i) ), { class: "measurement-form-field" } %><p class="metric height"> IN.</p>
+								</div>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwelve" class="arrow-down">
+							Weight
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden weight"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseTwelve" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%= image_tag('spree/frontend/measure/weight.svg', :alt => '', class: '') %>
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">What is your weight?</p>
+								<!-- weight -->
+								
+								<%= label_tag "weight" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= text_field_tag "weight", '', class: "measurement-form-field weight-field"%><p class="metric weight">LBS.</p>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseThirteen" class="arrow-down">
+							Fit Preference
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden fit-preference"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseThirteen" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-2 col-md-offset-4">
+								<div class="measure-img">
+									<%# image_tag('spree/frontend/measure/fit/classic.svg', :alt => '', class: '') %>
+									<img class="classic">
+								</div>
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">How would you like your suit or tux to fit? Slim Fit is more tailored, while the Classic Fit provides more room through the seat and thighs. Looking for something in between? Try our Modern Fit.</p>
+								<!-- fit -->
+								
+								<%= label_tag "fit_preference" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "fit_preference", options_for_select( @fit_preferences ), { class: "measurement-form-field" } %>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="panel panel-default the-last">
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						<a data-toggle="collapse" data-parent="#accordion" href="#collapseFourteen" class="arrow-down">
+							Body Type
+							<span class="confirmed hidden"><%= image_tag('spree/frontend/byt/checkmark.png') %></span>
+							<span class="entry hidden body-type"></span>
+						</a>
+					</h3>
+				</div>
+				<div id="collapseFourteen" class="panel-collapse collapse">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-md-3 col-md-offset-3">
+								<div class="measure-img">
+									<%# image_tag('spree/frontend/measure/body/muscular.svg', :alt => '', class: '') %>
+									<% if @user && @user.measurement && @user.measurement.body_type.present? %>
+										<img class="<%= @user.measurement.body_type.downcase %>">
+									<% else %>
+										<img class="muscular">
+									<% end %>	
+								</div>
+								
+							</div>
+							<div class="col-md-3 col-md-offset-3">
+								<p class="body-style-1">What would you consider your body type?</p>
+								<!-- body_type -->
+								
+								<%= label_tag "body_type" %><br>
+								<!-- <div class="message-wrapper"></div> -->
+								<%= select_tag "body_type", options_for_select( @body_types ), class: "measurement-form-field form-control", id: "bodyType" %>
+								
+								<div class="measurement-response-message"></div>
+								<%= submit_tag "Set", class: "button-primary oot-set-measurements", data: { :disable_with => 'Please wait..'} %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<%= submit_tag "Submit Measurements", class: "button-primary oot-submit right form-submit-button", data: { :disable_with => 'Please wait..'} %>
+		<div class="showbox hidden" style="position: relative">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

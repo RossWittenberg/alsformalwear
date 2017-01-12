@@ -1,0 +1,309 @@
+<% @url = request.original_url %>
+
+<% if ( @url.include? "/byt" ) && (@url.exclude? "keyword") %>
+
+  <% if @other_contents.find_by_description "byt-page-title" %>
+    <% title = @other_contents.find_by_description("byt-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Build Your Tuxedo" %>
+  <% end %>
+  <% if @other_contents.find_by_description "byt-page-description" %>
+    <% description = @other_contents.find_by_description("byt-page-description").text %>
+  <% else %>
+    <% description = "Build your tuxedo for your next prom, wedding, quinceanera, or other special occasion." %>
+  <% end %>
+    <% if @other_contents.find_by_description "byt-page-keywords" %>
+    <% keywords = @other_contents.find_by_description("byt-page-keywords").text %>
+  <% else %>
+    <% keywords = "Build Your Tux, Al's Formal Wear BYT, Al's Formal Tuxedos" %>
+  <% end %>
+
+<% elsif ( @url.include? "about" ) && (@url.exclude? "keyword") %>
+
+  <% if @about_contents.find_by_description "about-page-title" %>
+    <% title = @about_contents.find_by_description("about-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - About Al's" %>
+  <% end %>
+  <% if @about_contents.find_by_description "about-page-description" %>
+    <% description = @about_contents.find_by_description("about-page-description").text %>
+  <% else %>
+    <% description = "Al's Formal Wear began in the Dallas area in 1952, and now has locations in Oklahoma, Louisiana, Colorado, and Texas." %>
+  <% end %>
+    <% if @about_contents.find_by_description "about-page-keywords" %>
+    <% keywords = @about_contents.find_by_description("about-page-keywords").text %>
+  <% else %>
+    <% keywords = "About Al's Formal Wear, Tuxedo Texas, Houston Business, Al Sankary" %>
+  <% end %>
+
+<% elsif ( @url.include? "group-offers" ) && (@url.exclude? "keyword") %>
+  
+  <% if @group_offers_contents.find_by_description "group-offers-page-title" %>
+    <% title = @group_offers_contents.find_by_description("group-offers-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Group Offers for Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @group_offers_contents.find_by_description "group-offers-page-description" %>
+    <% description = @group_offers_contents.find_by_description("group-offers-page-description").text %>
+  <% else %>
+    <% description = "Check out our various group offers to learn how you can save money on your next formal look." %>
+  <% end %>
+    <% if @group_offers_contents.find_by_description "group-offers-page-keywords" %>
+    <% keywords = @group_offers_contents.find_by_description("group-offers-page-keywords").text %>
+  <% else %>
+    <% keywords = "Tuxedo Discount, Formal Wear Deals, Tuxedo Deals" %>
+  <% end %>
+
+<% elsif ( @url.include? "locations" ) && (@url.exclude? "keyword") %>
+
+  <% if @other_contents.find_by_description "locations-page-title" %>
+    <% title = @other_contents.find_by_description("locations-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Find Tuxedo & Suit Rental Locations" %>
+  <% end %>
+  <% if @other_contents.find_by_description "locations-page-description" %>
+    <% description = @other_contents.find_by_description("locations-page-description").text %>
+  <% else %>
+    <% description = "Find the nearest Al's Formal Wear location and make an appointment today!" %>
+  <% end %>
+    <% if @other_contents.find_by_description "locations-page-keywords" %>
+    <% keywords = @other_contents.find_by_description("locations-page-keywords").text %>
+  <% else %>
+    <% keywords = "al's formal wear locations, formal wear store, houston formal, texas formal wear store" %>
+  <% end %>
+
+<% elsif ( @url.include? "contact" ) && (@url.exclude? "keyword") %>
+
+  <% if @other_contents.find_by_description "contact-page-title" %>
+    <% title = @other_contents.find_by_description("contact-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Contact" %>
+  <% end %>
+  <% if @other_contents.find_by_description "contact-page-description" %>
+    <% description = @other_contents.find_by_description("contact-page-description").text %>
+  <% else %>
+    <% description = "Need to contact Al's Formal Wear? You can reach us by phone, email, or find your closest location" %>
+  <% end %>
+    <% if @other_contents.find_by_description "contact-page-keywords" %>
+    <% keywords = @other_contents.find_by_description("contact-page-keywords").text %>
+  <% else %>
+    <% keywords = "contact al's formal wear, als formal phone number, als formal customer service" %>
+  <% end %>
+
+<% elsif ( @url.include? "terms-and-privacy" ) && (@url.exclude? "keyword") %>
+
+  <% if @other_contents.find_by_description "terms-page-title" %>
+    <% title = @other_contents.find_by_description("terms-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Terms and Privacy" %>
+  <% end %>
+  <% if @other_contents.find_by_description "terms-page-description" %>
+    <% description = @other_contents.find_by_description("terms-page-description").text %>
+  <% else %>
+    <% description = "This Privacy Policy governs the manner in which Al's Formal Wear collects, uses, maintains and discloses information collected from users" %>
+  <% end %>
+    <% if @other_contents.find_by_description "terms-page-keywords" %>
+    <% keywords = @other_contents.find_by_description("terms-page-keywords").text %>
+  <% else %>
+    <% keywords = "terms and privacy agreement, privacy terms als formal" %>
+  <% end %>
+
+<% elsif ( @url.include? "/catalog/account" ) && (@url.exclude? "keyword") %>
+  
+  <% if @other_contents.find_by_description "account-page-title" %>
+    <% title = @other_contents.find_by_description("account-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Account" %>
+  <% end %>
+  <% if @other_contents.find_by_description "account-page-description" %>
+    <% description = @other_contents.find_by_description("account-page-description").text %>
+  <% else %>
+    <% description = "Create an Al's Formal Wear account and add your next special event and save your measurements for future use" %>
+  <% end %>
+    <% if @other_contents.find_by_description "account-page-keywords" %>
+    <% keywords = @other_contents.find_by_description("account-page-keywords").text %>
+  <% else %>
+    <% keywords = "als formal wear account" %>
+  <% end %>
+
+<% elsif ( @url.include? "/catalog/products?category=tuxedos" ) && (@url.exclude? "keyword") %>
+  
+  <title>Al's Formal Wear - Tuxedos</title>
+  <meta name="description" content="Check out our catalog of tuxedos from Al's Formal Wear.">
+  <meta name="keywords" content="als formal wear tuxedo, suit tuxedo, prom tux, doni barassi tux">
+
+<% elsif ( @url.include? "/catalog/products?category=suits" ) && (@url.exclude? "keyword") %>
+
+  <title>Al's Formal Wear - Suits</title>
+  <meta name="description" content="Need a suit for an upcoming event? Check out what we have available. ">
+  <meta name="keywords" content="formal suit, als formal wear suit, houstin suit rental">
+
+<% elsif ( @url.include? "/catalog/products?category=pants" ) && (@url.exclude? "keyword") %>
+  
+  <title>Al's Formal Wear - Pants</title>
+  <meta name="description" content="Need a pair of formal pants? Check out what you can find from Al's Formal Wear.">
+  <meta name="keywords" content="formal pants, suit pant, formal pant rental">
+
+<% elsif ( @url.include? "/catalog/products?category=vests" ) && (@url.exclude? "keyword") %>
+  <title>Al's Formal Wear - Vests</title>
+  <meta name="description" content="Check out our wide variety of vest offerings.">
+  <meta name="keywords" content="tuxedo vest, prom vest, wedding vest, rental vest houston">
+
+<% elsif ( @url.include? "/catalog/products?category=cummerbunds" ) && (@url.exclude? "keyword") %>
+  <title>Al's Formal Wear - Cummerbunds</title>
+  <meta name="description" content="Check out our catalog of cummerbunds, perfect for your next formal event.">
+  <meta name="keywords" content="cummerbund, formal cummerbund houston">
+
+<% elsif ( @url.include? "/catalog/products?category=shirts" ) && (@url.exclude? "keyword") %>
+
+  <title>Al's Formal Wear - Shirts</title>
+  <meta name="description" content="Al's Formal Wear can provide you with the shirt you need for your next formal event.">
+  <meta name="keywords" content="formal shirts, tuxedo shirt, suit shirt, prom shirt">
+
+<% elsif ( @url.include? "/catalog/products?category=ties" ) && (@url.exclude? "keyword") %>
+
+  <title>Al's Formal Wear - Ties</title>
+  <meta name="description" content="Need a cerain color tie? Check out our wide variety of bow and four-in-hand ties.">
+  <meta name="keywords" content="prom tie, bow tie, four in hand tie, camo bowtie">
+
+<% elsif ( @url.include? "/catalog/products?category=shoes" ) && (@url.exclude? "keyword") %>
+
+  <title>Al's Formal Wear - Shoes</title>
+  <meta name="description" content="Al's Formal Wear offers the option to rent formal shoes for your next event.">
+  <meta name="keywords" content="formal shoes, prom shoes, als shoes">
+
+<% elsif ( @url.include? "/catalog/products?category=studs-and-links" ) && (@url.exclude? "keyword") %>
+  
+  <title>Al's Formal Wear - Cufflinks</title>
+  <meta name="description" content="No formal look is complete without cufflinks and studs.">
+  <meta name="keywords" content="tuxedo accesories, cufflinks, formal studs">
+
+<% elsif ( @url.include? "/catalog/products" ) && (@url.exclude? "keyword") %>
+  
+  <%if @variant %>
+    <!-- INDIVIDUAL PRODUCT PAGE TITLE -->
+    <title>Al's Formal Wear - <%= "#{@variant.product.designer.split.map(&:capitalize).join(' ')} #{@variant.product.name}"  %></title>
+    <meta name="description" content=<%="#{@variant.meta_description}"%> >
+    <meta name="keywords" content=<%="#{@variant.meta_keywords}"%> >
+  <% else %>
+    <!-- MAIN CATALOG PAGE TITLE -->
+    <title>Al's Formal Wear - Tuxedo Rental Catalog</title>
+    <meta name="description" content="Check out our catalog of great Formal Wear, including tuxedos, vests, ties, and other accessories!">
+    <meta name="keywords" content="als formal wear products, texas flag formal wear">
+  <% end %>
+
+<% elsif ( @url.include? "/wedding" ) && (@url.exclude? "keyword") %>
+
+  <% if @wedding_contents.find_by_description "wedding-page-title" %>
+    <% title = @wedding_contents.find_by_description("wedding-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Wedding Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @wedding_contents.find_by_description "wedding-page-description" %>
+    <% description = @wedding_contents.find_by_description("wedding-page-description").text %>
+  <% else %>
+    <% description = "Engaged? Check out how Al's Formal Wear can help you prepare for the big day." %>
+  <% end %>
+  <% if @wedding_contents.find_by_description "wedding-page-keywords" %>
+    <% keywords = @wedding_contents.find_by_description("wedding-page-keywords").text %>
+  <% else %>
+    <% keywords = "wedding, als formal wear wedding, wedding tuxedo, destination wedding" %>
+  <% end %>
+
+<% elsif ( @url.include? "/prom" ) && (@url.exclude? "keyword") %>
+
+  <% if @prom_contents.find_by_description "prom-page-title" %>
+    <% title = @prom_contents.find_by_description("prom-page-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Prom Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @prom_contents.find_by_description "prom-page-description" %>
+    <% description = @prom_contents.find_by_description("prom-page-description").text %>
+  <% else %>
+    <% description = "Al's Formal Wear has everything you need for you to look and feel your best at Prom." %>
+  <% end %>
+  <% if @prom_contents.find_by_description "prom-page-keywords" %>
+    <% keywords = @prom_contents.find_by_description("prom-page-keywords").text %>
+  <% else %>
+    <% keywords = "prom tux, junior prom, senior prom, formal prom tuxedo" %>
+  <% end %>
+
+<% elsif ( @url.include? "/social" ) && (@url.exclude? "keyword") %>
+  <% if @social_event_contents.find_by_description "social-event-title" %>
+    <% title = @social_event_contents.find_by_description("social-event-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Social Event Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @social_event_contents.find_by_description "social-event-description" %>
+    <% description = @social_event_contents.find_by_description("social-event-description").text %>
+  <% else %>
+    <% description = "Al's Formal Wear can outfit your next special event." %>
+  <% end %>
+  <% if @social_event_contents.find_by_description "social-event-keywords" %>
+    <% keywords = @social_event_contents.find_by_description("social-event-keywords").text %>
+  <% else %>
+    <% keywords = "what to wear to a wedding, formal suit" %>
+  <% end %>
+
+<% elsif ( @url.include? "/quinceanera") && (@url.exclude? "keyword") %>
+
+  <% if @quinceanera_contents.find_by_description "quinceanera-title" %>
+    <% title = @quinceanera_contents.find_by_description("quinceanera-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Quinceanera for Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @quinceanera_contents.find_by_description "quinceanera-description" %>
+    <% description = @quinceanera_contents.find_by_description("quinceanera-description").text %>
+  <% else %>
+    <% description = "Al's Formal Wear has everything you need for you to look and feel your best at your next Quinceanera." %>
+  <% end %>
+  <% if @quinceanera_contents.find_by_description "quinceanera-keywords" %>
+    <% keywords = @quinceanera_contents.find_by_description("quinceanera-keywords").text %>
+  <% else %>
+    <% keywords = "quince tux, quinceanera tuxedo houston" %>
+  <% end %>
+
+<% elsif ( @url.include? "/measurements") && (@url.exclude? "keyword") %>
+
+  <% if @other_contents.find_by_description "measurements-title" %>
+    <% title = @other_contents.find_by_description("measurements-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear - Measurements for Tuxedo & Suit Rentals" %>
+  <% end %>
+  <% if @other_contents.find_by_description "measurements-description" %>
+    <% description = @other_contents.find_by_description("measurements-description").text %>
+  <% else %>
+    <% description = "Use our website to record your measurements for future formal occasions." %>
+  <% end %>
+  <% if @other_contents.find_by_description "measurements-keywords" %>
+    <% keywords = @other_contents.find_by_description("measurements-keywords").text %>
+  <% else %>
+    <% keywords = "save your tux measurements, how to measure yourself for a tux" %>
+  <% end %>
+
+<% elsif ( @url.include? "/" ) && (@url.exclude? "keyword") %>
+
+  <% if @home_contents.find_by_description "home-title" %>
+    <% title = @home_contents.find_by_description("home-title").text %>
+  <% else %>
+    <% title = "Al's Formal Wear" %>
+  <% end %>
+  <% if @home_contents.find_by_description "home-description" %>
+    <% description = @home_contents.find_by_description("home-description").text %>
+  <% else %>
+    <% description = "Look Great. Wonderful Memories." %>
+  <% end %>
+  <% if @home_contents.find_by_description "home-keywords" %>
+    <% keywords = @home_contents.find_by_description("home-keywords").text %>
+  <% else %>
+    <% keywords = "tuxedos formalwear" %>
+  <% end %>
+<% end %>
+
+<title><%= title || "Al's Formal Wear" %></title>
+<meta name="description" content='<%= "#{description}" || "Al's Formal Wear"%>' >
+<meta name="keywords" content='<%= "#{keywords}" || "tuxedo al's formal wear rental prom wedding"%>' >
+
+<!-- $(document).prop('title');
+$('meta[name=keywords]');
+$('meta[name=description]'); -->

@@ -1,0 +1,172 @@
+<div class="row social-event-text">
+  <div class="col-md-8">
+    <% if promFormText3 && promFormText3.text %>
+      <%= promFormText3.text.html_safe %>
+    <% else%>
+      <h3>Buy formal apparel for your band, orchestra, or other school group.</h3>
+    <% end %>
+    <% if @user %>
+      <a id="error-message-scroll"></a>
+      <div class="message-wrapper"></div>
+      
+      <div class="row social-event-form">
+        <%= form_tag('/catalog/search', remote: true, onsubmit: "_gaq.push(['_trackEvent', 'Landing Pages', 'New School Group Sales', 'Schools']);") do %>
+        <%= hidden_field_tag "form_type", "school group sales" %>
+        <%= hidden_field_tag "event[event_type]", "prom" %>
+        <%= (hidden_field_tag "event[id]", "") unless @school_events.present? %>
+        <%= hidden_field_tag "event[is_group]", false %>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>YOUR CONTACT INFORMATION</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[first_name]", @user.first_name || nil, placeholder: 'FIRST NAME', class: 'first_name school-group-sales-first-name moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[last_name]", @user.last_name || nil, placeholder: 'LAST NAME', class: 'last_name school-group-sales-last-name moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[street_address]", nil, placeholder: 'MAILING ADDRESS', class: "school-group-sales-street-address moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[city]", nil, placeholder: 'CITY', class: "school-group-sales-city moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="row state-zip">
+                <div class="col-md-6 col-sm-6">
+                  <%= select_tag "school_group_sale[state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'short-field measurement-form-field school-group-sales-state' %>
+                </div>
+                <div class="col-md-6 col-sm-6">
+                  <div class="placeholder-slide short-field"></div>
+                  <%= text_field_tag "school_group_sale[zip_code]", nil, placeholder: 'ZIPCODE', class: 'short-field school-group-sales-zip-code moving-placeholder' %>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[contact_phone]", @user.phone_number || nil, placeholder: 'PHONE', class: "phone-number school-group-sales-contanct-phone moving-placeholder" %>
+            </div>
+          </div>
+          <div class="col-md-12 col-sm-12">
+             <div class="col-md-6 col-sm-6">
+               <div class="placeholder-slide"></div>
+                <%= text_field_tag "school_group_sale[contact_email]", @user.email || nil, placeholder: 'EMAIL', class: "school-group-sales-contact-email moving-placeholder" %>
+             </div>
+          </div> 
+
+
+          <div class="col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>GROUP INFORMATION</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[budget]", nil, placeholder: 'BUDGET (approx)', class: "school-group-sales-budget moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[number_uniforms]", nil, placeholder: 'NUMBER OF UNIFORMS', class: "school-group-sales-number-uniform moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <%= text_field_tag "school_group_sale[deadline]", nil, placeholder: 'DEADLINE', class: "datepicker school-group-sales-deadline", readonly: true %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[school_district]", nil, placeholder: 'SCHOOL DISTRICT', class: "school-group-sales-school-district moving-placeholder" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[orgname]", nil, placeholder: 'SCHOOL NAME', class: "school-group-sales-orgname moving-placeholder" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "school_group_sale[school_type]", options_for_select( ['Private', 'Public', 'Other'] ), {class: 'school-group-sales-school-type measurement-form-field', prompt: 'SCHOOL TYPE' } %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "school_group_sale[school_level]", options_for_select( ['Elementary', 'Jr. High', 'High School', 'College', 'Other'] ), { class: 'school-group-sales-school-level measurement-form-field', prompt: 'SCHOOL LEVEL'} %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[teacher_name]", nil, placeholder: 'TEACHER NAME', class: 'school-group-sales-teacher-name moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "school_group_sale[group_type]", options_for_select( ['Band', 'Choir', 'Orchestra', 'Other'] ), { class: 'school-group-sales-group-type measurement-form-field', prompt: 'GROUP TYPE'} %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "school_group_sale[uniform_type]", options_for_select( ['Tuxedo', 'Dress', 'Other'] ), {class: ' school-group-sales-uniform-type measurement-form-field', prompt: 'UNIFORM TYPE'} %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[group_type_explain]", nil, placeholder: 'IF OTHER PLEASE EXPLAIN', class: 'moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "school_group_sale[uniform_explain]", nil, placeholder: 'IF OTHER PLEASE EXPLAIN', class: 'moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_area_tag "school_group_sale[accessories]", nil, placeholder: 'SPECIAL ACCESSORIES', class: 'moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_area_tag "school_group_sale[special_needs]", nil, placeholder: 'SPECIAL NEEDS', class: 'moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <button type="button" class='button-primary school-group-sales-submit-button'>SIGN UP</button>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="col-md-12 login-button-wrapper">
+        <p>Please login to view details.</p>
+        <%= link_to(spree.login_path( { after_login_redirect: "prom/#school-group" }), class: "btn button-primary login") do%>LOGIN / SIGN UP<% end %>
+      </div>
+    <% end %>
+    <div class="occasion-showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

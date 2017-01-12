@@ -1,0 +1,151 @@
+<div class="container">
+  <%= breadcrumbs(@taxon) %>
+  <% cache [I18n.locale, current_currency, @variant] do %>
+    <div class="row" data-hook="product_show" itemscope itemtype="http://schema.org/Product">
+      <% @body_id = 'product-details' %>
+      <p class="policy-text breadcrumb"><a href="/catalog">EXPLORE COLLECTION</a>&nbsp;&raquo;&nbsp;<%= link_to(@variant.category_value.upcase, "/catalog/products?category=#{@variant.category_value.downcase}") %></p>
+      <div id="fitModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <%= render partial: "spree/shared/measurement_guide" %>
+        </div>
+      </div>
+
+      <div class="main-product-wrapper">
+        <div class="columns six alpha image-container col-md-8 col-sm-8" data-hook="product_left_part">
+        <div class="showbox hidden product-page">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+        </div>
+          <div class="row image-row" data-hook="product_left_part_wrap">
+            <div class="main-image-wrapper" data-hook="product_images">
+              <div class="main-image" data-hook>
+                <% if @user && @user_favorites_array.present? %>
+                  <% if @user_favorites_array.include?(@variant.id) %>
+                    <span id="<%= @variant.id %>" data-favorite="true" class="individual-product heart-wrapper heart-<%= @variant.id %> favorite-heart red-heart"></span>
+                    <span id="<%= @variant.id %>" data-favorite="false" class="individual-product hidden heart-wrapper heart-<%= @variant.id %> favorite-heart grey-heart"></span>
+                  <% else %>
+                    <span id="<%= @variant.id %>" data-favorite="true" class="individual-product hidden heart-wrapper heart-<%= @variant.id %> favorite-heart red-heart"></span>
+                    <span id="<%= @variant.id %>" data-favorite="false" class="individual-product heart-wrapper heart-<%= @variant.id %> favorite-heart grey-heart"></span>
+                  <% end %>
+                <% end %>
+                <div class="hidden-sm hidden-xs">  
+                  <% if @variant.images && @variant.images.count > 1 %>
+                    <ul class="bxslider">
+                      <% @variant.images.each_with_index do |image, i| %>
+                        <li id="product-image-slide-<%= i + 1 %>" style='<%= "background-image: url(#{image.attachment(:full)}) !important;"%>' alt="<%= image.alt%>" ></li>
+                      <% end %>
+                    </ul>
+                  <% else %>
+                    <%= image_tag( @variant.display_image.attachment(:full), alt: @variant.image_alt )%>
+                  <% end %>
+                </div>
+                <div class="hidden-md hidden-lg"> 
+                    <%= image_tag( @variant.display_image.attachment(:full), alt: @variant.image_alt )%>
+                </div>  
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="columns ten omega description-container col-md-4 col-sm-4" data-hook="product_right_part">
+          <div class="row" data-hook="product_right_part_wrap">
+
+            <div id="product-description" data-hook="product_description">
+              <h2 class="product-designer"><%= @product.designer.upcase if @product.designer %></h2>
+              <h3 class="product-title body-style-1" itemprop="name"><%= @product.name %></h3>
+              <% unless @variant.sku.blank? %>
+                <p class="style-number">Style No. <%= @variant.sku %></p>
+              <% end %>
+              <p class="description"><%= product_description(@product) rescue Spree.t(:product_has_no_description) %></p>
+              
+              <div data-toggle="modal" data-target="#fitModal"><p class="body-style-2 select-headline">MEASUREMENT &amp; FIT</p></div>
+              <br>
+
+              <% unless @product_size_for_select.blank? %>
+                <select class="select-fit measurement-form-field">
+                  <option selected disabled class="select-header">Select Fit</option>
+                  <% @product_variants_for_select.each do |v| %>
+                    <option></option>
+                  <% end %>
+                </select>
+              <% end %>
+
+              <% unless @product_variants_for_select.blank? %>
+                <select class="select-color measurement-form-field">
+                  <option <%if !@variant.id %>selected<% end %> disabled class="select-header">Select Color</option>
+                  <% @product_variants_for_select.each do |v| %>
+                    <option value="<%= v[:src] %>" data-variant="<%= v[:variant_id] %>" data-byt="<%= v[:byt?] %>" data-alt="<%= v[:alt] %>" <% if @variant.id === v[:variant_id] %>selected<% end %> ><%= v[:color].titleize if v[:color].present? %></option>
+                  <% end %>
+                </select>
+              <% end %>
+
+              <%# button_tag("RENT THIS TUX", class: "button-primary rent-tux") %>
+              <%# button_tag("BUY THIS TUX", class: "button-secondary buy-tux") %>
+              
+              <div class="byt-option-wrapper <%= 'hidden' unless @variant.is_byt? %>">
+                <h3 class="add-to-tux-header">BUILD YOUR TUX</h3>
+                <p class="description">Design your outfit with just a few clicks!</p>
+                <% if @variant.is_byt? %>
+                  <a href="<%= "/catalog/byt/?variant_id=#{@variant.id}&category=#{@variant.category_slug}" %>"><%= button_tag("ADD TO TUX", class: "button-secondary add-to-tux", data: {variant: @variant.id} ) %></a>
+                <% end %>
+              </div>
+
+              <%= render partial: "spree/shared/social" %>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<div class="thumbnail-block">
+  <% unless @similar.blank? %>
+    <h3 class="thumbnail-header">SIMILAR STYLES</h3>
+      <div class="row thumbnail-images-wrapper">
+      <% @similar.each do |item| %>
+        <a href=<%= "/catalog/products/#{item.product.slug}?variant_id=#{item.id}" %> >
+          <% if item.images.present? %>
+            <% image_url = item.images[0].attachment(:medium) %>
+          <% else %>
+            <% image_url = asset_url('spree/frontend/noimage.png') %>
+          <% end  %>
+          <div class="col-sm-3 thumb-content" style="background-image: url(<%= image_url %>);">
+            <div class="text-container">
+              <h4><%= item.product.designer.titleize if item.product.designer.present? %></h4>
+              <p><%= item.product.name.titleize %></p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+
+  <p class="thumbnail-divider">OR</p>
+  
+  <% unless @related.blank? %>
+    <h3 class="thumbnail-header">COMPLETE YOUR LOOK</h3>
+      <div class="row thumbnail-images-wrapper">
+      <% @related.each do |item| %>
+        <a href=<%= "/catalog/products/#{item.product.slug}?variant_id=#{item.id}" %> >
+          <% if item.images.present? %>
+            <% image_url = item.images[0].attachment(:medium) %>
+          <% else %>
+            <% image_url = asset_url('spree/frontend/noimage.png') %>
+          <% end  %>
+          <div class="col-sm-3 thumb-content" style="background-image: url(<%= image_path( image_url ) %>);">
+            <div class="text-container">
+              <h4><%= item.product.designer.titleize if item.product.designer.present? %></h4>
+              <p><%= item.product.name.titleize %></p>
+            </div>
+          </div>
+        </a>
+      <% end %>
+    </div>
+  <% end %>
+</div>

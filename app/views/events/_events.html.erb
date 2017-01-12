@@ -1,0 +1,259 @@
+<% if @events.present? %>	
+
+	<h2 class="hidden"><%= "#{@user.email}'s events:" %></h2>
+
+	<div class="accordion-event row">
+        <% @events.each_with_index do |event, i| %>
+          <div class="accordion-event-section">
+            <a class="hidden-sm hidden-xs accordion-event-section-title" href="#event-<%= i %>"><%= "#{event.event_name}" %> <span><%= event.date.strftime("%m/%d/%Y") %></span></a>
+            <a class="hidden-md hidden-lg hidden-xs accordion-event-section-title" href="#event-<%= i %>"><%= truncate("#{event.event_name}", length: 50) %> <span><%= event.date.strftime("%m/%d/%Y") %></span></a>
+            <a class="hidden-sm hidden-md hidden-lg accordion-event-section-title" href="#event-<%= i %>"><%= truncate("#{event.event_name}", length: 30) %> <span><%= event.date.strftime("%m/%d/%Y") %></span></a>
+            <div id="event-<%= i %>" class="accordion-event-section-content event-id-<%= "#{event.id}" %>">
+              <!-- FIRST COLUMN -->
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 no-pad">
+              	<div class="row event-details">
+                    <div class="col-md-4 col-sm-4 col-xs-4">
+                      <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                        <h4>DATE:</h4>
+                      </div>
+                      <% if event.role.present? %>
+                        <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                            <h4>ROLE:</h4>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                          <% if event.role = "groom" %>
+                            <h4>BRIDE:</h4>
+                          <% elsif event.role = "bride" %>
+                            <h4>GROOM:</h4>
+                          <% else %>
+                            <h4>BRIDE:</h4>
+                            <h4>GROOM:</h4>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 no-pad">
+                      
+                      <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                        <p class="body-style-1"><%= event.date.strftime("%m/%d/%Y") %></p>
+                      </div>
+                      <% if event.role.present? %>
+                        <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                          <p class="body-style-1"><%= event.role.titleize %></p>
+                        </div>
+                        <div class="col-md-12 col-sm-12 col-xs-12 no-pad">
+                          <% if event.role = "groom" %>
+                            <p class="body-style-1"><%= event.bride_first_name.titleize %> <%= event.bride_last_name.titleize %></p>
+                          <% elsif event.role = "bride" %>
+                            <p class="body-style-1"><%= event.groom_first_name.titleize %> <%= event.groom_last_name.titleize %></p>
+                          <% else %>
+                            <p class="body-style-1"><%= event.role.titleize %></p>
+                            <p class="body-style-1"><%= event.role.titleize %></p>
+                          <% end %>
+                        </div>
+                      <% end %>
+                    </div>
+                </div>
+
+                  <!-- CURRENT SHARE FEATURE -->
+                  <%# if event.has_look? %>
+                      <%# look_id = event.look_id || (event.look.id if event.look) || nil %>
+                      <!-- <div class="row share-area">
+                          <div class="col-md-12">
+                              <h6>SHARE THIS LOOK:</h6>
+                              <div class="social">
+                                <p class="share-text">SHARE<span>:</span></p>
+                                <div class="share-icons">
+                                  <div  class="addthis_sharing_toolbox"
+                                        data-url="<%#
+                                            if !@variant.blank?
+                                              "www.alsformalwear.com/catalog/products/#{@variant.slug}?variant_id=#{@variant.id}"
+                                            else
+                                              "www.alsformalwear.com/catalog/byt?look_id=#{look_id}"
+                                            end
+                                        %>"
+                                        data-title="Al's Formal Wear - Look Great. Wonderful Memories." 
+                                        data-media="<%# @variant.display_image.attachment(:full) if !@variant.blank? %>">
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                      </div> -->
+                  <%# end %>
+
+                  <!-- APPOINTMENT - NEW -->
+                  <div class="col-md-12 col-sm-12 col-xs-12 account-apt no-pad">
+                    <div class="account-calendar" data-toggle="modal" data-target="#aptModal"><%= image_tag('spree/frontend/icons/calendar.svg', :alt => 'Make Appointment', class: '') %></div>
+                    <div class="account-apt-text" data-toggle="modal" data-target="#aptModal"><h4>Make an Appointment</h4></div>
+                  </div>
+                  <!-- EDIT/DELETE -->
+                  <div class="edit-info-wrapper">
+                    <p class="body-style-2 edit-info text-right"><% link_to "Edit", main_app.edit_event_path(event) %></p>
+                    <!-- <p class="body-style-2 edit-info text-right"><%# link_to "Delete", "/events/#{event.id}", method: :delete %></p> -->
+                  </div>
+              </div>
+
+              <!-- SECOND COLUMN -->
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 look-desc no-pad">
+                  <% look_id = event.look_id || (event.look.id if event.look) || nil %>
+                  <h3 class="subHead">Your Look</h3>
+              	<% if event.has_look? %>
+
+                  <% if event.look.products.present? %>
+                      <% included_products = event.look.products.keys %>                    
+                      <% if included_products.include? "coatandpants" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "COAT & PANTS:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["coatandpants"] %>
+                          <p class="body-style-1"><%= "#{event.look.coatandpants.designer.titleize} #{event.look.coatandpants.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <% if included_products.include? "vestandcummerbund" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "VEST/ CUMMERBUND:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["vestandcummerbund"] %>
+                          <p class="body-style-1"><%= "#{event.look.vestandcummerbund.designer.titleize} #{event.look.vestandcummerbund.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <% if included_products.include? "shirt" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "SHIRT:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["shirt"] %>
+                          <p class="body-style-1"><%= "#{event.look.shirt.designer.titleize} #{event.look.shirt.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <% if included_products.include? "tie" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "TIE:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["tie"] %>
+                          <p class="body-style-1"><%= "#{event.look.tie.designer.titleize} #{event.look.tie.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <% if included_products.include? "shoes" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "SHOES:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["shoes"] %>
+                          <p class="body-style-1"><%= "#{event.look.shoe.designer.titleize} #{event.look.shoe.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <% if included_products.include? "accessories" %>
+                        <div class="look-desc-wrapper">
+                          <h4><%= "ACCESSORIES:" %></h4>
+                          <% variant = Spree::Variant.find event.look.products["accessories"] %>
+                          <p class="body-style-1"><%= "#{event.look.accessories.designer.titleize} #{event.look.accessories.name}" %></p>
+                          <p class="body-style-1">Style No.<%= " #{variant.sku}" || "N/A" %></p>
+                        </div>  
+                      <% end %>
+                      <div class="clearfix"></div>
+                      <%= link_to "View your look", "/catalog/byt?event_id=#{event.id}&look_id=#{look_id}", :class => "btnLink button-primary" %><br>
+                      <%= link_to "/events/print?look_id=#{event.look.id}" do %>
+                        <%= image_tag('spree/frontend/icons/printer.svg', :alt => 'printer icon', class: '') %> <h4 style="display: inline-block; margin-left: 20px;">Print Your Look</h4>
+                      <% end %>
+                  <% else %>
+                      <% look_id.present? ? look_id_param = "&look_id=#{look_id}" : look_id_param = "" %>
+                      <%= link_to "Add a Look to your event", "/catalog/byt?event_id=#{event.id}#{look_id_param}", :class => "btnLink button-primary" %><br>
+                  <% end %>
+
+
+
+
+              	<% else %>
+
+                	<%= link_to "Add a Look to your event", "/catalog/byt?event_id=#{event.id}&look_id=#{look_id}", :class => "btnLink button-primary" %><br>
+
+              	<% end %>
+              </div>
+
+              <!-- THIRD COLUMN -->
+              <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 account-offer-wrapper no-pad">
+                <!-- IS GROUP? -->
+                <% if event.is_group? %>
+
+                  
+                  <% if (event.event_type == "prom_formal") || (event.event_type == "prom")%>
+                    <% if event.school_fundraiser? %>
+                      <h3>School Fundraiser</h3>
+                      <p class="body-style-1">Share this code with your friends:</p>
+                      <h2><%= event.group_code.number %></h2>
+                    <% elsif event.prom_rep %>
+                      <h3>Prom Rep</h3>
+                      <p class="body-style-1">Share this code with your friends:</p>
+                      <h2><%= event.group_code.number %></h2>
+                    <% end %>
+
+                  <% elsif (event.event_type == "social event") || (event.event_type == "social_event") %>
+                    <h3>Social Event Fundraising</h3>
+                    <p class="body-style-1">Share this code with your friends:</p>
+                    <h2><%= event.group_code.number %></h2>
+
+                  <% elsif (event.event_type == "wedding") %>
+                    <h3>Wedding Sweepstakes</h3>
+                    <p class="body-style-1">Share this code with your friends:</p>
+                    <h2><%= event.group_code.number %></h2>
+                  <% end %>
+
+                <!-- IF NOT IS GROUP -->
+                <% else %>
+
+                  <% if (event.event_type == "prom_formal") || (event.event_type == "prom")%>
+                    <h3>View Our Prom Offers</h3>
+                    <p class="body-style-1">Get money for your school or yourself when your friends use your group code to rent a tux!</p>
+                    <a href="/prom/#form-top"><button class="button-primary">View Offers</button></a>
+
+                  <% elsif (event.event_type == "social event") || (event.event_type == "social_event") %>
+                    <h3>Join our Social Event Fundraising Program</h3>
+                    <p class="body-style-1">Get $5 for your organization for every tuxedo rented using your group code!</p>
+                    <a href="/social-event/#social-fund"><button class="button-primary">Join Now</button></a>
+
+                  <% elsif event.event_type == "wedding" %>
+                    <h3>Outfit your Wedding Party & Save Money!</h3>
+                    <p class="body-style-1">Watch your Custom Discount grow as you describe your upcoming wedding.</p>
+                    <a href="/wedding/#form-top"><button class="button-primary">View Offers</button></a>
+
+                  <% elsif event.event_type == "quinceanera" %>
+                    <h3>Look Great. Save Money!</h3>
+                    <p class="body-style-1">Get your Al's Formal Wear discount coupon today.</p>
+                    <a href="/discount"><button class="button-primary">Get Discount</button></a>
+
+                  <% elsif event.event_type == "other" %>
+                    <h3>Look Great. Save Money!</h3>
+                    <p class="body-style-1">Get your Al's Formal Wear discount coupon today.</p>
+                    <a href="/discount"><button class="button-primary">Get Discount</button></a>
+
+                  <% end %>
+
+                <% end %>
+                
+                  
+              </div>
+              
+            </div>
+          </div>
+        <% end %>
+    </div>
+	
+	<div class="row btnWrapper">
+		<div class="col-md-3 col-md-offset-9">
+			<%= link_to "ADD NEW EVENT", main_app.new_event_path, :class => "btnLink button-primary right" %>
+		</div>
+	</div>
+<% else %>
+	<div class="row">
+		<h4>YOU HAVE NO UPCOMING EVENTS</h4>
+		<div class="col-md-3 col-md-offset-9">
+			<%= link_to "Create a new event", main_app.new_event_path, :class => "btnLink button-primary" %><br>
+		</div>
+	</div>
+<% end %>
+
+  
+                        
+
+
+
+

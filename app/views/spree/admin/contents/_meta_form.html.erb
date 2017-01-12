@@ -1,0 +1,12 @@
+<%= f.hidden_field :content_type, value: "meta-data" %>
+<div class="no-pad col-md-12 col-lg-12">
+	<div class="col-md-6 col-lg-6 no-pad">
+	  <%= f.label "Text Format" %>:<br />
+	  <p><%= @content.html ? "HTML" : "Plain Text" %></p>
+	</div>  
+</div>
+<div class="no-pad col-md-12 col-lg-12">
+  <%= f.label :text %>:<br />
+  <%= f.text_field :text, size: '80' %>
+</div>
+<br /><br />

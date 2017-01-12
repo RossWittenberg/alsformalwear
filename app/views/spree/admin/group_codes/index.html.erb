@@ -1,0 +1,24 @@
+<div class="container content-breadcrumb">
+	<a href="/catalog/admin/contents"><i class="fa fa-arrow-left"></i> Back to Content Dashboard</a>
+</div>
+<div class="col-md-12 col-sm-12">
+  <div class="no-pad col-lg-12 col-md-12">
+    <p id="selected-location-text"></p>
+  </div>  
+
+  <div class="no-pad-left col-lg-4 col-md-4">
+  	<%= label_tag 'Select Location'%><br>
+    <%= select_tag "location_id", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "Select a Location", class: 'event_location_id measurement-form-field group-code-location-id' %>
+  </div>
+  <div class="col-md-3 col-sm-3 left">
+  	<%= label_tag 'Starting Number'%><br>
+  	<%= text_field_tag 'starting_number'%>
+  </div>
+  <div class="col-md-3 col-lg-3">
+  	<%= label_tag 'Ending Number'%><br>
+  	<%= text_field_tag 'ending_number'%>
+  </div>
+  <div class="col-md-2 col-sm-2 right ">
+  	<button type="button" class="button cms-button group-code-button">Add New Codes</button>
+  </div>
+</div>

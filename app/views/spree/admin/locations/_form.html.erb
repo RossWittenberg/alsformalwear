@@ -1,0 +1,346 @@
+<div class="no-pad col-md-12 col-lg-12">
+	<br>
+	<br>
+	<h4 class="cms-subheader">General Information</h4>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :store_num %><br>
+		<%= f.text_field :store_num, class: "location-cms-form" %> 
+	</div>	
+	<div class="col-lg-6 col-md-6">
+		<%= f.label :store_name %><br>
+		<%= f.text_field :store_name, class: "location-cms-form" %>
+	</div>
+		<div class="col-lg-2 col-md-2">
+		<%= f.label :shorthand %><br>
+		<%= f.text_field :shorthand, class: "location-cms-form" %>  
+	</div>
+	<br>
+	<br>
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+	<h4 class="cms-subheader">Location</h4>
+	<% if @location && @location.longitude %>
+		<div class="col-md-12 col-lg-12 location-map-container">
+			<div class="location-map"></div>  
+    		<div class="location-marker" data-lat="<%=@location.latitude%>" data-lng="<%= @location.longitude%>"> </div>
+			</div>
+		</div>
+	<% end %>
+	<div class="col-lg-6 col-md-6">
+		<%= f.label :street_address %><br>
+		<%= f.text_field :street_address, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :city %><br>
+		<%= f.text_field :city, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-2 col-md-2">
+		<%= f.label :state %><br>
+    <%= f.select :state, options_from_collection_for_select(@states, 'abbr', 'abbr', (@location.state || "tx") ), prompt: "STATE", class: 'location-cms-form measurement-form-field event_state' %> 
+	</div>	
+	<div class="col-lg-2 col-md-2 clear-both">
+		<%= f.label :zip_code %><br>
+		<%= f.text_field :zip_code, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :phone_number %><br>
+		<%= f.text_field :phone_number, class: "location-cms-form" %>  
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :email %><br>
+		<%= f.text_field :email, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-2 col-md-2">
+		<%= f.label :latitude %><br>
+		<%= f.text_field :latitude, class: "location-cms-form" %>
+	</div>	
+	<div class="col-lg-2 col-md-2">
+		<%= f.label :longitude %><br>
+		<%= f.text_field :longitude, class: "location-cms-form" %>
+	</div>
+		<div class="col-lg-6 col-md-6">
+		<%= f.label :google_url %><br>
+		<%= f.text_field :google_url, class: "location-cms-form" %>  
+	</div>
+		<div class="col-lg-6 col-md-6">
+		<%= f.label :apple_url %><br>
+		<%= f.text_field :apple_url, class: "location-cms-form" %>
+	</div>	
+	<br>
+	<br>
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+	<h4 class="clear-both cms-subheader">Managers</h4>		
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :manager %><br>
+		<%= f.text_field :manager, class: "location-cms-form" %>  
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :manager_email %><br>
+		<%= f.text_field :manager_email, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :dist_manager %><br>
+		<%= f.text_field :dist_manager, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :district_manager_email %><br>
+		<%= f.text_field :district_manager_email, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :regional_district_manager_email %><br>
+		<%= f.text_field :regional_district_manager_email, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :area_manager_email %><br>
+		<%= f.text_field :area_manager_email, class: "location-cms-form" %>  
+	</div>	
+	<br>
+	<br>
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+	<h4 class="clear-both cms-subheader">Hours (Use '99' for both 'open' and 'close' fields if closed)</h4>
+	<p class="clear-both cms-subheader">Monday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :mon_hours %><br>
+		<%= f.text_field :mon_hours, class: "location-cms-form" %>  
+	</div>
+		<div class="col-lg-4 col-md-4">
+		<%= f.label :mon_open, "mon open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :mon_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :mon_close, "mon close (24h time, 99 if closed)" %><br>
+		<%= f.text_field :mon_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Tuesday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :tues_hours %><br>
+		<%= f.text_field :tues_hours, class: "location-cms-form" %>  
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :tues_open, "tues open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :tues_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :tues_close, "tues close(24h time, 99 if closed)" %><br>
+		<%= f.text_field :tues_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Wednesday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :wed_hours %><br>
+		<%= f.text_field :wed_hours, class: "location-cms-form" %>  
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :wed_open, "wed open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :wed_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :wed_close, "wed close (24h time, 99 if closed)" %><br>
+		<%= f.text_field :wed_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Thursday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :thurs_hours %><br>
+		<%= f.text_field :thurs_hours, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :thurs_open, "thurs open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :thurs_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :thurs_close, "thus close(24h time, 99 if closed)" %><br>
+		<%= f.text_field :thurs_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Friday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :fri_hours %><br>
+		<%= f.text_field :fri_hours, class: "location-cms-form" %>  
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :fri_open, "fri open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :fri_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :fri_close, "fri close (24h time, 99 if closed)" %><br>
+		<%= f.text_field :fri_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Saturday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sat_hours %><br>
+		<%= f.text_field :sat_hours, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sat_open, "sat open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :sat_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sat_close, "sat close (24h time, 99 if closed)" %><br>
+		<%= f.text_field :sat_close, class: "location-cms-form" %>  
+	</div>
+	<p class="clear-both cms-subheader">Sunday</p>		
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sun_hours %><br>
+		<%= f.text_field :sun_hours, class: "location-cms-form" %>  
+	</div>			
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sun_open, "sun open (24h time, 99 if closed)" %><br>
+		<%= f.text_field :sun_open, class: "location-cms-form" %>  
+	</div>	
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :sun_close, "sun close (24h time, 99 if closed)" %><br>
+		<%= f.text_field :sun_close, class: "location-cms-form" %>  
+	</div>	
+</div>
+
+<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+	<h4 class="clear-both cms-subheader">Page Content</h4>
+		
+	<div class="col-md-8 col-lg-8">
+		<%= f.label :content_image_1 %>:<br />
+		<% if @location.content_image_1? %>	
+			<%= image_tag "#{@location.content_image_1.url(:original)}", width: '600px' %></td>
+		<% else %>
+			<p>No image has been uploaded.</p>
+		<% end %>
+	  <%= f.file_field :content_image_1 %><br>
+	</div>
+	<% if @location.content_image_1? %>	
+		<div class="no-pad col-md-4 col-lg-4">
+		  <label>Delete Image 1?</label>:<br />
+		  <%= check_box_tag :delete_content_image_1, true %>
+	  </div>
+	<% end %> 
+
+	<div class="col-md-8 col-lg-8">
+		<%= f.label :content_image_2 %>:<br />
+		<% if @location.content_image_2? %>	
+			<%= image_tag "#{@location.content_image_2.url(:original)}", width: '600px' %></td>
+		<% else %>
+			<p>No image has been uploaded.</p>
+		<% end %>
+	  <%= f.file_field :content_image_2 %><br>
+	</div>
+	<% if @location.content_image_2? %>	
+		<div class="no-pad col-md-4 col-lg-4">
+		  <label>Delete Image 2?</label>:<br />
+		  <%= check_box_tag :delete_content_image_2, true %>
+	  </div>
+	<% end %>  
+
+	<div class="col-md-8 col-lg-8">
+		<%= f.label :content_image_3 %>:<br />
+		<% if @location.content_image_3? %>	
+			<%= image_tag "#{@location.content_image_3.url(:original)}", width: '600px' %></td>
+		<% else %>
+			<p>No image has been uploaded.</p>
+		<% end %>
+	  <%= f.file_field :content_image_3 %><br>
+	</div>
+	<% if @location.content_image_3? %>	
+		<div class="col-md-4 col-lg-4">
+		  <label>Delete Image 3?</label>:<br />
+		  <%= check_box_tag :delete_content_image_3, true %>
+	  </div>
+	<% end %> 
+
+	<div class="col-md-8 col-lg-8">
+		<%= f.label :manager_image %>:<br />
+		<% if @location.manager_image? %>	
+			<%= image_tag "#{@location.manager_image.url(:original)}", width: '600px' %></td>
+		<% else %>
+			<p>No image has been uploaded.</p>
+		<% end %>
+	  <%= f.file_field :manager_image %><br>
+	</div>
+	<% if @location.manager_image? %>	
+		<div class="col-md-4 col-lg-4">
+		  <label>Delete Manager Image?</label>:<br />
+		  <%= check_box_tag :delete_manager_image, true %>
+	  </div>
+	<% end %> 
+
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+
+
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :tuxedos_service %><br>
+		<%= f.check_box :tuxedos_service, class: "location-cms-form" %><br>
+		<%= f.label :tuxedos_service_link %><br>
+		<%= f.text_field :tuxedos_service_link, class: "location-cms-form" %> 
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :suits_service %><br>
+		<%= f.check_box :suits_service, class: "location-cms-form" %> <br>
+		<%= f.label :suits_service_link %><br>
+		<%= f.text_field :suits_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :accessories_service %><br>
+		<%= f.check_box :accessories_service, class: "location-cms-form" %> <br>
+		<%= f.label :accessories_service_link %><br>
+		<%= f.text_field :accessories_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :photography_service %><br>
+		<%= f.check_box :photography_service, class: "location-cms-form" %> <br>
+		<%= f.label :photography_service_link %><br>
+		<%= f.text_field :photography_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :video_service %><br>
+		<%= f.check_box :video_service, class: "location-cms-form" %> <br>
+		<%= f.label :video_service_link %><br>
+		<%= f.text_field :video_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :dj_service %><br>
+		<%= f.check_box :dj_service, class: "location-cms-form" %> <br>
+		<%= f.label :dj_service_link %><br>
+		<%= f.text_field :dj_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :invitations_service %><br>
+		<%= f.check_box :invitations_service, class: "location-cms-form" %> <br>
+		<%= f.label :invitations_service_link %><br>
+		<%= f.text_field :invitations_service_link, class: "location-cms-form" %> <br>
+	</div>
+	<div class="col-lg-3 col-md-3">
+		<%= f.label :quinceanera_service %><br>
+		<%= f.check_box :quinceanera_service, class: "location-cms-form" %> <br>
+		<%= f.label :quinceanera_service_link %><br>
+		<%= f.text_field :quinceanera_service_link, class: "location-cms-form" %> <br>			
+	</div>		
+
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :event_content_block_1 %><br>
+		<%= f.text_area :event_content_block_1, class: "location-cms-form", rows: 15 %><br>
+		<%= f.label :event_link_text_1 %><br>
+		<%= f.text_field :event_link_text_1, class: "location-cms-form" %>   
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :event_content_block_2 %><br>
+		<%= f.text_area :event_content_block_2, class: "location-cms-form", rows: 15 %><br>
+		<%= f.label :event_link_text_2 %><br>
+		<%= f.text_field :event_link_text_2, class: "location-cms-form" %>   
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :event_content_block_3 %><br>
+		<%= f.text_area :event_content_block_3, class: "location-cms-form", rows: 15 %><br>
+		<%= f.label :event_link_text_3 %><br>
+		<%= f.text_field :event_link_text_3, class: "location-cms-form" %>   
+	</div>
+	
+	<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="height: 40px"></div>
+
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :manager_content_block %><br>
+		<%= f.text_field :manager_content_block, class: "location-cms-form" %> 
+	</div>
+	<div class="col-lg-4 col-md-4">
+		<%= f.label :spanish %><br>
+		<%= f.check_box :spanish, class: "location-cms-form" %> 
+	</div>
+
+
+</div>
+

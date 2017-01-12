@@ -1,0 +1,95 @@
+<div class="container discount-coupon-wrapper">
+  <div class="row discount-coupon-header">
+    <div class="col-md-12">
+      <%= image_tag 'spree/frontend/icons/group-offers.svg' %>
+      <h2>DISCOUNT COUPON</h2>
+      <p>Just submit the form below, then check your email for your coupon!</p>
+    </div>
+  </div>
+
+  <div class="row discount-coupon">
+    <div class="col-md-10 col-md-offset-1">
+      
+      <div class="message-wrapper"></div>
+      
+      <div class="row discount-coupon-form">
+        <%= form_tag ('/'), remote: true, class: "discount-form" do %>
+
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>YOUR CONTACT INFORMATION</h3>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "discount[first_name]", @user && @user.first_name || nil, placeholder: 'FIRST NAME', class: 'moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "discount[last_name]", @user && @user.last_name || nil, placeholder: 'LAST NAME', class: 'moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "discount[contact_email]", @user && @user.email || nil, placeholder: 'EMAIL ADDRESS', class: 'moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "discount[contact_phone]", @user && @user.phone_number || nil, placeholder: 'PHONE NUMBER', class: 'phone-number moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "discount[zip_code]", nil, placeholder: 'ZIPCODE', class: 'moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "discount[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'measurement-form-field prom-location-id' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <h3>EVENT INFORMATION</h3>
+            </div>
+          </div>
+  
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-6">
+              <%= text_field_tag "discount[date]", nil, placeholder: 'EVENT DATE', class: "datepicker" %>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <%= select_tag "discount[event_type]", options_for_select( @event_types ), class: "event-type-select measurement-form-field" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-3 col-sm-12">
+              <button type="button" class='discount-coupon-button button-primary discount-coupon-submit-button form-submit-button'>SUBMIT</button>
+            </div>
+             <!-- <div class="col-md-9 col-sm-12">
+              <%# check_box_tag 'accept_terms', 'yes', false, class: 'check-terms' %>
+              <p class="terms">I agree to the <a href="/terms-and-privacy">Privacy Policy</a> and additional conditions below.</p>
+            </div> -->
+          </div>
+        <% end %>
+        <div class="showbox hidden">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <p class="disclaim">NOTE: To receive discount, this coupon must be presented at time of purchase. Not redeemable for cash. No other discounts or promotions apply and cannot be combined with any other offer. Limit 1 per customer. The $40 Rental Discount may be used toward the rental of any tuxedo or suit at any Al's Formal Wear location. The rental must be ordered 7 days in advance of event, and the Basic Collection is not included. The 20% Retail Discount is applicable only towards in-stock merchandise for in-store retail items purchased. See store for details. Expires 06/30/2016. By clicking "Get Your Discount Card" button, you submit your information to Al's Formal Wear, who will use it to communicate with you regarding this discount and their other services.</p>
+
+    </div>
+  </div>
+</div>

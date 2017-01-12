@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="col-md-12 col-lg-12 no-pad">
+		<a href="/catalog/admin/colors"><i class="fa fa-arrow-left"></i> Colors Dashboard </a>
+	</div>
+	<div class="col-md-12 col-lg-12">
+			<% if @color.class == ChildColor %>
+				<%= form_for @color, url: admin_color_path do |f| %>
+			    <%= render :partial => 'spree/admin/colors/form', :locals => { :f => f, parent_color: @parent_colors, color: @color } %>
+			    <%= hidden_field_tag :als, true %>
+			    <p><%= f.submit Spree.t(:update), :class => 'button-primary admin-content' %></p>
+				<% end %>			
+			<% else %>
+				<%= form_for @color, url: admin_color_path do |f| %>
+			    <%= render :partial => 'spree/admin/colors/form', :locals => { :f => f, parent_color: @parent_colors, color: @color } %>
+			    <%= hidden_field_tag :als, false %>
+			    <p><%= f.submit Spree.t(:update), :class => 'button-primary admin-content' %></p>
+				<% end %>
+			<% end %>
+		</div>
+	</div>	
+</div>

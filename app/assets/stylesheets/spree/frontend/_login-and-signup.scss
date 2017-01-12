@@ -1,0 +1,249 @@
+@import 'colors';
+@import 'typography';
+@import 'global';
+@import 'mixins';
+
+
+
+
+.login-wrapper,
+.signup-wrapper {
+  margin: 0 auto;
+  width: 250px;
+
+  input {
+    width: 100%;
+
+    &.remember-me-checkbox {
+      width: 13px;
+		}
+  }
+}
+
+
+.signup-container {
+  margin: 0 auto 40px;
+  width: 462px;
+  @media screen and (max-width: $small-break) {
+    width: 300px;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+  form.new_spree_user {
+    margin: 20px auto 0;
+    width: 350px;
+
+    @media screen and (max-width: $small-break) {
+      width: 250px;
+    }
+
+    input,
+    select {
+      border: 1px solid $grey-light;
+      color: $black;
+      font-family: $serif-bold;
+      font-size: 14px;
+      margin: 10px 0;
+      text-transform: uppercase;
+      width: 100%;
+    } 
+    input[type="submit"] {
+      color: $white;
+      font-family: "AvantGardeMedium";
+    }
+  }
+}
+
+.login-signup-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.forgot-pw-link {
+  margin: -10px auto 10px;
+  width: 140px;
+}
+
+.login-signup-acknowledgement {
+  p {
+    color: $grey-dark;
+    font-family: 'SabonLT-Roman';
+    font-size: 9px;
+	}
+}
+
+.or-col {
+  height: 100%;
+  position: absolute;
+  right: 41%;
+  top: 0;
+}
+
+.or-outer-wrapper {
+  @include vertical-align();
+}
+
+.or-wrapper {
+  margin: 0 auto;
+  width: 106px;
+}
+
+.or-bar {
+  background-color: $grey-light;
+  display: inline-block;
+  height: 1px;
+  margin: 0 10px 4px;
+  width: 20px;
+}
+
+.username-field,
+.password-field {
+  margin-bottom: 20px;
+}
+
+.login-button {
+  margin-bottom: 12px;
+}
+
+.signup-button {
+ margin-bottom: 2px; 
+}
+
+.login-signup-container {
+  margin-bottom: 40px;
+  .placeholder-slide {
+    width: calc(100% - 20px);
+    height: 10px;
+    font-size: 10px;
+    font-family: 'Sabon-RomanOsF';
+    background-color: transparent;
+    display: inline-block;
+    margin: 0;
+    padding: 2px 0 0 16px;
+    position: absolute;
+    top: 0px;
+    @media(max-width: 1199px) {
+      padding: 0 0 0 16px;
+      top: 2px
+    }
+    @media(max-width: 767px) {
+      left: 50%;
+      max-width: 252px;
+      padding: 2px 0 0 7px;
+      text-align: left;
+      transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
+    }
+  }
+}
+
+.log-in,
+.sign-up {
+  margin-bottom: 20px;
+}
+
+.signup-col {
+  float: right;
+}
+
+@media screen and (max-width: $small-break) {
+  .login-col,
+  .signup-col {
+    float: none;
+    padding: 0;
+  }
+}
+
+.login-signup-outer-container {
+  @include cover-background('spree/frontend/login/login-signup-background.png', 50%, 50%, "scroll");
+  padding: 60px 0;
+  @media screen and (max-width: $small-break) {
+    background: none;
+  }
+
+}
+
+.signup-col {
+  margin-right: 8.3333%;
+  @media screen and (max-width: $small-break) {
+    margin-right: 0;
+  }
+}
+
+
+div {
+  form.form_to {
+    border-radius: 3px;
+    height: 40px;
+    text-align: center;
+    transition: background-color 0.3s ease-in-out;
+    input {
+      border: none;
+      border-radius: 3px;
+      height: 40px;
+      padding: 0;
+    }
+  }
+  form.facebook-button {
+    background-color: rgba(65,101,179,1);
+    border-radius: 3px;
+    height: 40px;
+    input {
+      background: asset_url('spree/frontend/social/fbwhite.svg');
+      background-repeat: no-repeat;
+      background-position: 80%;
+      background-size: auto 20px;
+      color: white;
+      padding-top: 5px;
+    }
+    &:hover {
+      background-color: rgba(65,101,179,0.8);
+    }
+  }
+
+  form.google-button {
+    background-color: rgba(223,74,50,1);
+    border-radius: 3px;
+    height: 40px;
+    input {
+      background: asset_url('spree/frontend/social/gpwhite.svg');
+      background-repeat: no-repeat;
+      background-position: 80%;
+      background-size: auto 20px;
+      color: white;
+      padding-top: 5px;
+    }
+    &:hover {
+      background-color: rgba(223,74,50,0.8);
+    }
+  }
+
+  form.twitter-button {
+    background-color: rgba(0,189,255,1);
+    border-radius: 3px;
+    height: 40px;
+    input {
+      background: asset_url('spree/frontend/social/twitterwhite.svg');
+      background-repeat: no-repeat;
+      background-position: 80%;
+      background-size: auto 20px;
+      color: white;
+      padding-top: 5px;
+    }
+    &:hover {
+      background-color: rgba(0,189,255,0.8);
+    }
+  }
+}
+
+.social-login-forms {
+  width: 100%;
+  margin-bottom: 12px;
+
+}

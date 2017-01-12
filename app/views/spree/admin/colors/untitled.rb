@@ -1,0 +1,1 @@
+new_competitor_color.html.erb

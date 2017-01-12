@@ -1,0 +1,126 @@
+<div class="leads-wrapper" id="wedding_discounts" >
+<table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>
+				<th>
+				<div class="inner-th-wrapper">
+					Name 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Email 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Phone Number
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Zip Code 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Event Type 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Date 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Prefered Location 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Best Man?
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Groomsmen 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Father of the Bride? 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Father of the Groom? 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Ringbearer? 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Ushers 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Attendants 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Discount Amount
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Dater Created 
+				</div>
+			</th>
+  		</tr>
+  	</thead>
+    <% @wedding_discounts.each_with_index do |wedding_discount, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td><%= wedding_discount.combined_name %></td>
+					<td><%= wedding_discount.contact_email || "Not Provided" %></td>
+					<td><%= wedding_discount.contact_phone || "Not Provided" %></td>
+					<td><%= wedding_discount.zip_code || "Not Provided" %></td>
+					<td><%= wedding_discount.modified_event_type || "Not Provided" %></td>
+					<td><%= wedding_discount.date && wedding_discount.date.strftime("%m/%d/%Y") || "Not Provided" %></td>
+					<td><%= wedding_discount.location && wedding_discount.location.store_name || "Not Provided" %></td>
+					<td><%= wedding_discount.best_man.to_s %></td>
+					<td><%= wedding_discount.groomsmen || "Not Provided"%></td>
+					<td><%= wedding_discount.fot_bride.to_s  %></td>
+					<td><%= wedding_discount.fot_groom.to_s  %></td>
+					<td><%= wedding_discount.ringbearer.to_s  %></td>
+					<td><%= wedding_discount.ushers || "Not Provided"%></td>
+					<td><%= wedding_discount.attendants || "Not Provided"%></td>
+					<td><%= "$#{wedding_discount.custom_discount}" || "Not Provided" %></td>
+					<td><%= wedding_discount.created_at && wedding_discount.created_at.strftime("%m/%d/%Y") || "Not Provided" %></td>
+					<!-- <td><%# button_to('Delete', "/discounts/#{wedding_discount.id}?tabtag=wedding_discounts", -->
+          method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>
+
+
+
+
+
+
+
+
+

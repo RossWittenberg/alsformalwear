@@ -1,0 +1,378 @@
+// @import url(https://fonts.googleapis.com/css?family=Raleway:400,800,700,600,500,300,200,100,900);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+   // // // // // // // // // // // // // //
+  // // // // // /FONT FACES:// // // // //
+ // // // // // // // // // // // // // //
+
+     // # # # # # # # # # # # # # # # //
+    // # # # # #AVANT GARDE: # # # # //
+   // # # # # # # # # # # # # # # # //
+
+//REGULAR//
+
+@font-face {
+  font-family: 'AvantGardeExtraLight';
+  src: font-url('AvantGarde-ExtraLight.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeBook';
+  src: font-url('AvantGarde-Book.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeMedium';
+  src: font-url('AvantGarde-Medium.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'AvantGardeDemi';
+  src: font-url('AvantGarde-Demi.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeBold';
+  src: font-url('AvantGarde-Bold.otf') format('truetype');
+  font-weight: bold;
+}
+
+//CONDENSED//
+
+@font-face {
+  font-family: 'AvantGardeCondensedBook';
+  src: font-url('AvantGarde-CondBook.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeCondensedMedium';
+  src: font-url('AvantGarde-CondMedium.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeCondensedDemi';
+  src: font-url('AvantGarde-CondDemi.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeCondensedBold';
+  src: font-url('AvantGarde-CondBold.otf') format('truetype');
+  font-weight: bold;
+}
+
+//ITALIC//
+
+@font-face {
+  font-family: 'AvantGardeExtraLightItalic';
+  src: font-url('AvantGarde-ExtraLightObl.otf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvantGardeBookItalic';
+  src: font-url('AvantGarde-BookOblique.otf') format('truetype');
+}
+
+@font-face {
+  font-family: 'AvantGardeMediumItalic';
+  src: font-url('AvantGarde-MediumObl.otf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvantGardeDemiItalic';
+  src: font-url('AvantGarde-DemiOblique.otf') format('truetype');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'AvantGardeBoldItalic';
+  src: font-url('AvantGarde-BoldObl.otf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+//AVANT GARDE - END//
+
+      // # # # # # # # # # # # # # # # //
+     // # # # # #   SABON:  # # # # # //
+    // # # # # # # # # # # # # # # # //
+
+@font-face {
+  font-family: 'SabonLT-Roman';
+  src: font-url('2FD286_0_0.eot');
+  src: font-url('2FD286_0_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_0_0.woff2') format('woff2'), font-url('2FD286_0_0.woff') format('woff'), font-url('2FD286_0_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon-BoldOsF';
+  src: font-url('2FD286_1_0.eot');
+  src: font-url('2FD286_1_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_1_0.woff2') format('woff2'), font-url('2FD286_1_0.woff') format('woff'), font-url('2FD286_1_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SabonLT-Italic';
+  src: font-url('2FD286_2_0.eot');
+  src: font-url('2FD286_2_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_2_0.woff2') format('woff2'), font-url('2FD286_2_0.woff') format('woff'), font-url('2FD286_2_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon-BoldItalicOsF';
+  src: font-url('2FD286_3_0.eot');
+  src: font-url('2FD286_3_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_3_0.woff2') format('woff2'), font-url('2FD286_3_0.woff') format('woff'), font-url('2FD286_3_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SabonLT-Bold';
+  src: font-url('2FD286_4_0.eot');
+  src: font-url('2FD286_4_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_4_0.woff2') format('woff2'), font-url('2FD286_4_0.woff') format('woff'), font-url('2FD286_4_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon-RomanOsF';
+  src: font-url('2FD286_5_0.eot');
+  src: font-url('2FD286_5_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_5_0.woff2') format('woff2'), font-url('2FD286_5_0.woff') format('woff'), font-url('2FD286_5_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SabonLT-BoldItalic';
+  src: font-url('2FD286_6_0.eot');
+  src: font-url('2FD286_6_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_6_0.woff2') format('woff2'), font-url('2FD286_6_0.woff') format('woff'), font-url('2FD286_6_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon-ItalicOsF';
+  src: font-url('2FD286_7_0.eot');
+  src: font-url('2FD286_7_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_7_0.woff2') format('woff2'), font-url('2FD286_7_0.woff') format('woff'), font-url('2FD286_7_0.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Sabon-RomanSC';
+  src: font-url('2FD286_8_0.eot');
+  src: font-url('2FD286_8_0.eot?#iefix') format('embedded-opentype'), font-url('2FD286_8_0.woff2') format('woff2'), font-url('2FD286_8_0.woff') format('woff'), font-url('2FD286_8_0.ttf') format('truetype');
+}
+
+   // // // // // // // // // // // // // //
+  // // // BASE FONT FAMILIES:/ // // // //
+ // // // // // // // // // // // // // //
+
+
+//SANS-SERIF//
+
+$sans-serif-extra-light: 'AvantGardeExtraLight', 'helvetica', 'aria';
+$sans-serif-book: 'AvantGardeBook', 'helvetica', 'aria';
+$sans-serif-medium: 'AvantGardeMedium', 'helvetica', 'aria';
+$sans-serif-demi: 'AvantGardeDemi', 'helvetica', 'aria';
+$sans-serif-bold: 'AvantGardeBold', 'helvetica', 'aria';
+
+$sans-serif-condensed-book: 'AvantGardeCondensedBook', 'helvetica', 'aria';
+$sans-serif-condensed-medium: 'AvantGardeCondensedMedium', 'helvetica', 'aria';
+$sans-serif-condensed-demi: 'AvantGardeCondensedDemi', 'helvetica', 'aria';
+$sans-serif-condensed-bold: 'AvantGardeCondensedBold', 'helvetica', 'aria';
+
+$sans-serif-italic-book: 'AvantGardeBookItalic', 'helvetica', 'aria';
+$sans-serif-italic-medium: 'AvantGardeMediumItalic', 'helvetica', 'aria';
+$sans-serif-italic-demi: 'AvantGardeDemiItalic', 'helvetica', 'aria';
+$sans-serif-italic-bold: 'AvantGardeBoldItalic', 'helvetica', 'aria';
+$sans-serif-italic-extra-light: 'AvantGardeExtraLightItalic', 'helvetica', 'aria';
+
+//SERIF//
+
+$serif: 'SabonLT-Roman', 'Lora';
+$serif-bold: 'SabonLT-Bold', 'Lora';
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+h1 {
+  color: $black;
+  font-family: $sans-serif-bold;
+  font-size: 64px;
+  line-height: 1.16;
+  font-weight: 800;
+}
+
+h2 {
+  color: $black;
+  font-family: $sans-serif-demi;
+  font-size: 32px;
+  letter-spacing: 2px;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+h3 {
+  color: $black;
+  font-family: $sans-serif-demi;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1.3;
+  font-weight: 700;
+
+  &.no-top-margin {
+    margin-top: 0;
+  }
+}
+
+h4,
+%h4 {
+  color: $black;
+  font-family: $sans-serif-medium;
+  font-size: 14px;
+  letter-spacing: 1px;
+  line-height: 1.42;
+  font-weight: 600;
+
+  &.list-header {
+    color: $white;
+    text-transform: uppercase;
+  }
+}
+
+.footer-text,
+%footer-text,
+.policy-text {
+  color: $black;
+  font-family: $sans-serif-medium;
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 2;
+  font-weight: 600;
+
+  &.list-items a {
+    color: $white;
+    font-size: 12px;
+  }
+}
+
+
+h5 {
+  color: $black;
+  font-family: $sans-serif-book;
+  font-size: 24px;
+  letter-spacing: 4px;
+  line-height: 2;
+  font-weight: 500;
+
+  &.mobile-nav-menu {
+    font-family: $sans-serif-bold;
+    font-size: 24px;
+    font-weight: 700;
+    @media screen and (max-width: $small-break){
+      font-size: 14px;
+    }
+
+    &.white {
+      color: $white;
+      padding-left: 20px;
+
+      &:hover {
+        color: $red;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.body-style-1,
+%body-style-1 {
+  font-family: $serif-bold;
+  font-size: 18px;
+  line-height: 1.667;
+  &.small {
+    font-size: 14px;
+  }
+}
+
+
+.body-style-2,
+%body-style-2 {
+  @extend %body-style-1;
+  color: $grey-light;
+}
+
+%footer-li-links {
+  color: $white;
+  font-family: $serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  line-height: 2;
+
+  @media screen and (max-width: 596px) {
+    font-size: 10px;
+  }
+}
+
+.white-serif-footer,
+%white-serif-footer,
+a.white-serif-footer {
+  font-family: $serif-bold;
+  font-size: 18px;
+  line-height: 1.667;
+  color: $white;
+  &.underlined {
+    transition: all .3s ease-in-out;
+    &:hover {
+      color: #d93a43;
+      transition: all .3s ease-in-out;
+    }
+  }
+}
+
+%footer-copyright {
+  color: $grey-dark;
+  font-family: $serif;
+  font-size: 12px;
+}
+
+.white {
+  color: $white;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.tiny {
+  font-size: 4px;
+  cursor: default;
+  &:hover {
+    color: $white;
+    cursor: default;
+  }
+}
+
+a.store-description-directions-button {
+  color: $white;
+}
+
+a.store-description-directions-button,
+a.map-directions-button {
+  line-height: 3.4;
+}
+
+.red-roll-over {
+  &:hover {
+    color: $red;
+    cursor: pointer;
+  }
+}
+
+.location-info-text {
+  font-family: $serif-bold;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.line-height-3 {
+  line-height: 3 !important;
+}
+
+
+
+

@@ -1,0 +1,53 @@
+<nav class="">
+	<div class="top-nav-row">
+		<div class="top-nav-container container">
+			
+
+			<div class="col-sm-15 hidden-xs hidden-sm hidden-md hidden-lg hidden-xl" style="height: 10px;"></div>
+
+			<div class="col-md-15 col-xs-15"> 
+				<div class="top-nav-link-wrapper location">	
+					<div class="nav-icon-wrapper">
+						<span class="nav-icon-location"></span>
+						<h6 class="nav hidden-sm hidden-xs inline-block" id="top-nav-store-name">MEDICAL CENTER, HOUSTON</h6>
+					</div>	
+				</div>	
+			</div>
+			
+			<div class="col-md-15 col-xs-15">
+				<div class="top-nav-link-wrapper phone move-left">	
+					<div class="nav-icon-wrapper phone">
+						<span class="nav-icon-phone"></span>
+						<h6 class="nav hidden-sm hidden-xs no-pad-right inline-block" id="top-nav-store-phone">1-800-460-8500</h6>
+					</div>
+				</div>	
+			</div>
+			
+			<div class="col-md-15 col-xs-15">
+				<div class="top-nav-link-wrapper appointment move-left" data-toggle="modal" data-target="#aptModal">	
+					<div class="nav-icon-wrapper">
+						<span class="nav-icon-calendar"></span>
+						<h6 class="nav hidden-sm hidden-xs no-pad-right inline-block">MAKE APPOINTMENT</h6>
+					</div>
+				</div>	
+			</div>
+  		
+  		<%= render :partial => 'spree/shared/account_and_cart' if store_menu? %>
+		</div>
+	</div>
+	<div class="container hidden-sm hidden-xs">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="nav-logo">
+					<a href="/"><%= image_tag('spree/frontend/logo-large.png', :alt => 'Als Formal Wear', class: '') %></a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+</nav>
+
+<div class="hidden">
+	<%= render :partial => 'spree/shared/search_text_only' %>
+</div>

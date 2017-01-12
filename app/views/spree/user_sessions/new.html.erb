@@ -1,0 +1,65 @@
+<div class="row login-signup-outer-container">	
+	<div class="container login-signup-container">
+
+
+		<% if params[:look_id].present? %>
+			<% redirect_url = CGI::escape("/#{params[:after_login_redirect]}?look_id=#{params[:look_id]}") %>
+		<% else %>
+			<% redirect_url = CGI::escape("/#{params[:after_login_redirect]}") %>
+		<% end %>
+
+		
+			<div class="col-lg-11 col-md-11 col-lg-offset-1 col-md-offset-1 <%= 'success' if flash[:password_reset_success].present? %>">
+				<% if flash && flash[:password_reset_success] %>
+					<p><%= flash[:password_reset_success] %></p>
+				<% end %>	
+			</div>
+
+		<div class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-sm-5 no-pad login-col">
+			<div class="login-wrapper">
+				<h2 class="text-center log-in">LOG IN</h2>  
+			  <%= render 'spree/shared/error_messages', target: resource %>
+			  <%= render :partial => 'spree/shared/login' %>
+			  <div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to "LOGIN WITH", "https://www.alsformalwear.com/user/spree_user/auth/facebook?origin=#{redirect_url}", form_class: "social-login-forms facebook-button form_to"%>
+				</div>
+				<div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to "LOGIN WITH", "https://www.alsformalwear.com/user/spree_user/auth/gplus?origin=#{redirect_url}", form_class: "social-login-forms google-button form_to" %>
+				</div>
+				<div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to "LOGIN WITH", "https://www.alsformalwear.com/user/spree_user/auth/twitter?origin=#{redirect_url}", form_class: "social-login-forms twitter-button form_to" %>
+				</div>
+			</div>
+		</div>  
+		<div class="or-col login col-lg-2 col-md-2 col-sm-2 hidden-sm">
+			<div class="or-outer-wrapper">
+				<div class="or-wrapper">
+					<span class="or-bar or-bar-left"></span>
+					<span class="body-style-2 or text-center">or</span>
+					<span class="or-bar or-bar-right"></span> 
+				</div>	
+			</div>	
+		</div>
+		<div class="col-lg-4 col-md-4 col-sm-5 no-pad signup-col">
+			<div class="login-wrapper">
+				<h2 class="text-center sign-up">SIGN UP</h2>  
+			  <%= render 'spree/shared/error_messages', target: resource %>
+			  <%= render :partial => 'spree/shared/signup' %>
+			  <div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to 'SIGN UP WITH', "https://www.alsformalwear.com/user/spree_user/auth/facebook?origin=#{redirect_url}", form_class: "social-login-forms facebook-button form_to", onclick: "ga('send', 'event', 'Social Sign Up', 'Sign Up', 'Facebook');"%>
+				</div>
+				<div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to "SIGN UP WITH", "https://www.alsformalwear.com/user/spree_user/auth/gplus?origin=#{redirect_url}", form_class: "social-login-forms google-button form_to", onclick: "ga('send', 'event', 'Social Sign Up', 'Sign Up', 'Google');"%>
+				</div>
+				<div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				  <%= button_to "SIGN UP WITH", "https://www.alsformalwear.com/user/spree_user/auth/twitter?origin=#{redirect_url}", form_class: "social-login-forms twitter-button form_to", onclick: "ga('send', 'event', 'Social Sign Up', 'Sign Up', 'Twitter');" %>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="login-signup-acknowledgement">
+		  <p class="text-center">By submitting this form, you accept our <a href="/terms-and-privacy">Terms & Privacy Policy</a> <br> (Questions? <a href="/contact">Contact us here.</a>)</p>
+		</div>
+	</div>
+</div>

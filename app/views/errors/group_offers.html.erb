@@ -1,0 +1,216 @@
+<% schoolOffersTitle1 = @group_offers_contents.find_by_description "school-offers-title-1" %>
+<% schoolOffersTitle2 = @group_offers_contents.find_by_description "school-offers-title-2" %>
+<% schoolOffersTitle3 = @group_offers_contents.find_by_description "school-offers-title-3" %>
+<% schoolOffersTitle4 = @group_offers_contents.find_by_description "school-offers-title-4" %>
+<% otherOffersTitle1 = @group_offers_contents.find_by_description "other-offers-title-1" %>
+<% otherOffersTitle2 = @group_offers_contents.find_by_description "other-offers-title-2" %>
+<% otherOffersTitle3 = @group_offers_contents.find_by_description "other-offers-title-3" %>
+<% schoolOffersLink1 = @group_offers_contents.find_by_description "school-offers-link-1" %>
+<% schoolOffersLink2 = @group_offers_contents.find_by_description "school-offers-link-2" %>
+<% schoolOffersLink3 = @group_offers_contents.find_by_description "school-offers-link-3" %>
+<% schoolOffersLink4 = @group_offers_contents.find_by_description "school-offers-link-4" %>
+<% otherOffersLink1 = @group_offers_contents.find_by_description "other-offers-link-1" %>
+<% otherOffersLink2 = @group_offers_contents.find_by_description "other-offers-link-2" %>
+<% otherOffersLink3 = @group_offers_contents.find_by_description "other-offers-link-3" %>
+<% schoolOffersImage1 = @group_offers_contents.find_by_description "school-offers-image-1" %>
+<% schoolOffersImage2 = @group_offers_contents.find_by_description "school-offers-image-2" %>
+<% schoolOffersImage3 = @group_offers_contents.find_by_description "school-offers-image-3" %>
+<% schoolOffersImage4 = @group_offers_contents.find_by_description "school-offers-image-4" %>
+<% otherOffersImage1 = @group_offers_contents.find_by_description "other-offers-image-1" %>
+<% otherOffersImage2 = @group_offers_contents.find_by_description "other-offers-image-2" %>
+<% otherOffersImage3 = @group_offers_contents.find_by_description "other-offers-image-3" %>
+
+<div class="container groupOffersPage">
+	<div class="row push-80">
+		<div class="col-md-12">
+			<div class="icon-box">
+				<%= image_tag('spree/frontend/info/group-offer.svg', :alt => '', class: 'group-offer center-block') %>
+			</div>
+			<h2 class="center-text push-40">GROUP OFFERS</h2>
+			<div class="col-md-8 col-md-offset-2">
+				<p class="body-style-1">Al's Formal Wear is proud to give back to the communities we serve. Our many group offers are meant to help you raise funds while looking your best!</p>
+			</div>
+		</div>
+	</div>
+
+	<!-- SCHOOL OFFERS -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="center-text push-40">SCHOOL OFFERS</h2>
+		</div>
+	</div>
+
+	<div class="row push-80">
+		<div class="col-md-6 col-1">
+			<div class="tiles push-40">
+				<% if schoolOffersImage1 && schoolOffersImage1.image? %>
+					<div class="tile-1" style="background: url(<%= schoolOffersImage1.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-1">
+				
+				<% end %>
+
+					<div class="box">
+					<% if schoolOffersLink1 && schoolOffersLink1.text %>
+						<a href="<%= schoolOffersLink1.text %>">
+					<% else %>
+						<a href="/prom/#work-study">
+					<% end %>
+
+        		<% if schoolOffersTitle1 && schoolOffersTitle1.text %>
+							<span><%= schoolOffersTitle1.text.html_safe %></span>
+						<% else %>	
+							<span>WORK STUDY</span>
+						<% end %>	
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="tiles push-40">
+				<% if schoolOffersImage2 && schoolOffersImage2.image? %>
+					<div class="tile-2" style="background: url(<%= schoolOffersImage2.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-2">
+				<% end %>
+					<div class="box">
+					<% if schoolOffersLink2 && schoolOffersLink2.text %>
+						<a href="<%= schoolOffersLink2.text %>">
+					<% else %>
+						<a href="/prom/#rep-form">
+					<% end %>
+        		<% if schoolOffersTitle2 && schoolOffersTitle2.text %>
+							<span><%= schoolOffersTitle2.text.html_safe %></span>
+						<% else %>							
+							<span>BECOME AL’S<br />PROM REP</span>
+						<% end %>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-2">
+			<div class="tiles push-40">
+				<% if schoolOffersImage3 && schoolOffersImage3.image? %>
+					<div class="tile-3" style="background: url(<%= schoolOffersImage3.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-3" >
+				<% end %>
+					<div class="box">
+					<% if schoolOffersLink3 && schoolOffersLink3.text %>
+						<a href="<%= schoolOffersLink3.text %>">
+					<% else %>
+						<a href="/prom/#school-fund">
+					<% end %>
+        		<% if schoolOffersTitle3 && schoolOffersTitle3.text %>
+							<span><%= schoolOffersTitle3.text.html_safe %></span>
+						<% else %>							
+							<span>SCHOOL FUNDRAISING<br />CASH BACK PROGRAM</span>
+						<% end %>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="tiles">
+				<% if schoolOffersImage4 && schoolOffersImage4.image? %>
+					<div class="tile-4" style="background: url(<%= schoolOffersImage4.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-4">
+				<% end %>
+					<div class="box">
+					<% if schoolOffersLink4 && schoolOffersLink4.text %>
+						<a href="<%= schoolOffersLink4.text %>">
+					<% else %>
+						<a href="/prom/#school-group">
+					<% end %>
+        		<% if schoolOffersTitle4 && schoolOffersTitle4.text %>
+							<span><%= schoolOffersTitle4.text.html_safe %></span>
+						<% else %>							
+							<span>SCHOOL<br />GROUP SALES</span>
+						<% end %>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- OTHER OFFERS -->
+
+	<div class="row">
+		<div class="col-md-12">
+			<h2 class="center-text push-40">OTHER OFFERS</h2>
+		</div>
+	</div>
+	<div class="row push-80">
+		<div class="col-md-6 col-1">
+			<div class="tiles push-40">
+				<% if otherOffersImage1 && otherOffersImage1.image? %>
+					<div class="tile-5" style="background: url(<%= otherOffersImage1.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-5">
+				<% end %>
+					<div class="box">
+					<% if otherOffersLink1 && otherOffersLink1.text %>
+						<a href="<%= otherOffersLink1.text %>">
+					<% else %>
+						<a href="/cap">
+					<% end %>
+        		<% if otherOffersTitle1 && otherOffersTitle1.text %>
+							<span><%= otherOffersTitle1.text.html_safe %></span>
+						<% else %>								
+							<span>CORPORATE<br />AFFINITY PROGRAM</span>
+						<% end %>	
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6 col-2">
+			<div class="tiles push-40">
+				<% if otherOffersImage2 && otherOffersImage2.image? %>
+					<div class="tile-6" style="background: url(<%= otherOffersImage2.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-6">
+				<% end %>
+					<div class="box">
+					<% if otherOffersLink2 && otherOffersLink2.text %>
+						<a href="<%= otherOffersLink2.text %>">
+					<% else %>
+						<a href="/social-event/#social-fund">
+					<% end %>
+        		<% if otherOffersTitle2 && otherOffersTitle2.text %>
+							<span><%= otherOffersTitle2.text.html_safe %></span>
+						<% else %>								
+							<span>SOCIAL EVENT<br />FUND RAISING</span>
+						<% end %>	
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-12 col-2">
+			<div class="tiles">
+				<% if otherOffersImage3 && otherOffersImage3.image? %>
+					<div class="tile-7" style="background: url(<%= otherOffersImage3.image.url %>) no-repeat; background-size: cover;">
+				<% else %>
+					<div class="tile-7">
+				<% end %>
+					<div class="box">
+					<% if otherOffersLink3 && otherOffersLink3.text %>
+						<a href="<%= otherOffersLink3.text %>">
+					<% else %>
+						<a href="/wedding/#wedding-discount">
+					<% end %>
+        		<% if otherOffersTitle3 && otherOffersTitle3.text %>
+							<span><%= otherOffersTitle3.text.html_safe %></span>
+						<% else %>								
+							<span>CUSTOM<br />WEDDING DISCOUNT</span>
+						<% end %>	
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

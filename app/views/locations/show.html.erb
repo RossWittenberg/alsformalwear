@@ -1,0 +1,226 @@
+<script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+<div class="container">
+	<div class="row location-wrapper">
+		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="margin-bottom: 20px;">  
+			<a class="location-back red-roll-over" href="/locations"><i class="fa fa-arrow-left location-back-arrow"></i>Back to Locations</a><br>
+		</div>
+		<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12 map-wrapper">
+			<div id="location-map"> 
+	    	<div class="location-marker" data-lat="<%=@location.latitude%>" data-lng="<%= @location.longitude%>"> </div>
+			</div>
+		</div>
+		<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 info-wrapper right">
+			<div class="location-address-text-wrapper">
+				<h3 class="no-top-margin"><%= @location.store_name.upcase %> </h3>
+			<% if @location.spanish? %>
+				<h4 class="location-spanish">Hablamos Espa&ntilde;ol, Bienvenido! </h4>
+			<% end %>
+				<p class="location-info-text"> <%= @location.street_address %></p>
+				<p class="location-info-text"> <%="#{@location.city} #{@location.state.upcase}, #{@location.zip_code}" %></p>
+				<a href="tel:<%= @location.phone_number.gsub('-','')%>" class="red-roll-over location-info-text"> <%= @location.phone_number %><i class="fa fa-phone" aria-hidden="true"></i></a>
+			</div>	
+			<div class="location-button-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<a data-locationId=<%= @location.id %> data-state=<%= @location.state %> data-city=<%= @location.city %> data-storeName='<%="#{@location.store_name}" %>' data-zipCode=<%= @location.zip_code %> class="location-appointment-button location-button btn button-primary line-height-3">MAKE APPOINTMENT</a>
+			</div>
+			<div class="location-button-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<a data-googleMaps=<%= @location.google_url %>  data-appleMaps=<%= @location.apple_url %> class="location-directions-button location-button btn button-primary line-height-3">DIRECTIONS</a>
+			</div>
+			<div class="location-hours-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+				<p class="all-hours location-info-text" data-locationId=<%= @location.id %>>Opens at:</p>
+				<a id="hours-link" class="red-roll-over location-hours-text">See All Hours</a>
+			</div>
+			<div class="location-email-wrapper col-lg-12 col-md-12 col-sm-12 col-xs-12 no-pad">
+				<i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:<%= @location.email %>" class="red-roll-over location-hours-text email">Email Us</a>
+			</div>
+		</div>
+	</div>
+	<div class="row hours-and-manager-wrapper">
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 hours-wrapper">
+			<div class="store-image col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<%= image_tag @location.store_image.url %>
+			</div>
+			<div class="hours-text col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<a id="hours"></a>	 
+				<h3 class="no-top-margin">HOURS</h3>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Monday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.mon_hours %></p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Tuesday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.tues_hours %></p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Wednesday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.wed_hours %></p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Thursday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.thurs_hours %></p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Friday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.fri_hours %></p>
+				</div>	
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Saturday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.sat_hours %></p>
+				</div>	
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 left">
+					<p class="location-info-text grey">Sunday</p>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+					<p class="location-info-text grey right"><%= @location.sun_hours %></p>
+				</div>				
+			</div>
+		</div>
+		<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 manager-wrapper">
+			<h3 class="no-top-margin">MANAGER</h3>
+			<div class="manager-image col-lg-4 col-md-4 col-sm-6 col-xs-12 no-pad-left">
+				<%= image_tag @location.manager_image.url, class: "manager-image" %>
+			</div>
+			<div class="manager-text col-lg-6 col-md-6 col-sm-6 col-xs-12">
+				<h4><%= @location.manager %></h4>
+				<a href="mailto:<%= @location.manager_email %>" class="red-roll-over manager-email-text email"><%= @location.manager_email %></a>
+				<% if @location.manager_content_block.present? %>
+					<p class="manager-info-text"><%= @location.manager_content_block %></p>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="row services-wrapper">
+		<h3 class="text-center">SERVICES</h3>
+		<div class="no-pad col-lg-12 col-md-12 col-sm-12 col-xs-12 services-icons-wrapper">
+				
+				<% if @location.tuxedos_service.present? && @location.tuxedos_service_link.present? %>
+					<a class="services-link" href=<%= @location.tuxedos_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/tuxedos-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Tuxedos</h4>
+						</div>
+					</a>
+				<% end %>
+				<% if @location.suits_service.present? && @location.suits_service_link.present? %>
+					<a class="services-link" href=<%= @location.suits_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/suits-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Suits</h4>
+						</div>
+					</a>
+				<% end %>	
+				<% if @location.accessories_service.present? && @location.accessories_service_link.present? %>
+					<a class="services-link" href=<%= @location.accessories_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/accessories-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Accessories</h4>
+						</div>
+					</a>
+				<% end %>
+				<% if @location.photography_service.present? && @location.photography_service_link.present? %>
+					<a class="services-link" href=<%= @location.photography_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/photography-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Photography</h4>
+						</div>
+					</a>
+				<% end %>	
+
+				<% if @location.video_service.present? && @location.video_service_link .present?%>	
+					<a class="services-link" href=<%= @location.video_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/video-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Video</h4>
+						</div>
+					</a>
+				<% end %>	
+				<% if @location.dj_service.present? && @location.dj_service_link .present?%>	
+					<a class="services-link" href=<%= @location.dj_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/dj-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">DJ</h4>
+						</div>
+					</a>
+				<% end %>
+				<% if @location.invitations_service.present? && @location.invitations_service_link.present? %>
+					<a class="services-link" href=<%= @location.invitations_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/invitations-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Invitations</h4>
+						</div>
+					</a>
+				<% end %>
+				<% if @location.quinceanera_service.present? && @location.quinceanera_service_link.present? %>
+					<a class="services-link" href=<%= @location.quinceanera_service_link %> >
+						<div class="col-lg-18 col-sm-3 col-xs-6 services-icon-holder">
+							<%= image_tag "https://s3.amazonaws.com/alsformalwear-assets/images/quinceanera-services-icon.png", class: "services-icon-image" %>
+							<h4 class="red-roll-over services-text">Quincea&ntilde;era</h4>
+						</div>
+					</a>
+				<% end %>	
+			</div>
+
+		</div>
+	</div>
+
+	<% if @location.content_image_1.present? || @location.content_image_2.present? || @location.content_image_3.present? %>	
+		<div class="row location-image-wrapper">
+			<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 col-lg-offset-1 col-md-offset-1">
+	    <ul class="locations-slider bxslider">
+	    	<% if @location.content_image_1.present? %>
+	    		<% content_image_1_url = @location.content_image_1.url %>
+					<li class="location-slide" style='<%= "background-image: url(#{content_image_1_url}) !important;"%> background-size:contain; background-repeat:no-repeat;background-position:center;
+'></li>
+	    	<% end %>
+	    	<% if @location.content_image_2.present? %>
+	    		<% content_image_2_url = @location.content_image_2.url %>
+					<li class="location-slide" style='<%= "background-image: url(#{content_image_2_url}) !important;"%> background-size:contain; background-repeat:no-repeat;background-position:center;'></li>
+	    	<% end %>
+	    	<% if @location.content_image_3.present? %>
+	    		<% content_image_3_url = @location.content_image_3.url %>
+					<li class="location-slide" style='<%= "background-image: url(#{content_image_3_url}) !important;"%> background-size:contain; background-repeat:no-repeat;background-position:center;'></li>
+	    	<% end %>
+			</ul>
+			</div>
+		</div>
+	<% end %>
+	<% if  ((@location.event_content_block_1.present?) && (@location.event_link_text_1.present?)) || ((@location.event_content_block_2.present?) && (@location.event_link_text_2.present?)) || ((@location.event_content_block_3.present?) && (@location.event_link_text_3.present?))
+	%>	
+		<div class="row events-wrapper">
+			<h3 class=" text-center">EVENTS</h3>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 events-inner-wrapper">
+				<% if (@location.event_content_block_1.present?) && (@location.event_link_text_1.present?) %>	
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 event-wrapper">
+						<%= @location.event_content_block_1.html_safe %>
+						<a href='<%= @location.event_link_text_1 %>' class="location-button location-event-button btn button-primary line-height-3">RSVP</a>
+					</div>
+				<% end %>
+				<% if (@location.event_content_block_2.present?) && (@location.event_link_text_2.present?) %>	
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 event-wrapper">
+						<%= @location.event_content_block_2.html_safe %>
+						<a href='<%= @location.event_link_text_2 %>' class="location-button location-event-button btn button-primary line-height-3">RSVP</a>
+					</div>
+				<% end %>
+				<% if (@location.event_content_block_3.present?) && (@location.event_link_text_3.present?) %>	
+					<div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 event-wrapper">
+						<%= @location.event_content_block_3.html_safe %>
+						<a href='<%= @location.event_link_text_3 %>' class="location-button location-event-button btn button-primary line-height-3">RSVP</a>
+					</div>
+				<% end %>	
+			</div>		
+		</div>
+	<% end %>	
+
+</div>

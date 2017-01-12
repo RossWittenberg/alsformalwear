@@ -1,0 +1,29 @@
+<div class="row social-event-text">
+  <div class="col-md-8">
+    <% if promFormText4 && promFormText4.text %>
+      <%= promFormText4.text.html_safe %>
+    <% else%>    
+      <h3>Introducing Prom-Rep Work Study Program (Scholarship Program formerly).</h3>
+      <ol>
+        <li>First, sign-up for <a href="/prom/#rep-form">Prom-Rep account here</a> to receive your Prom-Rep number instantly.</li>
+        <li>Next, you need to reach out your school contact or faculty member to sign-up for <a href="/prom/#school-fund">School Fundraising Program account here</a>; where you can get added as referral via Referral Name field and start making $5 on each tuxedo rental along with the school accruing $5 on each tuxedo rental as well.</li>
+        <li>Referral denominations would be $5 each tuxedo rental; payable when minimum of $100 is accumulated.</li>
+        <li>
+          All questions and/or correspondence pertaining to this contest shall be addressed to:<br>
+          <blockquote style="border-left: none;">
+            <strong>
+              Marketing Department<br> 
+              Formal Specialists, Ltd.<br> 
+              7807 Main Street<br>
+              Houston, Texas 77030<br>
+            </strong>
+          </blockquote>
+        </li>
+      </ol>
+    <% end %>  
+    <div class="col-md-12 col-sm-12">
+      <button type="button" class="call-to-action byt-button" onclick="BUTTONS.scrollToTopOfForm( $('.prom-rep')); $('.prom-rep').trigger('click');">BECOME A PROM REP</button>
+      <button type="button" class="call-to-action byt-button" onclick="BUTTONS.scrollToTopOfForm( $('.school-fund')); $('.school-fund').trigger('click');">SCHOOL SIGN UP</button>
+    </div>
+  </div>
+</div>

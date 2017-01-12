@@ -1,0 +1,25 @@
+<%= f.hidden_field :content_type, value: "image" %>
+	<div class="no-pad col-md-12 col-lg-12">
+	  <%= f.label :instructions %>:<br />
+		<p><%= @content.instructions%></p>
+	</div>	
+	<div class="no-pad col-md-6 col-lg-6">
+	  <%= f.label :alt_tag %>:<br />
+	  <%= f.text_field :alt_tag %>
+	</div>
+	<div class="no-pad col-md-12 col-lg-12">
+  <%= f.label :image %>:<br />
+	<% if @content.image? %>	
+		<%= image_tag "#{@content.image.url(:original)}", alt: @content.alt_tag, width: '600px' %></td>
+	<% else %>
+		<p>No image has been uploaded.</p>
+	<% end %>
+  <%= f.file_field :image %><br>
+</div>
+<% if @content.image? %>	
+	<div class="no-pad col-md-6 col-lg-6">
+	  <label>Delete Attachment?</label>:<br />
+	  <%= check_box_tag :delete_image, true %>
+  </div>
+<% end %>  
+

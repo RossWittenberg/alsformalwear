@@ -1,0 +1,71 @@
+<div class="leads-wrapper" id="discounts" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>
+				<th>
+				<div class="inner-th-wrapper">
+					Name 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Email 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Phone Number
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Zip Code 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Event Type 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Date 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Prefered Location 
+				</div>
+			</th>
+			<th>
+				<div class="inner-th-wrapper">
+					Dater Created 
+				</div>
+			</th>
+  		</tr>
+  	</thead>
+    <% @discounts.each_with_index do |discount, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td><%= discount.combined_name %></td>
+					<td><%= discount.contact_email || "Not Provided" %></td>
+					<td><%= discount.contact_phone || "Not Provided" %></td>
+					<td><%= discount.zip_code || "Not Provided" %></td>
+					<td><%= discount.modified_event_type || "Not Provided" %></td>
+					<td><%= discount.date && discount.date.strftime("%m/%d/%Y") || "Not Provided" %></td>
+					<td><%= discount.location && discount.location.store_name || "Not Provided" %></td>
+					<td><%= discount.created_at && discount.created_at.strftime("%m/%d/%Y") || "Not Provided" %></td>
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>	 
+
+
+
+

@@ -1,0 +1,14 @@
+<div class="flash-wrapper js-flash-wrapper">
+  <% if flash[:error] %>
+    <div class="flash error"><%= flash[:error] %></div>
+  <% end %>
+  <% if notice %>
+    <div class="flash notice"><%= notice %></div>
+  <% end %>
+  <% if flash[:success] %>
+    <div class="flash success"><%= flash[:success] %></div>
+  <% end %>
+   <% if flash[:cms_success] %>
+    <div class="flash cms-success"><%= flash[:cms_success] %></div>
+  <% end %>
+</div>

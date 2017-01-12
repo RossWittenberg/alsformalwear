@@ -1,0 +1,18 @@
+<div class="row event-outer-container">	
+	<div class="event-new-container">
+		<h2 class="text-center event-new-header">TELL US ABOUT YOUR EVENT</h2>
+		<p class="body-style-1 text-center">Once complete, your Event will be placed together with your custom Tuxedo or Suit within your account</p> 
+    <div class="message-wrapper"></div>
+		<%= form_for :event, url: main_app.events_path(:format => "json"), remote: true, html: { class: 'event-new' } do |f| %>	
+			<%= render partial: "/events/form", locals: { f: f, event: @event, roles: @roles, user: @user, event_types: @event_types } %>
+			<button type="button" class="button-primary new-event">Create New Event</button>
+		<% end %>
+	</div>	
+	<div class="event-showbox hidden">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+  </div>
+</div>

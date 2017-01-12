@@ -1,0 +1,19 @@
+<div class="resend-confirm">
+  <h6>Resend Confirmation Instructions</h6>
+  <p>Please enter your email on the form below</p>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %> 
+    </div>
+
+    <div class="actions">
+      <%= f.submit "SUBMIT" %>
+    </div>
+  <% end %>
+
+  <a href="/catalog/login" class="body-style-2 underline">Log In / Sign Up</a><br>
+  <a href="/catalog/password/recover" class="body-style-2 underline">Forgot Password?</a>
+</div>

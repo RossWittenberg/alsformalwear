@@ -1,0 +1,17 @@
+<%= f.hidden_field :content_type, value: "text" %>
+<div class="no-pad col-md-12 col-lg-12">
+	<div class="no-pad col-md-6 col-lg-6">
+	  <%= f.label :instructions %>:<br />
+	  <p><%= @content.instructions%></p>
+	  <%#= f.text_field :instructions, size: "60" %>
+	</div>
+	<div class="col-md-6 col-lg-6 no-pad">
+	  <%= f.label "Text Format" %>:<br />
+	  <p><%= @content.html ? "HTML" : "Plain Text" %></p>
+	</div>  
+</div>
+<div class="no-pad col-md-12 col-lg-12">
+  <%= f.label :text %>:<br />
+  <%= f.text_area :text, size: "120x20" %>
+</div>
+<br /><br />

@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1" name="viewport">
+<%= render partial: "spree/shared/og_meta" %>
+<% if custom_meta_tags %>
+	<%= render partial: "spree/shared/title_meta" %>
+<% else%>
+	<%== meta_data_tags %>
+<% end %>
+<%= favicon_link_tag 'favicon.ico' %>
+<%= stylesheet_link_tag 'spree/frontend/all', :media => 'screen' %>
+<%= csrf_meta_tags %>
+<%= javascript_include_tag 'spree/frontend/all' %>
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora" />
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+
+<!--[if IE ]>
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:200" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:400" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:600" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:800" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway:900" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora:200" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora:400" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora:600" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora:800" />
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Lora:900" />
+<![endif]-->
+
+<!--[if lt IE 9 ]>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6/html5shiv.min.js"></script>
+<![endif]-->
+
+<%= yield :head %>

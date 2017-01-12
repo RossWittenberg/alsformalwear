@@ -1,0 +1,50 @@
+<div class="leads-wrapper" id="competitor-colors">
+	<% if @competitor_colors.present? %>
+	  <table class="leads" >
+	  	<thead class="leads-table-header">
+	  		<tr>
+					<th>
+						<div class="inner-th-wrapper">
+							Name
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper">
+							Hex Code
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper">
+							Color
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper delete">
+							Edit Color?
+						</div>
+					</th>
+					<th>
+						<div class="inner-th-wrapper delete">
+							Delete Color?
+						</div>
+					</th>
+	  		</tr>
+	  	</thead>
+	    <% @competitor_colors.each do |color| %>
+	    	<tbody>
+	    		<tr>
+						<td> <%= color.name.humanize%> </td>
+						<td><%= color.hex %></td>
+						<td class="color-table-cell" style="background-color: <%= color.hex %>"></td>
+						<td><%=link_to "Edit", edit_admin_color_path(color, als: "false" ), class: 'button cms-button' %></td>
+						<td><%=link_to "Delete", admin_color_path(color, als: "false" ), method: "delete", data: { confirm: 'Are you sure you want to delete this color?', disable_with: 'loading...' }, class: 'button cms-button' %></td>		
+	    		</tr>
+	    	</tbody>
+			<% end %>  
+	  </table>
+	<% else %>
+		<div class="col-md-12 col-lg-12">
+			<p>You have no colors to manage.</p>	
+		</div>
+	<% end %>  
+</div>

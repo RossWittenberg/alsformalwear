@@ -1,0 +1,50 @@
+<% if spree_current_user.district_manager? %>
+		<div class="container">
+			<div class="col-lg-4 col-md-4 no-pad">
+				<h3 class="cms-content-dashboard-header">Locations</h3 class="cms-content-dashboard-header">
+				<%=link_to "Locations Dashboard", '/catalog/admin/locations', class: 'page-title cms-content-dashboard-link' %><br>	
+			</div>
+		</div>
+	</div>
+<% else %>
+	<div class="container">
+		<div class="col-lg-4 col-md-4 no-pad">
+			<h3 class="cms-content-dashboard-header">Page Content</h3 class="cms-content-dashboard-header">
+
+				<%=link_to "Global", {action: 'global'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Home", {action: 'home'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Wedding", {action: 'wedding'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Prom", {action: 'prom'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Social Event", {action: 'social_event'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Quinceanera", {action: 'quinceanera'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "About", {action: 'about'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+				<%=link_to "Contact/FAQ", {action: 'contact'}, class: 'page-title cms-content-dashboard-link' %><br>
+
+				<%=link_to "Group Offers", {action: 'group_offers'}, class: 'page-title cms-content-dashboard-link' %><br>
+				
+				<%=link_to "Other Pages", {action: 'other'}, class: 'page-title cms-content-dashboard-link' %><br>	
+
+			<!-- </div>								 -->
+		</div>
+		<div class="col-lg-4 col-md-4 no-pad">
+			<h3 class="cms-content-dashboard-header">Locations</h3 class="cms-content-dashboard-header">
+			<!-- <div class="content-index-wrapper col-md-12 col-lg-12"> -->
+				<%=link_to "Locations Dashboard", '/catalog/admin/locations', class: 'page-title cms-content-dashboard-link' %><br>	
+			<!-- </div> -->
+				<h3 class="cms-content-dashboard-header">Group Codes</h3 class="cms-content-dashboard-header">
+			<!-- <div class="content-index-wrapper col-md-12 col-lg-12"> -->
+				<%=link_to "Group Codes Dashboard", '/catalog/admin/group_codes', class: 'page-title cms-content-dashboard-link' %><br>	
+			<!-- </div> -->
+				<h3 class="cms-content-dashboard-header">Colors</h3 class="cms-content-dashboard-header">
+				<%=link_to "Colors Dashboard", '/catalog/admin/colors', class: 'page-title cms-content-dashboard-link' %><br>	
+
+		</div>
+	</div>
+<% end %>

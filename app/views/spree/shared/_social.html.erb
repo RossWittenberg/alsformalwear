@@ -1,0 +1,32 @@
+<div class="social">
+  <meta property="og:title" content="<%= @product.designer.upcase if @product.designer %>" />
+  <meta property="og:description" content="<%= @product.name %>" />
+  <% if @variant.display_image %>
+    <meta property="og:image" content="<%= @variant.display_image.attachment(:full) %>" />
+  <% else %>
+    <meta property="og:image" content="<%= asset_url('spree/frontend/stack-color.png') %>" />
+  <% end %>
+  <meta property="og:url" content="<%=
+          if !@variant.blank?
+            "www.alsformalwear.com/catalog/products/#{@variant.slug}?variant_id=#{@variant.id}"
+          else
+            "www.alsformalwear.com/catalog/byt?look_id=#{look_id}"
+          end
+          %>" />
+  <p class="share-text">SHARE<span>:</span></p>
+  <div class="share-icons">
+    <div  class="addthis_sharing_toolbox"
+          data-url="<%=
+
+          if !@variant.blank?
+            "www.alsformalwear.com/catalog/products/#{@variant.slug}?variant_id=#{@variant.id}"
+          else
+            "www.alsformalwear.com/catalog/byt?look_id=#{look_id}"
+          end
+
+          %>" 
+          data-title="Al's Formal Wear - Look Great. Wonderful Memories." 
+          data-media="<%= @variant.display_image.attachment(:full) if !@variant.blank? %>">
+    </div>
+  </div>
+</div>

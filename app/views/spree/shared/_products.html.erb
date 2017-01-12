@@ -1,0 +1,74 @@
+<div class="col-md-9 col-lg-9">	
+
+	<div data-hook="products_search_results_heading">
+	  <% if @variants.blank? %>
+	    <div data-hook="products_search_results_heading_no_results_found">
+	      <%= Spree.t(:no_products_found) %>
+	    </div>
+	  <% elsif params.key?(:keywords) %>
+	    <div data-hook="products_search_results_heading_results_found">
+	      <h6 class="search-results-title"><%= Spree.t(:search_results, keywords: h(params[:keywords])) %></h6>
+	    </div>
+	  <% end %>
+	</div>
+	
+	<% if @taxon && @taxon.name != nil %>
+		<h1 class="taxon-title"><%= @taxon.name %></h1>
+	<% else %>
+		<h1 class="taxon-title">Shop All</h1>
+	<% end %>
+	<% if @variants.present? %>
+		
+<!-- 		<div class="sorting col-lg-4 col-md-4 right no-pad-right">
+		  <ul class="sort-by-wrapper"> -->
+		    <!-- <li><%# link_to "Newest", params.merge(sorting: :ascend_by_updated_at) %></li> -->
+<!-- 	  		<li class="sort-by-label"><h6>Sort by</h6></li>
+		    <li class="hidden sort-by-option"><%= link_to "Price: Low to High", params.merge(sorting: :ascend_by_master_price) %></li>
+		    <li class="hidden sort-by-option"><%= link_to "Price: High to Low", params.merge(sorting: :descend_by_master_price) %></li>
+		  </ul>
+		</div> -->
+	  <ul id="products" class="col-md-12 col-lg-12 no-pad inline product-listing">
+	    <% @variants.flatten.each do |variant| %>
+				<% variant.option_values.each do |ov| %>
+					<% if ov.option_type.presentation == "Color" %>
+						<% url = spree.product_path(variant.product, variant_id: variant.id ) %>
+						<li id="product_<%= variant.product.id %>" class="product-list-item col-lg-4 col-md-4 <%= cycle("no-pad-left", "middle", "no-pad-right", name: "classes") %>" data-hook="products_list_item" itemtype="http://schema.org/Product">
+			      	<!-- TODO: reimplement caching -->
+			        <%# cache(@taxon.present? ? [I18n.locale, current_currency, @taxon, variant.product] : [I18n.locale, current_currency, variant.product]) do %>
+			          <div class="product-image">
+			            <%= link_to image_tag(variant.display_image.attachment(:large), itemprop: "image", class: "catalog-image"), url, itemprop: 'url' %>
+			          </div>
+				        <div class="passive-product-info-overlay">  
+				        </div>
+			          <div class="passive-product-info">
+			          	<% designer = (variant.product.designer && variant.product.designer.titleize || "Designer") %>
+			          	<%= link_to truncate(designer, length: 50), url, class: 'info catalog-product-brand passive', itemprop: "designer", title: designer %>
+				          <%= link_to truncate("#{variant.product.name} - #{ov.presentation}", length: 50), url, class: 'info catalog-product-name passive', itemprop: "name", title: "#{variant.product.name} - #{ov.presentation}" %>
+			          </div>
+				        <div class="active-product-info-overlay">  
+				        </div>
+				        <div class="active-product-info">  
+				          <%= link_to truncate(designer, length: 50), url, class: 'info catalog-product-brand', itemprop: "designer", title: designer %>
+				          <%= link_to truncate("#{variant.product.name} - #{ov.presentation}", length: 50), url, class: 'info catalog-product-name', itemprop: "name", title: "#{variant.product.name} - #{ov.presentation}" %>
+				          <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+				            <span class="price selling" itemprop="price"><%= variant.product.no_decimal_price %></span>
+				          </span>
+				          <button class='catalog-button add-to-tux-button'><a>add to tux</a></button>
+			            <button class='catalog-button product-details-button'><%= link_to "product details", url, itemprop: 'url'%></button>
+				        </div>  
+			        <%# end %>
+		      	</li>
+		      <% end %>	
+	      <% end %>	
+			<% end %>    
+		</ul>		
+	<% end %>	
+	
+	<% reset_cycle("classes") %>
+
+	<div class="paginate">
+		<% unless @variants.blank? %>
+			<%= paginate( @variants )  %>
+		<% end %>
+	</div>
+</div>	

@@ -1,0 +1,267 @@
+.map-store-title-container {
+  margin-top: 20px;
+}
+
+.map-store-title-text {
+  color: black;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  text-transform: uppercase;
+}
+
+.map-store-information-container {
+  margin-top: 12px;
+}
+
+.map-store-information-text {
+  color: #a0a0a0;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.map-icon {
+  float: left;
+  margin-right: 7px;
+}
+
+.map-store-timings-icon {
+  content: asset_url('spree/frontend/icons/map-store-timing.png');
+}
+
+.map-telephone-icon-container {
+  margin-top: 12px;
+}
+
+.map-telephone-icon {
+  content: asset_url('spree/frontend/icons/map-telephone.png');
+}
+
+.map-directions-button,.map-directions-button:visited {
+  width: 60%;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #fff;
+  margin-top: 24px;
+}
+
+.map-directions-button:hover,.map-directions-button:active {
+  background-color: #000;
+  color: #fff;
+}
+
+#all-locations-map-canvas {
+  height: 500px;
+}
+
+.location-large-pointer-icon {
+  content: asset_url('spree/frontend/icons/location-large-pointer.png');
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  height: 106px;
+}
+
+.all-locations-title {
+  margin-bottom: 26px;
+}
+
+.all-locations-description {
+  color: black;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 30px;
+}
+
+#all-locations-search-input {
+  margin-top: 20px;
+  border: 1px solid #cacaca;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+#all-locations-view-all-link {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+#all-locations-search-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.map-info-window-container {
+  overflow: hidden;
+  width: 300px;
+}
+
+.store-location {
+  margin-top: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #979797;
+}
+
+.store-information-title {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.store-description-text {
+  color: #7f7f7f;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  text-decoration: none;
+}
+
+.store-location .store-description-text {
+  cursor: pointer;
+}
+
+.store-information-title-container {
+  padding-bottom: 8px;
+}
+
+#search-results-locations-container {
+  padding-bottom: 100px;
+  @media (max-width: 767px) {
+    padding-bottom: 0;
+  }
+}
+
+.store-description-phone-icon {
+  content: asset_url('spree/frontend/icons/store-description-phone-icon.png');
+  display: inline-block;
+  left: 5px;
+  position: relative;
+  top: 5px;
+}
+
+.store-timings-row {
+  margin-top: 15px;
+}
+
+.store-timings-hours-text {
+  margin-top: 10px;
+}
+
+.store-description-make-appointment-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 205px;
+  transition: all .3s ease-in-out;
+  @media (max-width: 767px) {
+    width: 60%;
+  }
+  &:hover {
+    background-color: #d93a43;
+    transition: all .3s ease-in-out;
+  }
+}
+
+.store-description-directions-button {
+  padding: 15px;
+  width: 205px;
+  font-family: "AvantGardeMedium";
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  transition: all .3s ease-in-out;
+  @media (max-width: 767px) {
+    width: 60%;
+  }
+  &:hover {
+    background-color: #d93a43;
+    transition: all .3s ease-in-out;
+  }
+}
+
+.store-extra-information {
+  display: none;
+}
+
+#homepage-location-search-button {
+  margin-top: 20px;
+}
+
+#all-location-map-container {
+  margin-top: 20px;
+}
+
+.top-nav-link-wrapper.location {
+  cursor: pointer;
+}
+
+.top-nav-link-wrapper.phone {
+  cursor: pointer;
+}
+
+.map-store-information-first-column {
+  padding-right: 20px;
+}
+
+.map-store-information-second-column {
+  padding-left: 0px;
+}
+
+.store-listing-down-arrow-icon {
+  content: asset_url('spree/frontend/icons/location-listing-down-arrow.png');
+}
+
+.store-listing-up-arrow-icon {
+  content: asset_url('spree/frontend/icons/location-listing-up-arrow.png');
+}
+
+.store-listing-arrow {
+  margin-top: 5px;
+}
+
+.map-store-timings-icon-container-mobile {
+  margin-top: 8px;
+}
+
+@media (max-width: 767px){
+  #all-locations-map-canvas {
+    height: 300px;
+  }
+  .map-telephone-icon-container {
+    margin-top: 8px;
+  }
+  .map-icon {
+    margin-top: 1px ;
+  }
+  .store-listing-arrow {
+    margin-top: 0px;
+  }
+  .mobile-phone-rollover {
+    transition: all 0.3 ease-in-out;
+    &:hover {
+      color: #d93a43;
+      transition: all 0.3 ease-in-out;
+    }
+  }
+}
+
+.all-locations-header {
+  &:after {
+    content: "";
+    height: 2px;
+    margin: 10px 0;
+    width: 100%;
+    background-color: $grey-light-3;
+    display: inline-block;
+  }
+}
+
+h4#all-locations-scroll-to-link {
+  
+  &:hover {
+    color: $red;
+    cursor: pointer;
+  }
+}

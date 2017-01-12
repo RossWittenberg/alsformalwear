@@ -1,0 +1,1440 @@
+//~~~~partials~~~~~//
+@import 'colors';
+@import 'typography';
+@import 'global';
+
+$item-padding-S: 18px;
+$item-padding-M: 24px;
+
+// Search size
+
+$search-height-S: 50px;
+$search-height-L: 120px;
+
+body{
+  overflow-x: hidden;
+}
+
+header{
+  position: relative;
+  z-index: 1000000;
+
+  &.stickyHeight { height: 0;}
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.full-height {
+  height: 100vh;
+  .zopim {
+    display: none;
+  }
+}
+
+.top-nav-row {
+  background-color: rgba($black, 0.85);
+  height: 50px;
+
+  @media (max-width:767px) { 
+      position: relative;
+      top: 0;
+  }
+
+  h6,
+  a {
+    color: $white;
+    text-transform: uppercase;
+    font-family: $sans-serif-medium;
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.42;
+    vertical-align: top;
+
+    &.my-account-link {
+      padding-right: 6px;
+    }
+
+    &.cart-items {
+      padding-right: 0;
+
+       @media screen and (max-width: $xsmall-break) {
+          display: none;
+       }
+      
+    }
+
+    @media screen and (max-width: $large-break) {
+      font-size: 12px;
+    }
+  }
+
+  .h8 {
+    position: relative;
+    top: -1px;
+    @media (max-width: 1200px) {
+      top: 5px;
+    }
+    a {
+      margin-top: -2px;
+      @media screen and (max-width: $large-break) {
+        font-size: 7px;
+      }
+    }
+  }
+
+  li {
+    width: 20%;
+  }
+
+  .glyphicon {
+    color: $white;
+    margin-top: 0;
+    padding-right: 6px;
+    padding-top: 2px;
+
+    @media screen and (max-width: $large-break) {
+      font-size: 18px;
+      padding-top: 4px;      
+    }
+  }
+}
+
+.top-nav-container {
+  padding-top: 10px;
+
+  @media (min-width: 992px) {
+    .col-md-15 {
+      width: 25%;
+      position: relative;
+    }
+  }
+
+  @media (max-width: $small-break) {
+
+    .col-xs-15 {
+      width: 25%;
+      position: relative;
+    }
+
+    .top-nav-link-wrapper {
+      margin:0 auto;
+    }
+  }
+}
+
+.promo-nav-row {
+  background-color: $grey-light-nav;
+  height: 45px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  visibility: visible;
+
+  @media screen and (max-width: $xsmall-break) {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.promo-nav-text {
+  font-family: $sans-serif-bold;
+  font-size: 11px;
+  letter-spacing: .5px;
+  margin-bottom: 0;
+  padding-top: 8px;
+  text-align: center;
+}
+
+.promo-nav-subtext {
+  font-family: $serif-bold;
+  font-size: 12px;
+  letter-spacing: .7px;
+  line-height: 1;
+  text-align: center;
+  a {
+
+    &:hover {
+     color: $red;
+    }
+  }  
+}
+
+#link-to-cart {
+  a {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+
+.nav-logo {
+  width: 100%;
+  margin: 0 auto;
+  padding: 22px 0;
+
+  img{
+    display: block;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  &.top-stuck {
+    margin: 50px auto 0;
+    position: relative;
+    //width: 550px;
+    z-index: 2;
+  }
+
+  &.top-stuck-no-promo {
+    margin: 50px auto 0;
+    position: relative;
+    width: 550px;
+    z-index: 2;
+  }
+}
+
+.bottom-nav-row-wrapper {
+  background-color: rgba($grey-light-nav, 0.85);
+  width: 100%;
+  position: relative;
+
+  &.bottom-stuck {
+    position: fixed;
+    top: 50px;
+    width: 100%;
+    z-index: 3;
+  }
+
+  &.menu-closed {
+    .mobileNav {
+      overflow: hidden;
+    }
+  }
+  
+  &.mobile {
+    height: 50px;
+    z-index: 4;
+    position:relative;
+    top:0;
+    width: 100%;
+
+    &.bottom-stuck {
+      position: fixed;
+      top: 0;
+    }
+    
+    @media screen and (max-width: $xsmall-break) {
+      top: 0;
+    }
+  }
+}
+
+.bottom-nav-row {
+  height: 60px;
+  margin: 0 auto;
+}
+
+.bottom-nav-search {
+  margin-right: 0;
+  margin-top: -40px;
+}
+
+.product-autocomplete {
+  width: 100%;
+  a {
+    font-family: "SabonLT-Bold";
+    font-size: 14px;
+    line-height: 1.667;
+    p {
+      img {
+        padding-right: 16px;
+      }
+    }
+  }
+}
+
+.bottom-nav-logo {
+  position: relative;
+  opacity: 0;
+}
+
+.nav-icon {
+  margin-top: -5px;
+  padding-right: 6px;
+
+  @media screen and (max-width: $large-break) {
+    width: 28px;
+    &.cart-icon {
+      width: 26px;
+      padding-top: 2px;
+    }  
+  }
+
+  @media screen and (max-width: $medium-break) {
+    margin-top: 0;
+    &.my-account-link {
+      margin-top: 6px;
+    }
+  }
+  @media screen and (max-width: $small-break) {
+    &.my-account-link {
+      margin-top: 3px;
+    }
+  }
+}
+
+.top-stuck,
+.top-stuck-no-promo {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+#wrapper {
+  &.bottom-stuck {
+    margin-top: 32px;
+  }
+}
+
+.nav-stuck-mini-logo {
+  background: asset-url('spree/frontend/stack-color.png') no-repeat;
+  background-size: contain;
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 58px;
+}
+
+.promo-ex {
+  background-color: $black;
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  right: 12px;
+  top: 20px;
+  -ms-transform: rotate(45deg); 
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.promo-ex:after {
+  content: '';
+  background-color: $black;
+  position: absolute;
+  height: 3px;
+  width: 20px;
+  right: 0;
+  top: 0;
+  -ms-transform: rotate(270deg); 
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.nav-icon-wrapper {
+    
+    span {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      position: relative;
+      top: 2px;
+      left: -6px;
+
+      &.nav-icon-location { background-image: asset-url('spree/frontend/navigation/location_white.svg'); }
+
+      &.nav-icon-phone { background-image: asset-url('spree/frontend/navigation/phone_white.svg'); }
+
+      &.nav-icon-calendar { background-image: asset-url('spree/frontend/navigation/calendar_white.svg'); }
+
+    }
+}
+
+.nav-icon {
+
+  &.account-icon { 
+    width: 30px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: $medium-break) {
+
+  .nav-icon-wrapper {
+    margin: 0 auto;
+    width: 26px;
+    min-height: 20px;
+  }
+}
+
+
+
+.top-nav-link-wrapper {
+  display: inline-flex;
+  //margin: 0 auto;
+  position: relative;
+ 
+
+  &.move-right {
+    @media screen and (min-width: $medium-break) {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  &.move-left.phone {
+    left: 5%;
+  }
+
+  &.move-left.appointment {
+    cursor: pointer;
+    left: 10%;
+  }
+} 
+
+.bottom-nav-link-wrapper {
+  display: table;
+  margin: 0 auto; 
+}
+
+.logo-mobile {
+  display:block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  right: 0;
+  width: 129px;
+  height: 27px;
+  background-image: asset-url('spree/frontend/logo-small.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  z-index: 20;
+}
+
+/* Mobile Menu */
+
+.mainMenu{
+  width: 100%;
+  height: 50px;
+  position: relative;
+  left:  0px;
+  background-color: $grey-light-nav;
+  z-index: 10;
+}
+
+.menuHolder{
+  display: block;
+  cursor: pointer;
+  height: 45px;
+  @include transform(translateZ(0));
+  z-index: 10;
+  position: absolute;
+  top: 6px;
+  left: 20px;
+}
+
+.menuBtn{
+
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* hide text */
+  color: transparent;
+  z-index: 3;
+
+  span, span::before, span::after {
+    /* hamburger icon in CSS */
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    width: 24px;
+    background: $black;
+  }
+
+  span {
+    /* line in the center */
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -2px;
+    @include transition(background .2s .2s);
+  }
+
+  span::before, span::after {
+    /* other 2 lines */
+    content: '';
+    right: 0;
+    /* Force Hardware Acceleration in WebKit */
+    @include transform(translateZ(0));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    @include transform-origin(0% 50%);
+    @include transition(transform .2s .22s);
+  }
+
+  span::before {
+    /* menu icon top line */
+    top: -6px;
+  }
+
+  span::after {
+    /* menu icon bottom line */
+    top: 6px;
+  }
+
+  &.activeMenu {
+    background: transparent;
+
+    span {
+      /* hide line in the center */
+      background: rgba($black, 0);
+    }
+
+    span::before, span::after {
+      /* keep visible other 2 lines */
+      background: rgba($black, 1);
+    }
+
+    span::before {
+      @include transform(translateX(4px) translateY(-3px) rotate(45deg));
+    }
+
+    span::after {
+      @include transform(translateX(4px) translateY(2px) rotate(-45deg));
+    }
+  }
+}
+
+.mobileNav{
+  //height: 0;
+  transition: height 0.3s ease-in-out;
+  z-index: 2;
+  @include transform(translateY(-200%));
+  @include transition(transform .75s ease-in-out);
+}
+
+.mobileNav.showNav{
+  position: relative;
+  height: 100vh;
+  max-width: 100vw;
+  z-index: 2;
+  margin: 0;
+  @include transform(translateY(0));
+  @include transition(transform .75s ease-in-out);
+
+
+}
+
+
+.accordion-menu {
+  width: 100%;
+  height: 100%;
+  //max-width: 600px;
+  background: rgba(0,0,0,0.97);
+  margin: 0 auto;
+  padding: 0;
+  overflow-y: auto;
+
+  ul {
+    /* by default hide all sub menus */
+    display: none;
+    padding: 0 0 $item-padding-M ($item-padding-S + 2);
+    overflow: hidden;
+  }
+
+  h4 {
+    display: none;
+    padding-left:20px;
+  }
+  
+  li {
+    /* make text unselectable. */
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+    user-select: none;   
+  }
+
+  input[type=checkbox] {
+    /* hide native checkbox */
+    position: absolute;
+    opacity: 0;
+  }
+
+  label, a {
+    position: relative;
+    display: block;
+    padding: 20px 20px 16px 20px;
+    background: transparent;
+    color: #424242;
+    font-size: 11px;
+    font-family: $sans-serif-bold;
+    letter-spacing: 1px;
+    line-height: 12px;
+    margin-bottom: 0;
+    cursor: pointer;
+    float: left;
+    width: 100%;
+
+    .no-touch &:hover {
+      // background: tint($grey-dark, 3%);
+    }
+  }
+
+  label::before, label::after, a::after, a::before {
+    /* icons */
+    content: '';
+    display: inline-block;
+    width: 9px;
+    height: 6px;
+    position: absolute;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+
+  label {
+    cursor: pointer;
+
+    &::before, &::after {
+      
+    }
+
+    &::after {
+      /* arrow icon */
+      right: 5px;
+      background-image: asset-url('spree/frontend/navigation/line_black.svg');
+      background-repeat: no-repeat;
+      @include transform(translateY(-50%) rotate(0deg));
+    }
+
+  }
+
+  
+
+  input[type=checkbox]:checked + label::after {
+    /* rotate arrow */
+    @include transform(translateY(-50%));
+  }
+
+  input[type=checkbox]:checked + label + ul,
+  input[type=checkbox]:checked + label:nth-of-type(n) + ul {
+    /* use label:nth-of-type(n) to fix a bug on safari (<= 8.0.8) with multiple adjacent-sibling selectors*/
+    /* show children when item is checked */
+    display: block;
+  }
+
+  ul label,
+  ul a {
+    padding-left: (18px * 4) + 10px;
+
+    .no-touch &:hover {
+      
+    }
+  }
+
+  > li {
+    background-color: rgba(247,247,247,0.95);
+    border-top: 1px rgba(0,0,0,0.07) solid;
+    overflow: hidden;
+
+    &:last-child {
+      border-bottom: 1px solid $grey-middle;
+    }
+
+    &.item-dark {
+      float: left;
+      width: 50%;
+      background-color: rgba(0, 0, 0, 0.97);
+      
+
+      &:last-child {
+        border-bottom: 0;
+      }
+      
+      a,
+      label {
+        font-family: $sans-serif-medium;
+        font-size: 9px;
+        letter-spacing: 1px;
+        line-height: 12px;
+        color: $white;
+        padding: 22px 0 18px 55px;
+      }
+
+      a{
+        &::before{
+          top: 50%;
+          @include transform(translateY(-50%));
+          left: 15px;
+          width: 25px;
+          height: 25px;
+          background-size: cover;
+        }
+
+        &.location::before {
+          width: 30px;
+          height: 30px;
+          left: 12px;
+          background-image: asset-url('spree/frontend/navigation/location_white.svg');
+        }
+
+        &.phone::before {
+          background-image: asset-url('spree/frontend/navigation/phone_white.svg');
+        }
+
+        &.calendar::before {
+          background-image: asset-url('spree/frontend/navigation/calendar_white.svg');
+        }
+
+        &.bowtie::before {
+          background-image: asset-url('spree/frontend/navigation/bowtie_white.svg');
+        }
+
+        &.star::before {
+          background-image: asset-url('spree/frontend/navigation/star_white.svg');
+        }
+        &.heart::before {
+          background-image: asset-url('spree/frontend/navigation/heart_red.png');
+        }
+        &.coupon::before {
+          background-image: asset-url('spree/frontend/navigation/coupon.svg');
+        }
+        &.tag::before {
+          background-image: asset-url('spree/frontend/navigation/tag.svg');
+        }
+        &.faq::before {
+          background-image: asset-url('spree/frontend/navigation/faq.svg');
+        }
+        &.oot-mobile::before {
+          background-image: asset-url('spree/frontend/navigation/oot-mobile.svg');
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+      }
+    }
+  }
+
+  > li > ul > li{ 
+      float: left;
+      width: 50%;
+
+    a {
+      padding: ($item-padding-S - 4px) 0;
+      font-family: $sans-serif-medium;
+      font-size: 9px;
+      color: #878787;
+      letter-spacing: 1px;
+      line-height: 12px;
+    }
+
+  }
+
+  > li:last-of-type > label,
+  > li:last-of-type > a,
+  > li > ul > li:last-of-type label,
+  > li > ul > li:last-of-type a {
+    box-shadow: none;
+  }
+
+  @media only screen and (min-width: $xsmall-break) { 
+    label, a {
+      padding: 20px 25px 16px 20px;
+    }
+
+  }
+
+  &.animated label::before {
+    /* this class is used if you're using jquery to animate the accordion */
+    @include transition(transform .3s);
+  }
+
+  .section-label {
+    font-family: $sans-serif-demi;
+    font-size: 9px;
+    color: #000000;
+    letter-spacing: 1px;
+    line-height: 12px;
+    width: 100%;
+  }
+}
+
+
+
+/* Desktop main menu */
+
+.cd-primary-nav, .cd-primary-nav ul {
+  
+  -webkit-overflow-scrolling: touch;
+  z-index: 1;
+  /* Force Hardware Acceleration in WebKit */
+  @include transform(translateZ(0));
+
+  @include transform(translateX(0));
+  @include transition(transform .3s);
+
+  a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: $white;
+    overflow: hidden;
+    //text-overflow: ellipsis;
+    white-space: nowrap;
+    @include transform(translateZ(0));
+    will-change: transform, opacity;
+    @include transition(transform .3s, opacity .3s);
+
+    &.feature {
+      display: initial;
+      margin-top: 50%;
+      button {
+        margin-top: 20%;
+      }
+    }
+  }
+
+  &.is-hidden {
+    /* secondary navigations hidden by default */
+    @include transform(translateX(100%));
+  }
+
+  &.moves-out > li > a {
+    /* push the navigation items to the left - and lower down opacity - when secondary nav slides in */
+    @include transform(translateX(-100%));
+    opacity: 0;
+    outline: 0;
+  }
+}
+
+
+.cd-primary-nav {
+  
+  @media only screen and (max-width: 991px){
+    
+    visibility: hidden;
+    display: none;
+    
+  }
+}
+
+@media only screen and (min-width: $medium-break ) {
+
+  .cd-primary-nav { 
+    position: static;
+    top: 0;
+    right: 0;
+    padding: 0;
+    height: auto;
+    width: auto;
+    overflow: visible;
+    background: transparent;
+    margin-bottom: 0;
+    @include clearfix;
+
+    &.moves-out > li > a {
+      /* reset mobile style */
+      @include transform(translateX(0));
+      opacity: 1;
+    }
+
+    ul {
+      position: static;
+      height: auto;
+      width: auto;
+      background: transparent;
+      overflow: visible;
+      z-index: 3;
+
+      &.is-hidden {
+        /* reset mobile style */
+        @include transform(translateX(0));
+      }
+
+      &.moves-out > li > a {
+        /* reset mobile style */
+        @include transform(translateX(0));
+        outline: 0;
+        opacity: 1;
+      }
+    }
+
+    > li {
+      float: left;
+      margin-left: 2.65em;
+    }
+
+    > li > a {
+      /* main navigation buttons style */
+      position: relative;
+      height: auto;
+      display: inline-block;
+      font-family: $sans-serif-medium;
+      font-size: 14px;
+      letter-spacing: 1px;
+      line-height: 1.42; 
+      color: $black;
+      padding: 22px 10px 18px;
+      overflow: visible;
+      border-bottom: none;
+      text-decoration: none;
+      outline: 0;
+      @include transition(color .3s, box-shadow .3s);
+
+      &:hover {
+        color: $grey-dark;
+      }
+
+      &.selected {
+        color: $grey-dark;
+      }
+    }
+
+    .cd-secondary-nav {
+      /* dropdown menu style */
+      position: absolute;
+      top: 60px;
+      width: 100%;
+      background: rgba($black, 0.85);
+      padding: 25px 0;
+      margin-left: -3000px;
+      padding-left: 3000px;
+      margin-right: -3000px;
+      padding-right: 3000px;
+      @include transform(translateX(0));
+      @include clearfix;
+      -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+      -moz-transition: opacity .3s 0s, visibility 0s 0s;
+      transition: opacity .3s 0s, visibility 0s 0s;
+
+      &.is-hidden {
+        opacity: 0;
+        display: none;
+        -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+        -moz-transition: opacity .3s 0s, visibility 0s .3s;
+        transition: opacity .3s 0s, visibility 0s .3s;
+
+      }
+
+      
+    }
+
+    .cd-secondary-nav {
+
+      > li {
+        /* change the height according to your needs - you can even set height: auto */
+        height: auto;
+        /* here you set the number of columns - use width percentage */
+        //@include column(.47);
+        width: 702px;
+        margin: 0 auto;
+        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        &:nth-child(4n+2) {
+          /* +2 because we have 2 list items with display:none */
+          margin-right: 0;
+          border-right: none;
+        }
+
+        > div h4 {
+          /* secondary nav title */
+          color: $white;
+        }
+
+        > div .cols-two {
+          columns: 2;
+          -webkit-columns: 2;
+          -moz-columns: 2;
+        }
+
+        > div ul li {
+          a {
+            font-family: $sans-serif-medium;
+            font-size: 11px;
+            letter-spacing: 1px;
+            line-height: 1.42;
+            color: $grey-light;
+            height: 25px;
+            outline: 0;
+
+            &:hover, &:focus{
+              color: $white;
+              text-decoration: none;
+            } 
+          }
+        }
+
+        .list1 {
+          margin-left: 12px;
+        }
+
+        .list2 {
+          margin-left: 50px;
+        }
+
+        .list-services { margin-left: 10px; }
+
+      }
+
+      a {
+        height: 30px;
+        line-height: 30px;
+        padding: 0 18% 0 0;
+        color: $grey-dark;
+        border-bottom: none;
+        font-size: 1.4rem;
+        outline: 0;
+
+        &:hover {
+          color: $black;
+        }
+      }
+
+      ul {
+        /* Force Hardware Acceleration in WebKit */
+        @include transform(translateZ(0));
+      }
+
+      ul ul {
+        /* tertiary navigation */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+
+        &.is-hidden {
+          @include transform(translateX(100%));
+        }
+
+        
+      }
+
+      .moves-out > li > a {
+        /* push the navigation items to the left - and lower down opacity - when tertiary nav slides in */
+        @include transform(translateX(-100%));
+      }
+    }
+
+  }
+}
+
+.has-children > a {
+  position: relative;
+
+  &::before, &::after {
+    /* arrow icon in CSS - for element with nested unordered lists */
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -1px;
+    display: inline-block;
+    height: 2px;
+    width: 10px;
+    background: $black;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    outline: 0;
+  }
+
+  &::before {
+    @include transform(rotate(45deg));
+  }
+
+  &::after {
+    @include transform(rotate(-45deg));
+  }
+
+  @media only screen and (min-width: $medium-break ) {
+    &::before, &::after {
+      background: $black;
+    }
+
+    &:hover::before, &:hover::after {
+      background: $grey-dark !important;
+    }
+  }
+}
+
+.has-children > a {
+  padding-right: 40px;
+
+  &::before, &::after {
+    /* arrow goes on the right side - children navigation */
+    right: 20px;
+    @include transform-origin(9px 50%);
+  }
+}
+
+
+
+@media only screen and (min-width: $medium-break ) {
+
+  .has-children > a {
+    &::before, &::after {
+      right: 15%;
+    }
+  }
+
+  .cd-primary-nav > .has-children > a {
+    /* main navigation arrows on larger devices */
+    padding-right: 30px !important;
+
+    &::before, &::after {
+      width: 9px;
+      @include transform-origin(50% 50%);
+      background: $black;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      @include transition(width .3s, transform .3s);
+    }
+
+    &::before {
+      right: 12px;
+    }
+
+    &::after {
+      right: 7px;
+    }
+
+    &.selected::before, &.selected::after {
+      width: 14px;
+      background: $grey-dark;
+    }
+
+    &.selected::before {
+      @include transform(translateX(5px) rotate(-45deg));
+    }
+
+    &.selected::after {
+      @include transform(rotate(45deg));
+    }
+  } 
+
+  .cd-secondary-nav > .has-children > a::before, .cd-secondary-nav > .has-children > a::after {
+    /* remove arrows on secondary nav titles */
+    display: none;
+  }
+
+}
+
+.explore-inv {
+  position: absolute;
+  left: -400px;
+  right: 0;
+  top: 15px;
+  width: 330px;
+  height: 145px;
+  background-image: asset-url('spree/frontend/explore_invitation.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+
+  button {
+    display: block;
+    @include vertical-align();
+    margin: 0 auto;
+
+    &:hover {
+      background-color: $red-shade-6 !important;
+      color: $white !important;
+    }
+  }
+  
+}
+
+.explore-col {
+  position: absolute;
+  left: 1250px;
+  right: 0;
+  top: 18px;
+  width: 268px;
+  height: 169px;
+  background-image: asset-url('spree/frontend/explore-collections.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+
+  a {
+    display: block;
+    @include vertical-align();
+    margin: 0 auto;
+    margin-left: 45px;
+    padding: 17px 40px 13px !important;
+    text-transform: uppercase;
+    transition: all .3s ease-in-out;
+
+    &:hover {
+      color: $white !important;
+      transition: all .3s ease-in-out;
+    }
+  }
+  
+}
+
+
+/* Mobile Search */
+
+.mobile-searchHolder{
+  position: absolute;
+  top: 4px;
+  right: 5px;
+  width: 44px;
+  height: 4px;
+}
+
+.search-trigger {
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 44px;
+  overflow: hidden;
+  white-space: nowrap;
+  /* hide text */
+  color: transparent !important;
+  z-index: 10;
+
+  &::before, &::after {
+    /* search icon */
+    content: '';
+    position: absolute;
+    @include transition(opacity .3s);
+    /* Force Hardware Acceleration in WebKit */
+    @include transform(translateZ(0));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transition: all .3s ease-in-out;
+  }
+
+  &::before {
+    /* lens */
+    top: 11px;
+    left: 11px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid $black;
+  }
+
+  &::after {
+    /* handle */
+    height: 3px;
+    width: 8px;
+    background: $black;
+    bottom: 14px;
+    right: 11px;
+    @include transform(rotate(45deg));
+  }
+
+  &:hover::after {
+    background-color: #d93a43;
+    transition: all .3s ease-in-out;
+  }
+
+  &:hover::before {
+    border-color: #d93a43;
+    transition: all .3s ease-in-out;
+  }
+
+  span {
+    /* container for the X icon */
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  span::before, span::after {
+    /* close icon */
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 3px;
+    width: 22px;
+    top: 50%;
+    margin-top: -2px;
+    left: 50%;
+    margin-left: -11px;
+    background: $black;
+    opacity: 0;
+    /* Force Hardware Acceleration in WebKit */
+    @include transform(translateZ(0));
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    @include transition(opacity .3s, transform .3s);
+  }
+
+  span::before {
+    @include transform(rotate(45deg));
+  }
+
+  span::after {
+    @include transform(rotate(-45deg));
+  }
+
+  span:hover::after, span:hover::before {
+    background-color: $grey-dark;
+  }
+
+  &.search-is-visible {
+    &::before, &::after {
+      /* hide search icon */
+      opacity: 0;
+    }
+
+    span::before, span::after {
+      /* show close icon */
+      opacity: 1;
+    }
+
+    span::before {
+      @include transform(rotate(135deg));
+    }
+
+    span::after {
+      @include transform(rotate(45deg));
+    }
+  }
+
+}
+
+.mobile-input-search {
+  position: absolute;
+  height: $search-height-S;
+  width: 100%;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(opacity .3s 0s, visibility 0s .3s);
+
+  form {
+    height: 100%;
+    width: 100%;
+  }
+
+  input {
+    border-radius: 0;
+    border: none;
+    background: $white;
+    height: 100%;
+    width: 100%;
+    padding: 0 5%;
+    box-shadow: inset 0 1px 0 $grey-light, 0 3px 6px rgba(#000, .05);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+
+    @include placeholder {
+      color: darken($grey-light, 10%);
+      font-family: $serif;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &.is-visible {
+    opacity: 1;
+    visibility: visible;
+    @include transition(opacity .3s 0s, visibility 0s 0s);
+    
+  }
+
+  /*.nav-is-fixed & {
+    position: fixed;
+  }*/
+
+  @media screen and (min-width: $small-break) { 
+    background: #eeeeee;
+    border: 1px solid $grey-light;
+
+    input[type="search"] {
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      background: #eeeeee;
+      height: 49px;
+      text-align: center;
+    }
+
+  }
+
+}
+
+input[type="search"]::-ms-clear {
+  /* removes close icon - IE */
+    display: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+.mobile-nav-menu-wrapper {
+  border-top: 1px solid $grey-middle;
+  &.last {
+    border-bottom: 1px solid $grey-middle;
+  }
+  &.first {
+    margin-top: 10px;
+  }
+}
+
+.mobile-nav-menu {
+  margin: 20px;
+}
+
+@media screen and (min-width: $medium-break) { 
+  
+  .mobile-input-search {
+      top: 59px;
+  }
+}
+
+
+
+
+.red-mobile-focus {
+  &:hover {
+    color: $red;
+  }
+  &:focus {
+    color: $red;
+  }
+}

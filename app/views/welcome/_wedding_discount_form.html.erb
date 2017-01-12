@@ -1,0 +1,107 @@
+<div class="row social-event-text" style="padding: 0;">
+  <a id="error-message-scroll"></a>
+  <div class="message-wrapper"></div>
+  <h3 class="padding-text">Watch your Custom Discount grow as you describe your upcoming wedding.</h3>
+  <div class="col-md-12 wedding-discount" style="">
+  
+    <div class="row social-event-form">
+      <div class="col-md-8 col-md-offset-2">
+        <%= form_tag('/events/create_with_group_code', remote: true, onsubmit: "_gaq.push(['_trackEvent', 'Landing Pages', 'New Custom Wedding Discount', 'Weddings']);", class: 'wedding-discount-form width-fix') do %>
+          <%= hidden_field_tag "wedding_discount[is_group]", false %>
+          <%= hidden_field_tag "wedding_discount[wedding]", true %>
+          <%= hidden_field_tag "wedding_discount[custom_discount]", 40, class: "wedding-discTotal" %>
+
+          <div class="col-md-12 col-sm-12">
+            <h3 class="wedding-discount-headline">WEDDING PARTY INFORMATION</h3>
+          </div>
+          
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= select_tag "wedding_discount[best_man]", options_for_select( [['Yes', 1],['No', 0]] ), {class: 'measurement-form-field calc', prompt: 'BEST MAN?', id: 'best_man'} %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[groomsmen]", nil, placeholder: 'NUMBER OF GROOMSMEN', id: 'groomsmen', class: 'calc moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= select_tag "wedding_discount[fot_bride]", options_for_select( [['Yes', 1],['No', 0]] ), {class: 'measurement-form-field calc', prompt: 'FATHER OF THE BRIDE?', id: 'fot_bride'} %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= select_tag "wedding_discount[fot_groom]", options_for_select( [['Yes', 1],['No', 0]] ), {class: 'measurement-form-field calc', prompt: 'FATHER OF THE GROOM?', id: 'fot_groom'} %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= select_tag "wedding_discount[ringbearer]", options_for_select( [['Yes', 1],['No', 0]] ), {class: 'measurement-form-field calc', prompt: 'RINGBEARER?', id: 'ringbearer'} %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[ushers]", nil, placeholder: 'NUMBER OF USHERS', id: 'ushers', class: 'calc moving-placeholder' %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[attendants]", nil, placeholder: 'OTHER ATTENDANTS', id: 'attendants', class: 'calc moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= text_field_tag "wedding_discount[date]", nil, class: "datepicker", placeholder: 'WEDDING DATE', readonly: true  %>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-sm-12">
+            <% if @user && @user.first_name && @user.last_name %>
+              <% name = "#{@user.first_name} #{@user.last_name}" %>
+            <% end %>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[contact_name]", name || nil, placeholder: 'NAME', id: 'contact_name', class: 'calc moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[contact_email]", @user && @user.email || nil, placeholder: 'EMAIL', id: 'contact_email', class: 'calc moving-placeholder' %>
+            </div>
+          </div>
+          
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="placeholder-slide"></div>
+              <%= text_field_tag "wedding_discount[contact_phone]", @user && @user.phone_number || nil, placeholder: 'PHONE', class: 'phone-number moving-placeholder' %>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <%= select_tag "wedding_discount[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'event_location_id measurement-form-field' %>
+            </div>
+          </div>
+
+          
+          <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="savings">
+                <span id="total">
+                  <strong><h3 class="discount-total">TOTAL SAVINGS OF <span class="right red">$0.00</span></h3></strong>
+                </span>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-5 col-md-offset-0 col-sm-offset-1">
+              <div class="savings">
+                <button type="button" class='wedding-discount-form-submit-button form-submit-button button-primary'>EMAIL COUPON</button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="showbox hidden">
+          <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+              <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+            </svg>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </div>
+</div>

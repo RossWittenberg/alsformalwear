@@ -1,0 +1,31 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="<%= I18n.locale %>"><!--<![endif]-->
+  <head>
+    <%= javascript_include_tag 'spree/frontend/all' %>
+    <%= stylesheet_link_tag 'print/look_print', media: 'print' %>
+    <%= stylesheet_link_tag 'print/look_print', media: 'screen' %>
+    <%= stylesheet_link_tag 'spree/frontend/all' %>
+    <%= favicon_link_tag 'favicon.ico' %>
+  	<script type="text/javascript">
+  	</script>
+    <title>Al's Formal Wear - Print Your Look</title>
+  </head>
+  <body class="look-print-body">
+    <div class="screen outer-wrapper">
+      <%= render :partial => 'spree/shared/header' %>
+      <%= render :partial => 'spree/shared/make_appointment_form' %>
+    </div>
+    <div class="look-print-wrapper">
+      <%= yield %>
+    </div>
+    <div class="footer-and-analytics screen">
+      <%= render :partial => 'spree/shared/footer' %>
+      <%= render :partial => 'spree/shared/google_analytics' %>
+    </div>  
+  </body>
+</html>

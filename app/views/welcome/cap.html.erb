@@ -1,0 +1,121 @@
+<div class="container discount-coupon-wrapper">
+  <div class="row cap-header">
+    <div class="col-md-12">
+      <%= image_tag 'spree/frontend/icons/group-offers.svg' %>
+      <h2>CORPORATE AFFINITY PROGRAM</h2>
+      <p>Al’s Formal Wear has been making generations of Houstonians look great for special events to create wonderful memories for over 60 years.  With its flagship store located near the Texas Medical Center (7807 Main/Kirby) and 17 additional stores throughout the Houston Metroplex,  Al’s Formal Wear allows participating employees to receiving a $40 discount on all Tuxedo rentals and a 20% discount off all retail purchases.</p>
+      <p>Three Easy Steps to Register Your Organization:</p>
+      <ul>
+        <li>Sign up using the form below!</li>
+        <li>Participating employers promote this new Al’s Formal Wear page on their company Intranet. Al’s Formal Wear will provide a logo and create a special splash page for your company describing the program upon request.</li>
+        <li>Employees of participating employers show Al’s Formal Wear store personnel their business card or company badge to receive $40 rental discount and/or 20% retail discount. All stores will have a list of CAP participants to ensure that store personnel will honor the discount.</li>
+      </ul>
+    </div>
+  </div>
+
+  <a id="error-message-scroll"></a>
+  <div class="message-wrapper"></div>
+
+  <div class="row social-event-form cap-form-wrapper">
+    <%= form_tag('/', remote: true, class: "cap-form" ) do %>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <h3>ORGANIZATION INFORMATION</h3>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[orgname]", nil, placeholder: 'ORGANIZATION NAME', class: 'moving-placeholder' %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[street_address]", nil, placeholder: 'MAILING ADDRESS', class: 'moving-placeholder' %>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[city]", nil, placeholder: 'CITY', class: 'moving-placeholder' %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="row state-zip">
+              <div class="col-md-6 col-sm-6">
+                <%= select_tag "cap[state]", options_from_collection_for_select(@states, 'abbr', 'abbr'), prompt: "STATE", class: 'short-field measurement-form-field' %>
+              </div>
+              <div class="col-md-6 col-sm-6">
+                <div class="placeholder-slide short-field"></div>
+                <%= text_field_tag "cap[zip_code]", nil, placeholder: 'ZIPCODE', class: 'short-field moving-placeholder' %>
+              </div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[tax_id]", nil, placeholder: 'FEDERAL TAX ID', class: "fed-tax-id moving-placeholder"%>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[referral_name]", nil, placeholder: 'REFERRAL NAME', class: 'moving-placeholder' %>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12 col-xs-12 in-form-line-break"></div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <h3>YOUR CONTACT INFORMATION</h3>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[first_name]", nil, placeholder: 'FIRST NAME', class: 'moving-placeholder' %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[last_name]", nil, placeholder: 'LAST NAME', class: 'moving-placeholder' %>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[contact_title]", nil, placeholder: 'TITLE', class: 'moving-placeholder' %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[contact_phone]", nil, placeholder: 'PHONE', class: "phone-number moving-placeholder" %>
+        </div>
+      </div>
+      
+      <div class="col-md-12 col-sm-12">
+        <div class="col-md-6 col-sm-6">
+          <div class="placeholder-slide"></div>
+          <%= text_field_tag "cap[contact_email]", nil, placeholder: 'EMAIL ADDRESS', class: 'moving-placeholder' %>
+        </div>
+        <div class="col-md-6 col-sm-6">
+          <%= select_tag "cap[location_id]", options_for_select(@locations.collect{ |l| [ l.format_for_select, l.id ] }), prompt: "PREFERRED STORE", class: 'measurement-form-field' %>
+        </div>
+        <div class="col-md-6 col-sm-6"></div>
+      </div>
+
+      <div class="col-md-6">
+        <button type="button" class='cap-button button-primary form-submit-button'>SIGN UP</button>
+      </div>
+    <% end %>
+    <div class="showbox hidden">
+      <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+          <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>

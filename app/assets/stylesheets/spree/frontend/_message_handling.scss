@@ -1,0 +1,104 @@
+@import 'colors';
+@import 'global';
+@import 'typography';
+
+
+select.erroneous-input,
+span.erroneous-input,
+input[type="text"].erroneous-input,
+input[type="date"].erroneous-input,
+input[type="email"].erroneous-input,
+input[type="number"].erroneous-input {
+  border: 2px solid $red !important;
+}
+
+.error-message {
+  color: $red;
+
+  &.index-1 {
+    display: inline-block;
+  }
+}
+
+.success-message {
+  color: $green-success;
+}
+
+#successModal, 
+#occassionSuccessModal {
+  z-index: 999999999;
+}
+
+.success-modal-dialog {
+  margin-top: 200px;
+}
+
+.success-modal {
+  background-color: $white;
+}
+
+.alert {
+  color: $red;
+  font-family: $sans-serif-medium;
+  margin-bottom: 0;
+  padding: 0 0 0 15px;
+  margin-top: 20px;
+  text-align: left;
+
+  &.measurement-response-message {
+    padding: 0;
+  }
+
+  li, ul {
+    display: inline-block;
+  }
+
+  &:before {
+    background: asset-url('spree/frontend/error-exclaim.png') no-repeat;
+    background-size: cover;
+    content: '';
+    display: inline-block;
+    height: 20px;
+    margin-right: 8px;
+    width: 20px;
+  }
+
+  &:after {
+    background-color: $red;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 10px 0;
+    width: 100%;
+  }
+}
+
+.success {
+  color: $green-success;
+  font-family: $sans-serif-medium;
+  margin-bottom: 0;
+  padding: 0;
+
+  &.row {
+    padding-top: 20px;
+  }
+
+  &:before {
+    background: asset-url('spree/frontend/success-check.svg') no-repeat;
+    content: '';
+    display: block;
+    height: 60px;
+    width: 40px;
+  }
+
+  &:after {
+    background-color: $green-success;
+    content: '';
+    display: block;
+    height: 2px;
+    margin: 20px 0 10px;
+    width: 100%;
+  }
+}
+
+

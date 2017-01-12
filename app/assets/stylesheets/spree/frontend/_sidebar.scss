@@ -1,0 +1,108 @@
+//~~~~partials~~~~~//
+@import 'colors';
+@import 'typography';
+@import 'global';
+
+.sidebar-wrapper {
+  height: 100vh;
+  margin-top: 100px;
+}
+
+.taxons-list {
+  display: none;
+
+  li a {
+    font-family: $serif;
+    font-size: 14px;
+    line-height: 2;
+	}
+}
+
+.taxonomy-root {
+
+  &:after {
+    background-color: $grey-light;
+    content: '';
+    display: block;
+    height: 1px;
+    margin-top: 8px;
+    width: 100%;
+	}
+}
+
+.down-caret {
+  @include rotate(30);
+  background-color: $grey-light;
+  float: right;
+  height: 2px;
+  margin-right: 20px;
+  margin-top: 8px;
+  width: 10px;
+
+  &.hover,
+  &.hover:after {
+    background-color: $grey-dark;
+    cursor: pointer;
+  }
+
+  &:after {
+    @include rotate(120);
+    background-color: $grey-light;
+    content: '';
+    float: right;
+    height: 2px;
+    margin-right: -7px;
+    margin-top: -4px;
+    width: 10px;
+  }
+
+  &.active {
+    @include rotate(210);
+    background-color: $grey-dark;
+    float: right;
+    height: 2px;
+    margin-right: 10px;
+    margin-top: 8px;
+    width: 10px;
+
+    &.hover,
+    &.hover:after {
+      background-color: $grey-light;
+      cursor: pointer;
+    }
+
+    &:after {
+      @include rotate(120);
+      background-color: $grey-dark;
+      content: '';
+      float: right;
+      height: 2px;
+      margin-right: -7px;
+      margin-top: -4px;
+      width: 10px;
+    }
+  }
+}
+
+.browse-and-filter-header {
+  font-family: $sans-serif-demi;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1.25;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.down-caret-button-area {
+  display: inline-block;
+  float: right;
+  height: 30px;
+  margin-top: -40px;
+  opacity: .4;
+  width: 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+

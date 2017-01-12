@@ -1,0 +1,196 @@
+<div class="container contactPage">
+	<div class="row push-80">
+		<div class="col-md-12">
+			<div class="icon-box">
+				<%= image_tag('spree/frontend/info/headset.svg', :alt => '', class: 'headset center-block') %>
+			</div>
+			<h2 class="center-text">WE’RE HERE TO HELP</h2>
+		</div>
+	</div>
+	<div class="row push-80">
+		<div class="col-md-4 col-sm-4">
+			<div class="icon-box">
+				<%= image_tag('spree/frontend/info/email-us.svg', :alt => '', class: 'email-us center-block') %>
+			</div>
+			<h3 class="center-text">EMAIL US</h3>
+			<button type="button" class="button-primary" data-toggle="modal" data-target="#contactModal">EMAIL</button>
+
+	    <div id="contactModal" class="modal fade" role="dialog">
+	      <div class="modal-dialog">
+	      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <div class="col-md-10 col-md-offset-1">
+	          <%= render partial: "contact_form_modal" %>
+	        </div>
+	      </div>
+	    </div>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="icon-box">
+				<%= image_tag('spree/frontend/info/phone.svg', :alt => '', class: 'phone center-block') %>
+			</div>
+			<h3 class="center-text">CALL US</h3>
+			<p class="body-style-1 center-text phone-number">1 (800) 460 8500</p>
+		</div>
+		<div class="col-md-4 col-sm-4">
+			<div class="icon-box">
+				<%= image_tag('spree/frontend/info/location.svg', :alt => '', class: 'location center-block') %>
+			</div>
+			<h3 class="center-text">FIND A LOCATION</h3>
+			<a href="/locations"><button class="button-primary">LOCATIONS</button></a>
+		</div>
+	</div>
+	<div class="row">
+		<a id="faq-top"></a>
+		<h2 class="center-text">FAQ</h2>
+		<p class="body-style-1 center-text">HOW CAN WE HELP?</p>
+
+<!-- CONTACT PAGE MANAGED CONTENT  - General FAQs-->
+		<% generalTitleFaqArray = [] %>
+		<% generalTextFaqArray = [] %>
+
+		<% faqTitle1 = @contact_contents.find_by_description "faq-title-1" || nil %>
+		<% faqText1 = @contact_contents.find_by_description "faq-text-1" || nil %>
+
+		<% faqTitle2 = @contact_contents.find_by_description "faq-title-2" || nil %>
+		<% faqText2 = @contact_contents.find_by_description "faq-text-2" || nil %>
+
+		<% faqTitle3 = @contact_contents.find_by_description "faq-title-3" || nil %>
+		<% faqText3 = @contact_contents.find_by_description "faq-text-3" || nil %>
+
+		<% faqTitle4 = @contact_contents.find_by_description "faq-title-4" || nil %>
+		<% faqText4 = @contact_contents.find_by_description "faq-text-4" || nil %>
+
+		<% faqTitle5 = @contact_contents.find_by_description "faq-title-5" || nil %>
+		<% faqText5 = @contact_contents.find_by_description "faq-text-5" || nil %>
+
+		<% faqTitle6 = @contact_contents.find_by_description "faq-title-6" || nil %>
+		<% faqText6 = @contact_contents.find_by_description "faq-text-6" || nil %>
+
+		<% faqTitle7 = @contact_contents.find_by_description "faq-title-7" || nil %>
+		<% faqText7 = @contact_contents.find_by_description "faq-text-7" || nil %>
+		
+		<% faqTitle8 = @contact_contents.find_by_description "faq-title-8" || nil %>
+		<% faqText8 = @contact_contents.find_by_description "faq-text-8" || nil %>
+
+		<% faqTitle9 = @contact_contents.find_by_description "faq-title-9" || nil %>
+		<% faqText9 = @contact_contents.find_by_description "faq-text-9" || nil %>
+
+		<% faqTitle10 = @contact_contents.find_by_description "faq-title-10" || nil %>
+		<% faqText10 = @contact_contents.find_by_description "faq-text-10" || nil %>
+
+		<% faqTitle11 = @contact_contents.find_by_description "faq-title-11" || nil %>
+		<% faqText11 = @contact_contents.find_by_description "faq-text-11" || nil %>
+
+		<% faqTitle12 = @contact_contents.find_by_description "faq-title-12" || nil %>
+		<% faqText12 = @contact_contents.find_by_description "faq-text-12" || nil %>
+
+		<% faqTitle13 = @contact_contents.find_by_description "faq-title-13" || nil %>
+		<% faqText13 = @contact_contents.find_by_description "faq-text-13" || nil %>
+
+		<% faqTitle14 = @contact_contents.find_by_description "faq-title-14" || nil %>
+		<% faqText14 = @contact_contents.find_by_description "faq-text-14" || nil %>
+
+		<% faqTitle15 = @contact_contents.find_by_description "faq-title-15" || nil %>
+		<% faqText15 = @contact_contents.find_by_description "faq-text-15" || nil %>
+		
+		<% generalTitleFaqArray << faqTitle1 << faqTitle2 << faqTitle3 << faqTitle4 << faqTitle5 << faqTitle6 << faqTitle7 << faqTitle8 << faqTitle9 << faqTitle10 << faqTitle11 << faqTitle12 << faqTitle13 << faqTitle14 << faqTitle15 %>
+		
+		<% generalTextFaqArray << faqText1 << faqText2 << faqText3 << faqText4 << faqText5 << faqText6 << faqText7 << faqText8 << faqText9 << faqText10 << faqText11 << faqText12 << faqText13 << faqText14 << faqText15  %>
+
+
+	<% faqTitles = generalTitleFaqArray.compact.map(&:text).compact %>
+	<% faqText = generalTextFaqArray.compact.map(&:text).compact %>
+
+	<% faqHash = Hash[faqTitles.zip(faqText)].compact %>
+
+
+
+<!-- CONTACT PAGE MANAGED CONTENT  - Prom FAQs-->
+		<% promFaqTitle1 = @contact_contents.find_by_description "prom-faq-title-1" || nil %>
+		<% promFaqText1 = @contact_contents.find_by_description "prom-faq-text-1" || nil %>
+
+		<% promFaqTitle2 = @contact_contents.find_by_description "prom-faq-title-2" || nil %>
+		<% promFaqText2 = @contact_contents.find_by_description "prom-faq-text-2" || nil %>
+
+		<% promFaqTitle3 = @contact_contents.find_by_description "prom-faq-title-3" || nil %>
+		<% promFaqText3 = @contact_contents.find_by_description "prom-faq-text-3" || nil %>
+
+		<% promFaqTitle4 = @contact_contents.find_by_description "prom-faq-title-4" || nil %>
+		<% promFaqText4 = @contact_contents.find_by_description "prom-faq-text-4" || nil %>
+
+		<% promFaqTitle5 = @contact_contents.find_by_description "prom-faq-title-5" || nil %>
+		<% promFaqText5 = @contact_contents.find_by_description "prom-faq-text-5" || nil %>
+	
+		<% promFaqTitle6 = @contact_contents.find_by_description "prom-faq-title-6" || nil %>
+		<% promFaqText6 = @contact_contents.find_by_description "prom-faq-text-6" || nil %>
+
+		<% promFaqTitle7 = @contact_contents.find_by_description "prom-faq-title-7" || nil %>
+		<% promFaqText7 = @contact_contents.find_by_description "prom-faq-text-7" || nil %>
+		
+		<% promFaqTitle8 = @contact_contents.find_by_description "prom-faq-title-8" || nil %>
+		<% promFaqText8 = @contact_contents.find_by_description "prom-faq-text-8" || nil %>
+
+		<% promFaqTitle9 = @contact_contents.find_by_description "prom-faq-title-9" || nil %>
+		<% promFaqText9 = @contact_contents.find_by_description "prom-faq-text-9" || nil %>
+
+		<% promFaqTitle10 = @contact_contents.find_by_description "prom-faq-title-10" || nil %>
+		<% promFaqText10 = @contact_contents.find_by_description "prom-faq-text-10" || nil %>
+
+		<% promTitleFaqArray = [] %>
+		<% promTextFaqArray = [] %>
+
+		<% promTitleFaqArray << promFaqTitle1 << promFaqTitle2 << promFaqTitle3 << promFaqTitle4 << promFaqTitle5 << promFaqTitle6 << promFaqTitle7 << promFaqTitle8 << promFaqTitle9 << promFaqTitle10 %>
+		
+		<% promTextFaqArray << promFaqText1 << promFaqText2 << promFaqText3 << promFaqText4 << promFaqText5 << promFaqText6 << promFaqText7 << promFaqText8 << promFaqText9 << promFaqText10 %>
+
+		<% promFaqTitles = promTitleFaqArray.compact.map(&:text).compact %>
+		<% promFaqText = promTextFaqArray.compact.map(&:text).compact %>
+
+		<% promFaqHash = Hash[promFaqTitles.zip(promFaqText)].compact %>
+
+		<!-- GENERAL FAQ -->
+		<div class="col-md-12">
+		<h3>GENERAL FAQ</h3>
+			<div class="panel-group" id="accordionFaq">
+				<% faqHash.each_with_index do |(k, v), i| %>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title">
+								<a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= i %>" class="arrow-down">
+								<%= (k) %>
+								</a>
+							</h4>
+						</div>
+						<div id="collapse-<%= i %>" class="panel-collapse collapse">
+							<div class="panel-body">
+									<%= v.html_safe %>
+							</div>
+						</div>
+					</div>
+				<% end %>
+			</div>	
+		</div>
+			<!-- PROM FAQ -->
+
+		<div class="col-md-12">
+			<h3>PROM FAQ</h3>
+			<div class="panel-group" id="accordionFaq">
+			<% promFaqHash.each_with_index do |(k, v), i| %>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapse--<%= i %>" class="arrow-down">
+							<%= (k) %>
+							</a>
+						</h4>
+					</div>
+					<div id="collapse--<%= i %>" class="panel-collapse collapse">
+						<div class="panel-body">
+								<%= v.html_safe %>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,92 @@
+<div class="leads-wrapper" id="qunice-and-other" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Pref Location
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						First Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Last Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Email
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Phone Number
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Event Date
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Date Submitted
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete event?
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @others.each_with_index do |other, i| %>
+    	<tbody>
+    		<tr>
+					<% user = Spree::User.find other.user_id %>
+					<td> <%= i + 1 %> </td>
+					<td> <%= other.location && other.location.store_name || "N/A" %> </td>
+					<td> <%= user && user.first_name || "N/A" %> </td>
+					<td> <%= user && user.last_name  || "N/A" %> </td>
+					<td> <%= user && user.email  || "N/A" %> </td>
+					<td> <%= user && user.phone_number  || "N/A" %> </td>
+					<td> <%= other.date.strftime("%m/%d/%Y") %> </td>
+					<td> <%= other.created_at.strftime("%m/%d/%Y") %> </td>
+					<td><%= button_to('Delete Event', "/events/#{other.id}?admin=true", method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+
+
+
+
+					<!-- <td> <%# other.school_state || "N/A" %> </td> -->
+					<!-- <td> <%# other.school_zip_code || "N/A" %> </td> -->
+					<!-- <td> <%# other.tax_id  || "N/A" %> </td> -->
+					<!-- <td> <%# other.event_name  || "N/A" %> </td> -->
+					<!-- <td> <%# other.black_tie || "N/A" %> </td> -->
+					<!-- <td> <%# other.juniors || "N/A" %> </td> -->
+					<!-- <td> <%# other.number_seniors || "N/A"%> </td> -->
+					<!-- <td> <%# other.number_juniors  || "N/A" %> </td> -->
+					<!-- <td> <%# other.first_name  || "N/A" %> </td> -->
+					<!-- <td> <%# other.last_name  || "N/A" %> </td> -->
+					<!-- <td> <%# other.contact_title || "N/A"  %> </td> -->
+					<!-- <td> <%# other.contact_phone  || "N/A" %> </td> -->
+					<%# user # Spree::User.find other.user_id %>
+					<!-- <td> <%# user && user.email  || "N/A" %> </td> -->
+					<!-- <td> <%# other.group_code && other.group_code.number || "N/A" %> </td> -->
+					<!-- <td> <%# other.school_fundraiser %> </td> -->
+					<!-- <td> <%# other.prom_rep %> </td> -->
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>
+
+
+

@@ -1,0 +1,13 @@
+<!-- CHANGE TO NEW SIGN UP -->
+
+<div class="row signup-outer-container"> 
+  <div class="signup-container">
+    <h2 class="text-center signup-header">CREATE A NEW ACCOUNT</h2>
+    <%= form_for resource, :as => :spree_user, :url => spree.registration_path(resource) do |f| %>
+      <div data-hook="signup_inside_form">
+        <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+        <p><%= f.submit Spree.t(:create), :class => 'button-primary' %></p>
+      </div>
+    <% end %>
+  </div>  
+</div>

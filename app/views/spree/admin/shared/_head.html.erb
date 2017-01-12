@@ -1,0 +1,41 @@
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+
+<%= csrf_meta_tags %>
+
+<title>
+  Al's Formal Wear - Administration Panel
+</title>
+
+<!-- Get "Open Sans" font from Google -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600&subset=latin,cyrillic,greek,vietnamese' rel='stylesheet' type='text/css'>
+
+<%= stylesheet_link_tag 'spree/backend/all' %>
+
+<%- if Rails.env.test? %>
+  <style>
+    /* A fixed position notification can intermittently be in the way of click targets.
+    Capybara uses `Element.scrollIntoView()` internally, but this only scrolls as far
+    as it must, which means a bottom of page notification will obstruct interactions.
+    */
+    .flash-wrapper { position: static; }
+  </style>
+<%- elsif Rails.env.development? %>
+  <style>
+    .translation_missing { background: red; }
+  </style>
+<%- end %>
+
+
+<%= javascript_include_tag 'spree/backend/all' %>
+<script src="https://maps.googleapis.com/maps/api/js?v=3&libraries=places"></script>
+
+<%= render "spree/admin/shared/translations" %>
+
+<%= javascript_tag do -%>
+  Spree.api_key = "<%= try_spree_current_user.try(:spree_api_key) %>";
+  Spree.env = "<%= Rails.env %>";
+<% end %>
+<%= favicon_link_tag 'favicon.ico' %>
+
+
+<%= yield :head %>

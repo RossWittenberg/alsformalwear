@@ -1,0 +1,131 @@
+<div class="leads-wrapper" id="appointments" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+						
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						First Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Last Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Email
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Phone Number
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Zip Code
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Location Name
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Group Code
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Contact Time
+					</div>
+				</th>	
+				<th>
+					<div class="inner-th-wrapper">
+						Contact Method
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Appointment Date
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Approximate Event Date
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Appointment Time
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Appointment Reason
+					</div>
+				</th>		
+				<th>
+					<div class="inner-th-wrapper">
+						Other Explanation
+					</div>
+				</th>						
+				<th>
+					<div class="inner-th-wrapper">
+						Wedding Appointment Details
+					</div>
+				</th>						
+				<th>
+					<div class="inner-th-wrapper">
+						Message
+					</div>
+				</th>			
+				<th>
+					<div class="inner-th-wrapper">
+						Created at
+					</div>
+				</th>							
+
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete appointment?
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @appointments.each_with_index do |appointment, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td> <%= appointment.first_name || "N/A" %> </td>
+					<td> <%= appointment.last_name || "N/A" %> </td>
+					<td> <%= appointment.contact_email || "N/A" %> </td>
+					<td> <%= appointment.contact_phone || "N/A" %> </td>
+					<td> <%= appointment.zip_code || "N/A" %> </td>
+					<td> <%= appointment.location && appointment.location.store_name || "N/A" %> </td>
+					<td> <%= appointment.group_code || "N/A" %> </td>
+					<td> <%= appointment.contact_time || "N/A" %> </td>
+					<td> <%= appointment.contact_method || "N/A"%> </td>
+					<td> <%= appointment.appointment_date && appointment.appointment_date.strftime("%m/%d/%Y") || "N/A" %> </td>
+					<td> <%= appointment.approximate_event_date && appointment.approximate_event_date.strftime("%m/%d/%Y") || "N/A"%> </td>
+					<td> <%= appointment.apt_time && appointment.demilitarize_time || "N/A"%> </td>
+					<td> <%= appointment.appointment_reason || "N/A"%> </td>
+					<td> <%= appointment.other_explain || "N/A"%> </td>
+					<td> <%= appointment.wedding_apt_details || "N/A"%> </td>
+					<td> <%= appointment.message || "N/A"%> </td>
+					<td> <%= appointment.created_at.strftime("%m/%d/%Y") %> </td>
+					<td><%= button_to('Delete Appointment', "/appointment/#{appointment.id}?admin=true",
+          method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>

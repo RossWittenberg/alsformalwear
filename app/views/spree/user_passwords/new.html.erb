@@ -1,0 +1,31 @@
+<div id="forgot-password">
+	
+	<% if resource && resource.errors.any? %>
+		<div class="<%= 'alert' if resource.errors.any? %>">
+			<ul style="text-align: left;">
+			<% resource.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+	  </div>
+	<% end %>
+
+	<h6>Forgot your password?</h6>
+	<p>Enter your email below to recover your password</p>
+
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+	  
+
+	  <div class="field">
+		  <div class="col-md-12 no-pad">
+		  	<div class="placeholder-slide"></div>
+		    <%= f.email_field :email, autofocus: true, placeholder: 'EMAIL ADDRESS', class: 'moving-placeholder' %>
+	    </div>
+	  </div>
+
+	  <div class="actions">
+	    <%#= f.submit "RESET MY PASSWORD", class:"red-roll-over" %>
+	    <button type="submit" class="reset-pw-btn btn button-primary">RESET MY PASSWORD</button>
+	  </div>
+	<% end %>
+</div>	

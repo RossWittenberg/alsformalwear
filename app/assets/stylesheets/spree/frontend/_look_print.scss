@@ -1,0 +1,12 @@
+@import 'colors';
+
+@media print {
+  body {
+    background-color: $red;
+    font-size: 100px;
+  }
+}
+
+@media screen {
+	
+}

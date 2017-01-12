@@ -1,0 +1,54 @@
+div.share-icons {
+        display: inline-block;
+        float: right;
+        margin-right: -20px;
+        a.at-share-btn {
+          height: 40px;
+          width: 40px;
+          max-height: 40px;
+          max-width: 40px;
+          span.at-icon-wrapper {
+            visibility: hidden;
+            svg {
+              visibility: visible;
+              g {
+                visibility: visible;
+                path {
+                  visibility: visible;
+                }
+              }
+            }
+          }
+          span.at-icon-wrapper:before {
+            background-size: 100%;
+            bottom: 10px;
+            content: "";
+            display: block;
+            height: 40px;
+            position: relative;
+            right: 10px;
+            visibility: visible;
+            width: 40px;
+          }
+          &.at-svc-facebook {
+            span.at-icon-wrapper:before {
+              background-image: asset-url('spree/frontend/social/Facebook_Black.png');
+            }
+          }
+          &.at-svc-twitter {
+            span.at-icon-wrapper:before {
+              background-image: asset-url('spree/frontend/social/twitter.svg');
+            }
+          }
+          &.at-svc-pinterest_share {
+            span.at-icon-wrapper:before {
+              background-image: asset-url('spree/frontend/social/pinterest.svg');
+            }
+          }
+          &.at-svc-email {
+            span.at-icon-wrapper:before {
+              background-image: asset-url('spree/frontend/social/email.svg');
+            }
+          }
+        }
+      }

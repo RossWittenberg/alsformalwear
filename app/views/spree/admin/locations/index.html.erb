@@ -1,0 +1,49 @@
+<div class="leads-wrapper" id="weddings" >
+<div class="container content-breadcrumb">
+	<a href="/catalog/admin/contents"><i class="fa fa-arrow-left"></i> Back to Content Dashboard</a>
+</div>
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+						Store Name
+					</div>
+				</th>		
+				<th>
+					<div class="inner-th-wrapper">
+						Store Number
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper edit">
+						Details
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper edit">
+						Edit
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @locations.each_with_index do |location, i| %>
+    	<tbody>
+    		<tr>
+					<td><%= location.store_name %> </td>
+					<td><%= location.store_num %> </td>
+					<td><%=link_to "View Details", admin_location_path(location), class: 'button cms-button' %></td>
+					<td><%=link_to "Edit", edit_admin_location_path(location), class: 'button cms-button' %></td>
+					<td><%=link_to "Delete", admin_location_path(location),
+          method: "delete", data: { confirm: 'Are you sure you want to delete this location? All associated events will also be destroyed.', disable_with: 'loading...' }, class: 'button cms-button' %></td>	
+		<% end %>  
+  </table>
+</div>
+<%=link_to "Add new location", {action: 'new'}, class: 'button cms-button' %>	
+
+

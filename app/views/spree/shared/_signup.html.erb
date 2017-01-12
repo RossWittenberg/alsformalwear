@@ -1,0 +1,27 @@
+<div class="<%= 'alert' if flash[:sign_up_errors].present? %>">
+	<% if flash && flash[:sign_up_errors] && (flash[:sign_up_errors].is_a? String) %>
+			<p><%= flash[:sign_up_errors] %>.</p>
+	<% elsif flash && flash[:sign_up_errors] && (flash[:sign_up_errors].is_a? Array) %>
+		<% flash[:sign_up_errors].each do |error| %>
+			<p><%= error %>.</p>
+		<% end %>
+	<% end %>	
+</div>
+
+<div class="<%= 'success' if flash[:sign_up_success].present? %>">
+	<% if flash && flash[:sign_up_success] %>
+		<p><%= flash[:sign_up_success] %></p>
+	<% end %>	
+</div>
+
+<% if params[:look_id].present? %>
+	<% redirect_url = "#{params[:after_login_redirect]}?look_id=#{params[:look_id]}" %>
+<% else %>
+	<% redirect_url = "#{params[:after_login_redirect]}" %>
+<% end %>
+
+<%= form_for resource, :as => :spree_user, :url => spree.registration_path(resource), :html => {onsubmit: "ga('send', 'event', 'Actions','New Account Sign Up', 'Sign Up');"} do |f| %>
+    <%= render :partial => 'spree/shared/user_form', :locals => { :f => f } %>
+  	<%= f.hidden_field :after_login_redirect, value: redirect_url %>
+    <p><%= f.submit Spree.t(:create), :class => 'button-primary signup-button' %></p>
+<% end %>

@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 destination-headline">
+      <h2 class="headline">EXPLORE OUR DESTINATION COLLECTION</h2>
+      <p class="headline">With dozens of selections, rest assured that we have your desired style</p>
+    </div>
+  </div>
+</div>
+<div class="container destination-slider">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <ul class="bxslider">
+          <% for i in 0...@featured_products.count %>
+            <% if i%3 == 0 %>
+              <li>
+              <div class="col-md-4 image-wrapper">
+                <a href="<%= @featured_products[i - 2].path %>" >
+                  <div class="thumb-content" style="background-image: url('<%= image_path( @featured_products[i - 2].display_image.attachment(:large) ) %>');">
+                    <div class="text-container">
+                      <h4><%= @featured_products[i - 2].product.designer.titleize %></h4>
+                      <p><%= @featured_products[i - 2].product.name %></p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 image-wrapper">
+                <a href="<%= @featured_products[i - 1].path %>" >
+                  <div class="thumb-content" style="background-image: url('<%= image_path( @featured_products[i - 1].display_image.attachment(:large) ) %>');">
+                    <div class="text-container">
+                      <h4><%= @featured_products[i - 1].product.designer.titleize %></h4>
+                      <p><%= @featured_products[i - 1].product.name %></p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-4 image-wrapper">
+                <a href="<%= @featured_products[i].path %>" >
+                  <div class="thumb-content" style="background-image: url('<%= image_path( @featured_products[i].display_image.attachment(:large) ) %>');">
+                    <div class="text-container">
+                      <h4><%= @featured_products[i].product.designer.titleize %></h4>
+                      <p><%= @featured_products[i].product.name %></p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

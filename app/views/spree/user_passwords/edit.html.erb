@@ -1,0 +1,29 @@
+<div class="change-pwd">
+  <h2>Change Your Password</h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+
+    <div class="field">
+      <% if @minimum_password_length %>
+      <% end %>
+      <div class="col-md-12 col-sm-12">
+        <div class="placeholder-slide"></div>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off", placeholder: "ENTER NEW PASSWORD", class: 'moving-placeholder' %>
+      </div>
+    </div>
+
+    <div class="field">
+      <div class="col-md-12 col-sm-12">
+        <div class="placeholder-slide"></div>
+        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "CONFIRM NEW PASSWORD", class: 'moving-placeholder' %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%#= f.submit "SUBMIT", class: "red-roll-over" %>
+      <button type="submit" class="reset-pw-btn btn button-primary">SUBMIT</button>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,894 @@
+body {
+  min-height: 100%;
+}
+
+// Home Slider
+
+.bx-viewport, .bx-wrapper{
+    position:relative;
+    width:100%;
+    height:100%;
+    min-height: 53.3333vh;
+    overflow: hidden;
+    top:0;
+    left:0;
+    box-shadow: none;
+    border:0;
+}
+.bxslider, .bxslider li{
+    height: 100% !important;;
+}
+.bxslider li{
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.bx-wrapper .bx-viewport{
+    border: none !important;
+}
+
+.bx-wrapper{
+	margin-bottom: 0;
+
+	.bx-pager{
+		bottom: 25px;
+		padding-top: 0;
+		color: $white;
+		
+		&.bx-default-pager{
+			
+			a{
+				border: 2px solid $white;
+				background: transparent;
+
+				&:hover, &.active{
+					background: $white;
+				}
+			} 
+		}
+	}
+
+	.slide-overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 1;
+		background-color: rgba(0,0,0,0.35);
+	}
+
+	.slider-caption{
+			position: absolute;
+			top: 50%;
+			left: 0;
+			right: 0;
+			transform: translateY(-65%);
+			-webkit-transform: translateY(-65%);
+			margin: 0 auto;
+			z-index: 2;
+
+			h1{
+				color: $white;
+				text-align: center;
+				font-size: 26px;
+        margin-bottom: 30px;
+        margin-top: 50px;
+				//text-transform: uppercase;
+			}
+
+			
+	}
+
+	.btnWrap{
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+		z-index: 2;
+
+		a.btn{
+			display: inline-block;
+			background:transparent;
+			border: 2px solid $white;
+			width: auto;
+			color: $white;
+			margin: 0 auto;
+      padding-top: 15px;
+
+			&:hover {
+				background-color: $white;
+				border: 2px solid $white;
+				color: $red-shade-6;
+				cursor: pointer;
+				outline: 0;
+			}
+		}
+
+	}
+
+	.bx-pager-item{
+		margin-right: 10px;
+	}
+
+	button{
+		width:80%;
+		height: 50px;
+		background-color: transparent;
+		border: 1px solid $white;
+
+		&:hover{
+			background-color: transparent;
+			border: 2px solid $white;
+		}
+	}
+}
+
+.homeSlider {
+  
+  #slide-1, #slide-2, #slide-3, #slide-4, #slide-5 {
+    background-position: center top;
+  }
+
+	#slide-1 { background-image: asset-url('spree/frontend/landing-page/slide1.jpg'); }
+	#slide-2 { background-image: asset-url('spree/frontend/landing-page/slide2.jpg'); }
+	#slide-3 { background-image: asset-url('spree/frontend/landing-page/slide3.jpg'); }
+	#slide-4 { background-image: asset-url('spree/frontend/landing-page/slide4.jpg'); }
+	#slide-5 { background-image: asset-url('spree/frontend/landing-page/slide5.jpg'); }
+
+
+  div.slider-loader-wrapper {
+    background-color: #fff;
+    margin-bottom: -80vh;
+    min-height: 80vh;
+    padding-top: calc(40vh - 50px);
+    position: relative;
+    width: 100%;
+    z-index: 29999;
+  }
+}
+
+//Landing Page Content
+
+	.landing-page-container {
+		padding-top: 20px;
+		
+		@media (max-width: 767px) {
+			padding-top: 60px;
+		}
+
+		.section{
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		h2{
+			text-align: center;
+		}
+
+		h4{
+			text-align: center;
+		}
+
+		p{
+			text-align: center;
+		}
+
+		.mosaicWrap{
+			
+			.tile {
+				position: relative;
+				margin-bottom: 2px;
+			}
+
+			.box {
+				overflow: hidden;
+
+				h2 {
+					display: table;
+					width: 100%;
+					height: 100%;
+					margin: 0;
+					color: $white;
+					text-transform: uppercase;
+
+					span {
+						display: table-cell;
+						vertical-align: middle;
+					}
+				}
+
+
+			}
+
+			.wedding {
+				
+				a{
+					background-image: asset-url('spree/frontend/landing-page/weddings.jpg'); 
+					background-position: 50% 50%;
+					background-repeat: no-repeat;
+					background-size: cover;
+				}
+
+			}
+
+			.tiles-right{
+				
+				.formal {
+
+					a {
+						background-image: asset-url('spree/frontend/landing-page/formal-small.png');
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
+				}
+
+				.quince {
+					
+					a {
+						background-image: asset-url('spree/frontend/landing-page/quinceanera-small.png');
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
+
+				}
+				.social, .other-event{
+					
+					a {
+						background-image: asset-url('spree/frontend/landing-page/social-small.png');
+						background-repeat: no-repeat;
+						background-size: cover;
+					}
+				}
+			}
+		}
+		
+		.colors{
+			margin-top: 0;
+			margin-bottom: 0;
+			overflow: hidden;
+			li{
+				margin-bottom:20px;
+
+				.colorBox{
+					@include aspect-ratio(1,1);
+
+					&.one {
+						
+						background-color: #F9F9F9; 
+						
+						a { 
+							color: $white;
+							background-image: asset-url('spree/frontend/landing-page/ivory.png'); 
+						}
+					}
+
+					&.two { 
+						background-color: #C7C7C7;
+
+						a{ background-image: asset-url('spree/frontend/landing-page/grey.png'); }
+					}
+
+					&.three { 
+						background-color: #E1B4B6;
+						
+						a { background-image: asset-url('spree/frontend/landing-page/pink.png'); }
+					}
+
+					&.four { 
+						background-color: #801C20;
+						
+						a { background-image: asset-url('spree/frontend/landing-page/red.png'); }
+					}
+
+					&.five { 
+						background-color: #FDAD6D;
+						a { background-image: asset-url('spree/frontend/landing-page/orange.png'); }
+					}
+
+					&.six { 
+						background-color: #D7B900;
+						a { background-image: asset-url('spree/frontend/landing-page/yellow.png'); }
+					}
+
+					&.seven { 
+						background-color: #976816;
+						a { background-image: asset-url('spree/frontend/landing-page/brown.png'); }
+					}
+
+					&.eight { 
+						background-color: #2C6600;
+						a { background-image: asset-url('spree/frontend/landing-page/green.png'); }
+					}
+						
+					
+					&.nine { 
+						background-color: #03C2BE;
+						a { background-image: asset-url('spree/frontend/landing-page/teal.png'); }
+					}
+
+					&.ten { 
+						background-color: #080079;
+						a { background-image: asset-url('spree/frontend/landing-page/blue.png'); }
+					}
+
+					&.eleven { 
+						background-color: #683588;
+						a { background-image: asset-url('spree/frontend/landing-page/purple.png'); }
+					}
+
+					&.twelve { 
+						background-color: #000000; 
+					}
+					
+				}
+
+				a{
+					display: table;
+					width: 100%;
+					height: 100%;
+					border: 1px solid transparent;
+					background-repeat: no-repeat;
+					background-size: 100% 100%;
+					font-family: $sans-serif-medium;
+					color: $white;
+					font-size: 14px;
+					text-align: center;
+					letter-spacing: 1px;
+					text-decoration: none;
+					cursor: pointer;
+					opacity: 1;
+					@include transition(opacity .5s ease-in-out);
+
+					&:hover {
+						opacity: 1;
+					}
+
+					span {
+						display: table-cell;
+						vertical-align: middle;
+					}
+				}
+			}
+		}
+
+		.mapWrapper{
+			overflow: hidden;
+		}
+
+		#map-canvas{
+			width: 100%;
+			height: 220px;
+			margin-top: 15px;
+
+
+			> div { 
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.search-map{
+			width: 100%;
+			margin-top: 25px;
+
+			h2{	
+				padding-top: 0px;
+				text-align: center;
+			}
+
+			p{
+				text-align: center;
+				margin-bottom: 20px;
+			}
+
+			button{
+				background-color: $black;
+				color: $white;
+				width: 100%;
+				border:none;
+				border-radius: none;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          background-color: #d93a43;
+          transition: all 0.3s ease-in-out;
+        }
+			}
+
+			input[type="text"] {
+
+				&:focus {
+					border-color: none;
+				}
+			}
+		}
+	}
+
+@media (max-width: 767px){
+
+	#wrapper{
+		> div { height: 100%; }
+	}
+
+	.homeSlider{ height: 100%;}
+
+	.landing-page-container {
+		min-height: 100%;
+
+		h2{
+			font-size: 18px;
+		}
+
+		p{
+			font-size: 16px;
+		}
+	}
+
+		
+
+		
+
+		#section-3 {
+			padding-top: 40px;
+
+			.view-all { 
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+				font-size: 12px;
+			}
+		}
+
+		.divider {
+			width: 100%;
+			height: 1px;
+			background: $grey-light-2;
+		}
+
+		.rwd-break-mob { display: block; }
+	
+	
+	
+
+	.mapWrapper{
+		padding-left: 0;
+    	padding-right: 0;
+    	margin-left: -15px;
+    	margin-right: -15px;
+	}
+
+	.colors-snd { margin-bottom: 60px; }
+}
+
+@media (max-width: 991px){
+
+	#section-1 {
+		padding-top: 10px;
+
+		h2 {
+      margin-top: -40px;
+    }
+
+		p { margin-bottom: 20px; }
+	}
+
+	#section-2 {
+		padding-top: 20px;
+		padding-bottom: 20px;
+
+		p { margin-bottom: 40px; }
+	}
+
+	.mosaic-container {
+		margin-left: -15px;
+		margin-right: -15px;
+		overflow: hidden;
+
+		.tiles-left, .tiles-right { 
+			padding-left: 0;
+			padding-right: 0;
+		}
+
+		.box {
+
+			h2 { font-size: 18px; }
+		}
+	}
+
+	.wedding, .formal, .quince, .social, .other-event {				
+		@include aspect-ratio(320,160);
+	}
+
+}
+
+
+@media (min-width: $small-break) {
+
+	.bx-viewport, .bx-wrapper{
+		height: 640px;
+	}
+
+	.bx-wrapper{
+		margin-bottom: 50px;
+
+		.slider-caption{
+			h1{
+				font-size: 64px;
+			}
+		}
+	}
+
+
+	
+	.landing-page-container{
+
+		.colors{
+			li{
+
+				a {
+					opacity: 0;
+				}
+			}
+		}
+
+		#colors-snd{ margin-bottom: 75px; }
+
+		#colors-head { 
+			margin-top: 80px; 
+		}
+		
+		#colors-body {
+			margin-bottom: 85px;
+		}
+
+		#map-canvas {
+			height: 440px;
+			margin-top: 15px;
+			margin-bottom: 75px;
+		}
+
+		.search-map{
+			margin-top: 50px;
+
+			h2{
+				padding-top: 75px;
+			}
+
+			p{
+				margin-bottom: 75px;
+			}
+
+			.view-all {
+				font-size: 14px;
+    			text-decoration: underline;
+    			text-align: center; 
+			}
+		}
+
+		.rwd-break-mob { display: none; }
+	}
+
+}
+
+@media (min-width: $medium-break){
+	.landing-page-container{
+
+		.mosaicWrap{
+			margin-top: 45px;
+			margin-bottom: 80px;
+
+			.mosaic-container{
+				@include aspect-ratio(1160,560);
+
+				.tiles-left, .tiles-right { 
+					height: 100%;
+				}
+			}
+
+			.tile{
+				margin-bottom: 0;
+
+				.box {
+
+					h2{
+						@include transition(background-color .5s ease-in-out);
+					}
+					
+					&:hover {
+						h2 { 
+							background-color: rgba($black, .25);
+						}
+					}
+				}
+			}
+
+			.box{
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+			}
+			
+			.wedding{
+				height: 100%;
+
+				a { 
+					background-image: asset-url('spree/frontend/landing-page/weddings.jpg'); 
+					background-position: 61% 50%;
+					}
+
+			}
+
+			.tiles-right{
+				//max-width: 759px;
+
+				> div{
+					height: 50%;
+
+					.tiles-top{
+						height: 100%;
+						padding-bottom: 15px;
+
+						.tile{ height: 100%; }
+					}
+
+					.tiles-bottom {
+						height: 100%;
+						padding-top:15px;
+
+						.tile{ height: 100%; }
+					}
+				}
+
+				.formal{
+					a { background-image: asset-url('spree/frontend/landing-page/formal-small.png'); }
+				}
+
+				
+
+				.quince{
+					a { background-image: asset-url('spree/frontend/landing-page/quinceanera-small.png'); }
+				}
+
+				.social, .other-event {
+					a{ background-image: asset-url('spree/frontend/landing-page/social-small.png'); }
+				}
+			}
+		}
+
+		.colors{
+			li{
+				margin-bottom:0;
+			}
+		}
+	}
+}
+
+//UPDATED COLOR BLOCK STYLING
+
+//Color Grid
+div.color-grid {
+  margin-bottom: 80px;
+
+  .box-outer {
+    @include aspect-ratio(1,1);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    .box-inner {
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: opacity 0.5s ease-in-out;
+      width: 100%;
+    }
+    span {
+      color: $white;
+      font-family: "AvantGardeMedium";
+      font-size: 14px;
+      @media (max-width: 767px) {
+        font-size: 10px;
+      }
+      letter-spacing: 1px;
+      opacity: 0;
+      position: absolute;
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      -moz-transform-style: translateY(-50%);
+      width: 100%;
+    }
+
+    &.one {
+      background-image: asset_url('spree/frontend/landing-page/ivory.png');
+      .box-inner {
+        background-color: #F9F9F9;
+        // border-color: #DBDBDB;
+				border: 2px solid $grey-light-2;
+
+      }
+      span {
+        color: $black;
+      }
+    }
+    &.two {
+      background-image: asset_url('spree/frontend/landing-page/grey.png');
+      .box-inner {
+        background-color: #C7C7C7;
+      }
+    }
+    &.three {
+      background-image: asset_url('spree/frontend/landing-page/pink.png');
+      .box-inner {
+        background-color: #E1B4B6;
+      }
+    }
+    &.four {
+      background-image: asset_url('spree/frontend/landing-page/red.png');
+      .box-inner {
+        background-color: #801C20;
+      }
+    }
+    &.five {
+      background-image: asset_url('spree/frontend/landing-page/orange.png');
+      .box-inner {
+        background-color: #FDAD6D;
+      }
+    }
+    &.six {
+      background-image: asset_url('spree/frontend/landing-page/yellow.png');
+      .box-inner {
+        background-color: #D7B900;
+      }
+    }
+    &.seven {
+      background-image: asset_url('spree/frontend/landing-page/brown.png');
+      .box-inner {
+        background-color: #976816;
+      }
+    }
+    &.eight {
+      background-image: asset_url('spree/frontend/landing-page/green.png');
+      .box-inner {
+        background-color: #2C6600;
+      }
+    }
+    &.nine {
+      background-image: asset_url('spree/frontend/landing-page/teal.png');
+      .box-inner {
+        background-color: #03C2BE;
+      }
+    }
+    &.ten {
+      background-image: asset_url('spree/frontend/landing-page/blue.png');
+      .box-inner {
+        background-color: #080079;
+      }
+    }
+    &.eleven {
+      background-image: asset_url('spree/frontend/landing-page/purple.png');
+      .box-inner {
+        background-color: #683588;
+      }
+    }
+    &.twelve {
+      background-color: #000000;
+      .box-inner {
+        background-color: $black;
+        
+      }
+    }
+  }
+
+  .box-outer:hover span {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .box-outer:hover .box-inner {
+    opacity: 0;
+  }
+}
+
+.color-block {
+	clear: both;
+}
+
+//Color text styles
+div.color-text{
+  h2.headline {
+    margin-bottom: 15px;
+    margin-top: -15px;
+    margin: inherit;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  p.headline {
+    font-family: 'SabonLT-Bold';
+    font-size: 18px;
+    margin-bottom: 95px;
+    text-align: center;
+    margin: 0 auto 80px;
+    max-width: 365px;
+  }
+  @media (max-width: 767px) {
+    padding-top: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+	div.color-grid {
+    margin-bottom: 40px;
+    .box-outer {
+      &.one, &.two, &.three, &.four,
+      &.five, &.six, &.seven, &.eight,
+      &.nine, &.ten, &.eleven, &.twelve {
+        .box-inner {
+          background-color: transparent;
+          margin-bottom: 20px;
+          position: relative;
+        }
+        span {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  div.color-text {
+  	h2.headline {
+  		margin-top: 40px;
+  	}
+    p.headline {
+      margin: 0 auto 40px;
+    }
+  }
+}
+@media (max-width: 767px) {
+	div.color-text {
+    h2.headline {
+      font-family: 'AvantGardeMedium';
+      font-size: 18px;
+      letter-spacing: initial;
+      line-height: 24px;
+      margin: -15px auto 15px;
+      max-width: 280px;
+    }
+    p.headline {
+      font-size: 16px;
+      line-height: 30px;
+      margin: 0 auto;
+      max-width: 280px;
+    }
+  }
+  .landing-page-container {
+    #section-1 {
+      .mosaicWrap {
+        .tile {
+          margin: 10px;
+          h2 {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+//   .home-slider-caption {
+//   	margin-top: -100px;
+//   }
+// }
+
+// @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+//   .home-slider-caption {
+//   	margin-top: -100px;
+//   }
+// }
+

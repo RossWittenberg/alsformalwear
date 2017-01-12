@@ -1,0 +1,24 @@
+<div class="container tux-slider">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="row">
+        <ul class="bxslider">
+          <% for i in 0...@featured_products.count %>
+            <li>
+              <div class="col-md-4 image-wrapper">
+                  <a href="<%= @featured_products[i].path %>" >
+                    <div class="thumb-content" style="background-image: url('<%= image_path( @featured_products[i].display_image.attachment(:large) ) %>');">
+                      <div class="text-container">
+                        <h4><%= @featured_products[i].product.designer.titleize %></h4>
+                        <p><%= @featured_products[i].product.name %></p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

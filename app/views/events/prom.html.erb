@@ -1,0 +1,203 @@
+<!-- MANAGED CONTENT VARIABLES -->
+ <% promHeaderTitle = @prom_contents.find_by_description "prom-header-title" || nil %>
+ <% promHeaderImage = @prom_contents.find_by_description "prom-header-image" || nil %>
+ <% promHeaderButtonText = @prom_contents.find_by_description "prom-header-button-text" || nil %>
+ <% promHeaderButtonLink = @prom_contents.find_by_description "prom-header-button-link" || nil %>
+ 
+ <% promPromoTitle = @prom_contents.find_by_description "prom-promo-title" || nil %>
+ <% promPromoText = @prom_contents.find_by_description "prom-promo-text" || nil %>
+ <% promPromoImage = @prom_contents.find_by_description "prom-promo-image" || nil %>
+ <% promPromoButtonText = @prom_contents.find_by_description "prom-promo-button-text" || nil %>
+ <% promPromoButtonLink = @prom_contents.find_by_description "prom-promo-button-link" || nil %>
+ 
+ <% promFormTitle1 = @prom_contents.find_by_description "prom-form-title-1" || nil %>
+ <% promFormText1 = @prom_contents.find_by_description "prom-form-text-1" || nil %>
+ 
+ <% promFormTitle2 = @prom_contents.find_by_description "prom-form-title-2" || nil %>
+ <% promFormText2 = @prom_contents.find_by_description "prom-form-text-2" || nil %>
+ 
+ <% promFormTitle3 = @prom_contents.find_by_description "prom-form-title-3" || nil %>
+ <% promFormText3 = @prom_contents.find_by_description "prom-form-text-3" || nil %>
+ 
+ <% promFormTitle4 = @prom_contents.find_by_description "prom-form-title-4" || nil %>
+ <% promFormText4 = @prom_contents.find_by_description "prom-form-text-4" || nil %>
+<!-- PAGE CONTENT -->
+<div class="landingWrapper">
+  <div class="row landing-hero prom-hero">
+    <div class="hero-caption wedding">
+          <!-- Loader -->
+      <div class="slider-loader-wrapper">
+          <div class="loader">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+              </svg>
+          </div>
+      </div>
+      <div class="hero-text">
+        <% if promHeaderTitle && promHeaderTitle.text %>
+          <%= promHeaderTitle.text.html_safe %>
+        <% else %>
+          <h1>Prom Night?</h1>
+          <h1>Al&#8217;s has your look!</h1>
+        <% end %>
+        <% if promHeaderButtonLink && promHeaderButtonLink.text %>
+          <% buttonLink = "#{promHeaderButtonLink.text}"%>
+        <% else %>
+          <% buttonLink = '/prom?appointment_form=true'%>
+        <% end %>  
+        <a href="<%= buttonLink %>" class="btn button-primary wedding">
+          <% if promHeaderButtonText && promHeaderButtonText.text %>
+            <%= promHeaderButtonText.text %>
+          <% else %>
+            MAKE APPOINTMENT
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+<!-- BACKSTRETCH WITH MANAGED CONTENT -->
+  <script>
+    <% if promHeaderImage.image? %>
+      <% promHeaderImage = "#{promHeaderImage.image.url}" || "asset_url('spree/frontend/landing-page/slide5.jpg')"%>
+      $(".prom-hero").backstretch("<%= promHeaderImage %>", {centeredY: false});
+    <% else %>
+      $(".prom-hero").backstretch('<%= asset_url('spree/frontend/landing-page/slide5.jpg') %>', {centeredY: false});
+    <% end %>  
+  </script>
+
+  <div class="container occasion-steps">
+    <div class="row">
+      <h2 class="headline">Getting it right for your big day</h2>
+      <p class="headline">Al&#8217;s makes arranging your prom a breeze in four easy steps!</p>
+    </div>
+    
+    <%= render partial: "occasion_steps" %>
+  </div>
+
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "color_blocks" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_color_blocks" %>
+  </div>
+
+  <div class="row landing-hero free-rental-hero">
+    <div class="hero-caption wedding">
+      <div class="hero-text destination-wedding">
+        <% if promPromoTitle && promPromoTitle.text %>
+          <%= promPromoTitle.text.html_safe %>
+        <% else %>
+          <h1>How does a free</h1>
+          <h1>rental sound?</h1>
+        <% end %>
+        <% if promPromoText && promPromoText.text %>
+          <%= promPromoText.text.html_safe %>
+        <% else %>
+          <p>If that's music to your ears, then listen up! Sign up to be an Al's Formal Wear Prom Representative. Get five friends to rent their tuxedos from Al's and get yours for free!</p>
+        <% end %>
+        <% if promPromoButtonLink && promPromoButtonLink.text %>
+          <% buttonLink = "#{promPromoButtonLink.text}"%>
+        <% else %>
+          <% buttonLink = "/prom/#rep-form"%>
+        <% end %>  
+        <a href="<%= buttonLink %>" class="btn button-secondary white free-rental">
+          <% if promPromoButtonText && promPromoButtonText.text %>
+            <%= promPromoButtonText.text %>
+          <% else %>
+            SIGN UP
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+  <script>
+    <% if promPromoImage.image? %>
+      <% promPromoImage = "#{promPromoImage.image.url}" || "asset_url('spree/frontend/landing-page/slide5.jpg')"%>
+      $(".free-rental-hero").backstretch("<%= promPromoImage %>, {centeredY: false}");
+    <% else %>
+      $(".free-rental-hero").backstretch('<%= asset_url('spree/frontend/landing-page/freerental.jpg') %>', {centeredY: false});
+    <% end %>  
+  </script>
+
+  <div class="container-fluid group-offers-wrapper">
+    <div class="row group-offers-header prom-header">
+      <div class="col-md-12">
+        <%= image_tag 'spree/frontend/icons/group-offers.svg' %>
+        <h2>GROUP OFFERS</h2>
+        <p>Before planning for your next event, explore our group offers for information about fundraising and group codes.</p>
+      </div>
+    </div>
+
+    <div class="container group-offers-form-wrapper">
+      <div class="row form-line-break"></div>
+      <a id="form-top"></a>
+      <a id="school-fund"></a>
+      <h3 class="form-dropdown school-fund closed">
+        <% if promFormTitle1 && promFormTitle1.text %>
+          <%= promFormTitle1.text %>
+        <% else %>
+          SCHOOL FUNDRAISING CASH BACK PROGRAM
+        <% end %>
+      </h3>
+      <%= render partial: "education_fund_form", locals: { promFormText1: promFormText1 } %>
+
+      <div class="row form-line-break"></div>
+
+      <a id="rep-form"></a>
+      <h3 class="form-dropdown prom-rep closed">
+      <% if promFormTitle2 && promFormTitle2.text %>
+          <%= promFormTitle2.text %>
+        <% else %>
+          BECOME A PROM REP / AL'S REPRESENTATIVE
+        <% end %>
+      </h3>
+      <%= render partial: "als_rep_form", locals: { promFormText2: promFormText2 } %>
+
+      <div class="row form-line-break"></div>
+
+      <a id="school-group"></a>
+      <h3 class="form-dropdown closed">
+      <% if promFormTitle3 && promFormTitle3.text %>
+          <%= promFormTitle3.text %>
+        <% else %>
+          SCHOOL GROUP SALES
+        <% end %>
+      </h3>
+      <%= render partial: "school_group_sales_form", locals: { promFormText3: promFormText3 } %>
+
+      <div class="row form-line-break"></div>
+
+      <a id="work-study"></a>
+      <h3 class="form-dropdown work-study closed">
+        <% if promFormTitle4 && promFormTitle4.text %>
+          <%= promFormTitle4.text %>
+        <% else %>
+          PROM-REP WORK STUDY PROGRAM (FORMERLY SCHOLARSHIP PROGRAM)
+        <% end %>
+      </h3>
+      <%= render partial: "work_study", locals: { promFormText4: promFormText4 }  %>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="row line-break"></div>
+    </div>
+  </div>
+
+  <div class="container tux-text">
+    <div class="row">
+      <h2 class="headline">EXPLORE OUR TUXEDO &#38; SUIT COLLECTION</h2>
+      <p class="headline">With dozens of selections, rest assured that we have your desired style</p>
+    </div>
+  </div>
+
+  <a id="prom-gallery"></a>
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "explore_collection_slider" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_explore_collection_slider" %>
+  </div>
+
+</div>

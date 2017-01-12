@@ -1,0 +1,84 @@
+<%= form_for :measurement, url: main_app.measurements_path, remote: true, html: {class: "account-measurements-form", onclick: "ga('send', 'event', 'Account', 'New Save Measurements', 'Acount');"} do |f| %>	
+	<%= f.field_container :id do %>
+		<%= f.hidden_field :id %>
+	<% end %>
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 no-pad-left">
+		<%= f.field_container :suit_size do %>
+			<label for="measurement_suit_size">Suit Size</label><br />
+			<%= f.select :suit_size, options_for_select( @suit_sizes, @measurement.suit_size ), {}, { class: "measurement-form-field" } %>
+		<% end %>
+
+		<%= f.field_container :chest_overarm do %>
+			<label for="measurement_chest_overarm">Chest Overarm</label><br>
+			<%= f.number_field :chest_overarm, class: "measurement-form-field"%><p class="metric">IN.</p>
+		<% end %>
+
+		<%= f.field_container :chest_underarm do %>
+			<label for="measurement_chest_underarm">Chest Underarm</label><br>
+			<%= f.number_field :chest_underarm, class: "measurement-form-field"%><p class="metric">IN.</p>
+		<% end %>
+
+		<%= f.field_container :pants_waist do %>
+			<label for="measurement_pants_waist">Pants Waist</label><br>
+			<%= f.number_field :pants_waist, class: "measurement-form-field"%><p class="metric">IN.</p>
+		<% end %>
+		<%= f.field_container :pants_hip do %>
+			<label for="measurement_pants_hip">Pants Hip</label><br>
+			<%= f.number_field :pants_hip, class: "measurement-form-field"%><p class="metric">IN.</p>
+		<% end %>	
+	</div>
+
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		<%= f.field_container :pants_outseam do %>
+			<label for="measurement_pants_outseam">Pants Outseam</label><br>
+			<%= f.number_field :pants_outseam, class: "measurement-form-field"%><p class="metric">IN.</p>
+		<% end %>	
+
+		<%= f.field_container :shirt_collar do %>
+			<label for="measurement_shirt_collar">Shirt Collar</label><br>
+			<%= f.select :shirt_collar, options_for_select( @shirt_collars, @measurement.shirt_collar ), {}, { class: "measurement-form-field" } %><p class="metric select">IN.</p>
+		<% end %>
+
+		<%= f.field_container :shirt_sleeve do %>
+			<label for="measurement_shirt_sleeve">Shirt Sleeve</label><br>
+			<%= f.select :shirt_sleeve, options_for_select( @shirt_sleeves, @measurement.shirt_sleeve ), {}, { class: "measurement-form-field" } %><p class="metric select">IN.</p>
+		<% end %>
+		<%= f.field_container :shoe_size do %>
+			<label for="measurement_shoe_size">Shoe Size</label><br>
+			<%= f.select :shoe_size, options_for_select( @shoe_sizes, @measurement.shoe_size ), {}, { class: "measurement-form-field" } %>
+		<% end %>
+	</div>	
+
+	<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+		<%= f.field_container :height do %>
+			<div class="no-pad-left col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<%= f.label :height_feet, "Height (feet)" %><br>
+				<%= f.select :height_feet, options_for_select( (3..8).to_a, @measurement.height_feet ), {}, { class: "measurement-form-field" } %><p class="metric height">FT.</p>
+			</div>
+			<div class="no-pad-left col-lg-6 col-md-6 col-sm-6 col-xs-6">
+				<%= f.label :height_inches, "Height (inches)" %><br>
+				<%= f.select :height_inches, options_for_select( (0..11).to_a, @measurement.height_inches ), {}, { class: "measurement-form-field" } %><p class="metric height">IN.</p>
+			</div>
+		<% end %>
+
+		<%= f.field_container :weight do %>
+			<%= f.label :weight %><br>
+			<%= f.number_field :weight, class: "measurement-form-field"%><p class="metric weight">IN.</p>
+		<% end %>		
+
+		<%= f.field_container :fit_preference do %>
+			<label for="measurement_fit_preference">Fit Preference</label><br>
+			<%= f.select :fit_preference, options_for_select( @fit_preferences, @measurement.fit_preference ), {}, { class: "measurement-form-field" } %>
+		<% end %>
+
+		<%= f.field_container :body_type do %>
+			<label for="measurement_body_type">Body Type</label><br>
+			<%= f.select :body_type, options_for_select( @body_types, @measurement.body_type ), {}, { class: "measurement-form-field" } %>
+		<% end %>
+	</div>	
+
+	<div class="clearfix"></div>
+	
+	<div class="measurement-response-message"></div>
+	<%= f.submit "Save Measurements", onclick: "_gaq.push(['_trackEvent', 'Account', 'New Save Measurements', 'Account']);", class: "button-primary submit-account-measurements right", data: { :disable_with => 'Please wait..'} %>
+<% end %>

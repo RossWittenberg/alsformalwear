@@ -1,0 +1,23 @@
+<div class="row measureHeader hidden-xs">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h2>MEASUREMENT &amp; FIT</h2>
+				<p class="body-style-1">We understand how important the right fit is. Follow our incredibly simple step by step guide and forget the worry.</p>
+				<a href="#measurements-scroll"><button class="button-secondary center-block">ENTER MEASUREMENTS</button></a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="measurements-container" >
+	<% if @measurement.id.present? %>
+		<%= form_for :measurement, url: main_app.measurement_path(@measurement), method: :put, remote: true do |f| %>	
+			<%= render partial: "/measurements/form", locals: { f: f,  user: @user, measurement: @measurement } %>
+		<% end %>
+	<% else %>
+		<%= form_for :measurement, url: main_app.measurements_path, method: :post, remote: true do |f| %>	
+			<%= render partial: "/measurements/form", locals: { f: f, user: @user, measurement: @measurement } %>
+		<% end %>	
+	<% end %>
+</div>

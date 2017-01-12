@@ -1,0 +1,130 @@
+<% quinceaneraHeaderTitle = @quinceanera_contents.find_by_description "quinceanera-header-title" %>
+<% quinceaneraHeaderImage = @quinceanera_contents.find_by_description "quinceanera-header-image" %>
+<% quinceaneraHeaderButtonText = @quinceanera_contents.find_by_description "quinceanera-header-button-text" %>
+<% quinceaneraHeaderButtonLink = @quinceanera_contents.find_by_description "quinceanera-header-button-link" %>
+
+
+<div class="landingWrapper">
+  <div class="row landing-hero quince-hero">
+    <div class="hero-caption wedding">
+          <!-- Loader -->
+      <div class="slider-loader-wrapper">
+          <div class="loader">
+              <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+              </svg>
+          </div>
+      </div>
+      <div class="hero-text">
+        <% if quinceaneraHeaderTitle && quinceaneraHeaderTitle.text %>
+          <%= quinceaneraHeaderTitle.text.html_safe %>
+        <% else %>
+          <h1>Quincea&#241;era?</h1>
+          <h1>Al&#8217;s has your look!</h1>
+        <% end %>
+        <% if quinceaneraHeaderButtonLink && quinceaneraHeaderButtonLink.text %>
+          <% buttonLink = "#{quinceaneraHeaderButtonLink.text}"%>
+        <% else %>
+          <% buttonLink = '/quinceanera?appointment_form=true'%>
+        <% end %>  
+        <a href="<%= buttonLink %>" class="btn button-primary wedding">
+          <% if quinceaneraHeaderButtonText && quinceaneraHeaderButtonText.text %>
+            <%= quinceaneraHeaderButtonText.text %>
+          <% else %>
+            MAKE APPOINTMENT
+          <% end %>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    <% if quinceaneraHeaderImage.image? %>
+      <% quinceaneraHeaderImage = "#{quinceaneraHeaderImage.image.url}" || "asset_url('spree/frontend/landing-page/quinceKids.jpg')"%>
+      $(".quince-hero").backstretch("<%= quinceaneraHeaderImage %>, {centeredY: false}");
+    <% else %>
+      $(".quince-hero").backstretch('<%= asset_url('spree/frontend/landing-page/quinceKids.jpg') %>', {centeredY: false});
+    <% end %>  
+  </script>
+
+  <div class="container occasion-steps">
+    <div class="row">
+      <h2 class="headline">Getting it right for your big day</h2>
+      <p class="headline">Al&#8217;s makes arranging your quinceañera a breeze in four easy steps!</p>
+    </div>
+    
+    <%= render partial: "occasion_steps" %>
+  </div>
+
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "color_blocks" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_color_blocks" %>
+  </div>
+
+  <!--<div class="row landing-hero free-rental-hero">
+    <div class="hero-caption wedding">
+      <div class="hero-text destination-wedding">
+        <h1>How does a free</h1>
+          <h1>rental sound?</h1>
+          <p>If that's music to your ears, then listen up! Sign up to be an Al's Formal Wear Prom Representative. Get five friends to rent their tuxedos from Al's and get yours for free!</p>
+          <a href="/prom/#rep-form"><button class="button-secondary white free-rental">Sign Up</button></a>
+      </div>
+    </div>
+  </div>-->
+  <script>
+    $(".free-rental-hero").backstretch('<%= asset_url('spree/frontend/landing-page/freerental.png') %>', {centeredY: false});
+  </script>
+
+  <!-- NOT USED UNLESS THERE ARE FORMS BELOW
+  <div class="container group-offers-wrapper">
+    <div class="row group-offers-header">
+      <div class="col-md-12">
+        <%# image_tag 'spree/frontend/icons/group-offers.svg' %>
+        <h2>GROUP OFFERS</h2>
+        <%# if @user %>
+        <p>Curabitur et nisl non mi congue vehicula ac vel tellus. Ut ultrices lorem et nisl cursus dignissim. Aenean rhoncus blandit arcu in finibus. Vestibulum fermentum finibus viverra.</p>
+        <%# else %>
+          <p>Please login to view group promotions.</p>
+          <div class="col-md-6">
+            <%# link_to(spree.login_path( { after_login_redirect: "quinceanera" })) do%>
+              <button type="button" class="button-primary login">LOGIN</button>
+            <% #end %>
+          </div>
+        <%# end %>
+      </div>
+    </div>
+
+    <%# if @user %>
+      <div class="group-offers-form-wrapper">
+          ADD ANY FUTURE FORM PARTIALS HERE
+      </div>
+
+      <div class="row line-break"></div>
+    <%# end %>
+  </div> -->
+
+  <div class="container tux-text">
+    <div class="row">
+      <h2 class="headline">EXPLORE OUR TUXEDO &#38; SUIT COLLECTION</h2>
+      <p class="headline">With dozens of selections, rest assured that we have your desired style</p>
+    </div>
+  </div>
+
+  <a id="quinceanera-gallery"></a>
+  <div class="hidden-sm hidden-xs">
+    <%= render partial: "explore_collection_slider" %>
+  </div>
+  <div class="hidden-md hidden-lg hidden-xl">
+    <%= render partial: "mobile_explore_collection_slider" %>
+  </div>
+
+</div>
+
+
+
+
+<%# link_to "Facebook", Rails.application.routes.url_helpers.spree_user_omniauth_authorize_path(:facebook), class: "white tiny" %>
+<%# link_to "Google +", "https://www.alsformalwear.com/user/spree_user/auth/gplus", class: "white tiny" %>
+<%# link_to "Twitter", "https://www.alsformalwear.com/user/spree_user/auth/twitter", class: "white tiny" %>

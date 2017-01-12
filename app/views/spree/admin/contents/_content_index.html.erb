@@ -1,0 +1,25 @@
+<div class="container content-breadcrumb">
+	<a href="/catalog/admin/contents"><i class="fa fa-arrow-left"></i> Back to Content Dashboard</a>
+</div>
+<div class="container">
+	<div id="tabs">
+	  <ul>
+	    <li><a href="#text">Text</a></li>
+	    <li><a href="#images">Images</a></li>
+	    <li><a href="#links">Links</a></li>
+	    <li><a href="#meta">Meta Data</a></li>
+	  </ul>
+	  <%= render partial: "spree/admin/contents/text_table" %>
+	  <%= render partial: "spree/admin/contents/images_table" %>
+	  <%= render partial: "spree/admin/contents/links_table"%>
+	  <%= render partial: "spree/admin/contents/meta_table"%>
+	</div>
+	<%#=link_to "Add new content block", {action: 'new'}, class: 'button cms-button' %>	
+</div>
+
+
+
+
+
+
+			

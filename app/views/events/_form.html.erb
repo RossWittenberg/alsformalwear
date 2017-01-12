@@ -1,0 +1,25 @@
+<%= f.field_container :event_name do %>
+	<%= f.text_field :event_name, placeholder: "NAME YOUR EVENT" %>
+<% end %>
+<%= f.field_container :date do %>
+	<%= f.text_field :date, placeholder: "WHEN IS YOUR EVENT?", class: 'datepicker' %>
+<% end %>
+<%= f.field_container :event_type do %>
+	<%= f.select :event_type, options_for_select( @event_types, @event.event_type ), {}, { class: "event-type-select" } %>
+<% end %>
+
+<%= f.select :role, options_for_select( @roles, (@event.role || "SELECT YOUR ROLE") ), {}, { class: "hidden event-role-select" } %>
+<%= f.text_field :groom_first_name, placeholder: "GROOM FIRST NAME", class: "hidden groom-name-input" %>
+<%= f.text_field :groom_last_name, placeholder: "GROOM LAST NAME", class: "hidden groom-name-input" %>
+<%= f.text_field :bride_first_name, placeholder: "BRIDE FIRST NAME", class: "hidden bride-name-input" %>
+<%= f.text_field :bride_last_name, placeholder: "BRIDE LAST NAME", class: "hidden bride-name-input" %>
+
+<%= f.text_field :other_explain, placeholder: "PLEASE EXPLAIN", class: "hidden event-explain-text" %>
+
+<% if @user.name.blank? %>
+	<%= f.text_field :first_name, value: @user.first_name || nil, placeholder: "FIRST NAME", class: "hidden event-name-input" %>
+	<%= f.text_field :last_name, value: @user.first_name || nil, placeholder: "LAST NAME", class: "hidden event-name-input" %>
+<% end %>
+
+<%= f.hidden_field :look_id, value: (params[:look_id] || nil ) %>
+<%= f.hidden_field :user_id, value: @user.id %>

@@ -1,0 +1,20 @@
+<%= form_for :user, url: spree.user_path(@user), remote: true, method: :put, html: { class: "hidden account-form"} do |f| %>	
+	<div class="col-lg-3 col-md-3 col-sm-3 col-xs-8 no-pad-left">
+		<div class="form-group">
+			<%= f.text_field :first_name, class: "user-account-form-field form-control", placeholder: "Add your First Name"%>
+		</div>
+		<div class="form-group">
+			<%= f.text_field :last_name, class: "user-account-form-field form-control", placeholder: "Add your Last Name"%>
+		</div>
+
+		<div class="form-group">
+			<%= f.text_field :phone_number, class: "user-account-form-field form-control", placeholder: "Add your Phone Number", class: 'phone-number'%>
+		</div>	
+
+		<div class="form-group">
+			<%= f.text_field :email, class: "user-account-form-field form-control", placeholder: "Add your Email" %>
+		</div>
+
+		<%= f.submit "Update", class: "button-primary submit-user-info", data: { :disable_with => 'Please wait..'} %>
+	</div>	
+<% end %>	

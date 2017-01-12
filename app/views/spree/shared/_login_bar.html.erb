@@ -1,0 +1,26 @@
+<% if spree_current_user %>
+  <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15">
+    <div class="top-nav-link-wrapper account move-right">  
+      <h6 class="nav hidden-sm hidden-xs my-account-link inline-block">
+        <%= link_to image_tag('spree/frontend/icons/bowtie.svg', :alt => 'account icon', class: 'nav-icon account-icon' ) + "#{Spree.t(:my_account)}", '/catalog/account' %> 
+        <p class="hidden-sm hidden-xs h8 inline-block"> &nbsp; <%= link_to Spree.t(:logout), '/catalog/logout' %></p>
+      </h6>
+      <div class="nav-icon-wrapper">
+        <%= link_to image_tag('spree/frontend/icons/bowtie.svg', :alt => 'account icon', class: 'nav hidden-lg hidden-md my-account-link nav-icon account-icon' ), spree.account_path %>
+      </div>
+    </div>    
+  </div>
+
+<% else %>
+
+  <div class="col-lg-15 col-md-15 col-sm-15 col-xs-15" id="link-to-login">
+    <div class="top-nav-link-wrapper account move-right">  
+      <h6 class="nav hidden-sm hidden-xs my-account-link inline-block">
+        <%= link_to image_tag('spree/frontend/icons/bowtie.svg', :alt => 'account icon', class: 'nav my-account-link nav-icon account-icon' ) + "ACCOUNT" , spree.login_path %>
+      </h6>
+      <div class="nav-icon-wrapper">
+        <%= link_to image_tag('spree/frontend/icons/bowtie.svg', :alt => 'account icon', class: 'nav hidden-lg hidden-md my-account-link nav-icon account-icon' ), spree.login_path %>
+      </div>  
+    </div>  
+  </div>
+<% end %>

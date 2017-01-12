@@ -1,0 +1,29 @@
+<div class="no-pad col-md-12 col-lg-12">
+	<div class="no-pad col-md-6 col-lg-6">
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name%>
+	</div>
+
+	<% if @color.class == ChildColor %>
+		<div class="no-pad col-md-6 col-lg-6">
+		  <%= label_tag :presentation %><br />
+		  <%= text_field_tag :presentation, @presentation %>
+		</div>
+	<% end %>	
+	
+	<div class="no-pad col-md-6 col-lg-6">
+	  <%= f.label "Parent Color" %><br/>
+    <%= f.select :parent_color, options_from_collection_for_select(@parent_colors, 'id', 'display_name', (@color.parent_color && @color.parent_color.id || " ") ), prompt: "Parent Color", class: 'location-cms-form measurement-form-field cms-parent-color' %> 
+	</div>
+	<div class="no-pad col-md-6 col-lg-6">
+	  <%= f.label "Hex (include '#')" %><br />
+	  <%= f.text_field :hex %>
+	  <br />
+	  <br />
+	</div>
+	<% if @color && @color.hex %>
+		<div class="no-pad col-md-12 col-lg-12" style='height: 100px; background-color: <%= @color.hex %>;' >
+		</div>
+	<% end %>	
+</div>
+<br /><br />

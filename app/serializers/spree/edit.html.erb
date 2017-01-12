@@ -1,0 +1,19 @@
+<div class="row edit-event-outer-container"> 
+  <div class="event-edit-container">
+    <h2 class="text-center event-edit-header">TELL US ABOUT YOUR EVENT</h2>
+    <!-- <p class="body-style-1 text-center">Once complete, your Event will be placed together with your custom Tuxedo or Suit within your account</p>   -->
+    <div class="message-wrapper"></div>
+    <%= form_for :event, url: main_app.event_path, method: :put, html: { class: 'event-edit' }, remote: true do |f| %>	
+    	<%= f.hidden_field :id, value: @event.id, class: "update-event-id" %>
+    	<%= render partial: "/events/form", locals: { f: f, event: @event, roles: @roles, user: @user, event_types: @event_types } %>
+			<button type="button" class="button-primary update-event">Update Event</button>
+    <% end %>
+  </div>
+  <div class="event-showbox hidden">
+    <div class="loader">
+      <svg class="circular" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg>
+    </div>
+  </div>  
+</div>

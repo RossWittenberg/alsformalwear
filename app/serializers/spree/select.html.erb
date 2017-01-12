@@ -1,0 +1,49 @@
+<% if @events.present? %>
+	<div class="row event-on-select-outer-container">	
+		<div class="container event-on-select-form-container">
+			<div class="col-lg-offset-1 col-md-offset-1 col-lg-4 col-md-4 col-sm-5 col-xs-12 no-pad new-event-on-select-col left">
+				<div class="new-event-on-select-wrapper">
+					<h2 class="text-center new-event-on-select">NEW EVENT</h2>
+    			<div class="message-wrapper"></div>
+		  		<%= form_for :event, url: main_app.catalog_byt_event_path, remote: true, html: { class: "new-event-on-select" } do |f| %>	
+						<%= f.hidden_field :look_id, value: @look.id %>
+						<%= render partial: "/events/form", locals: { f: f, event: @event, roles: @roles, user: @user, event_types: @event_types } %>
+						<button type="button" class="button-primary new-event-on-select-button">Create New Event</button>
+					<% end %>
+				</div>
+			</div>  
+
+		<div class="or-col col-lg-2 col-md-2 hidden-sm col-xs-12">
+			<div class="or-outer-wrapper">
+				<div class="or-wrapper">
+					<span class="or-bar or-bar-left"></span>
+					<span class="body-style-2 or text-center">
+					or
+					</span>
+					<span class="or-bar or-bar-right"></span> 
+				</div>	
+			</div>	
+		</div>
+			<div class="col-lg-4 col-md-4 col-sm-5 col-xs-12 no-pad existing-event-on-select-col right">
+				<div class="existing-event-on-select-wrapper">
+					<h2 class="text-center existing-event-on-select">EXISTING EVENT</h2>  
+		  		<%= form_for @look, url: main_app.byt_path(@look.id), method: :put, remote: true do |f| %>	
+						<%= f.hidden_field :look_id, value: @look.id, class: "look-id-for-select-event" %>
+						<%= f.select :id, options_from_collection_for_select(@events, 'id', 'event_name'), {}, { class: "existing-events-form-field" } %>
+						<%= f.submit "Select Existing Event", class: "button-primary update-event-on-select-button" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+
+		<div class="event-showbox hidden">
+		  <div class="loader">
+		    <svg class="circular" viewBox="25 25 50 50">
+		      <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+		    </svg>
+		  </div>
+		</div>
+	</div>	
+<% else %>
+	<%= render partial: "/events/new", locals: { event: @event, roles: @roles, user: @user, event_types: @event_types } %>
+<% end %>

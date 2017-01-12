@@ -1,0 +1,175 @@
+<div class="row">
+  <div class="account-container container">
+    <div class="row">
+      <div class="col-md-12">
+      
+      <div class="<%= 'success row' if flash[:sign_up_success].present? %>">
+        <%= flash[:sign_up_success] %>
+      </div>
+
+      <div class="<%= 'alert row' if flash[:sign_up_errors].present? %>">
+        <%= flash[:sign_up_errors] %>
+      </div>
+
+        <!-- MOBILE LOGOUT BUTTON -->
+        <div class="row hidden-md hidden-lg hidden-xl">
+          <div class="col-xs-12">
+            <p class="body-style-2 mobile-logout text-right"><%= link_to Spree.t(:logout), '/catalog/logout' %></p>
+          </div>
+        </div>
+
+        <div class="accordion-measure row">
+
+          <!-- ACCOUNT DETAILS ACCORDION -->
+          <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-1">ACCOUNT DETAILS</a>
+            <div id="accordion-1" class="accordion-section-content acnt-details">
+              <div class="col-md-12 no-pad-left">
+                <p class="edit-account-details body-style-2 edit-info">Edit</p>
+              <div class="message-wrapper"></div>
+              <div class="no-pad-left col-lg-2 col-md-2 col-sm-2 col-xs-4">
+                <input type="hidden" name="id" value="<%= @user.id %>" id="user_id" >
+                <h4>FIRST NAME:</h4>
+                <h4>LAST NAME:</h4>
+                <h4>PHONE:</h4>
+                <h4>EMAIL:</h4>
+              </div>
+              <div class="no-pad-left col-lg-2 col-md-2 col-sm-6 col-xs-8 account-info-display">
+                <p class="user_first_name body-style-1"><%= @user.first_name || "  " %></p>
+                <p class="user_last_name body-style-1"><%= @user.last_name || "  "%></p>
+                <p class="user_phone_number body-style-1"><%= @user.phone_number || "  "%></p>
+                <p class="user_email body-style-1"><%= @user.email %></p>
+              </div>
+              <%= render partial: "/spree/users/edit", locals: { user: @user } %>
+
+              </div>
+
+            </div>
+          </div>
+
+          <!-- MY EVENTS ACCORDION -->
+          <div class="accordion-section">
+            <a class="accordion-section-title events-accordian" href="#accordion-2">MY EVENTS</a>
+            <div id="accordion-2" class="accordion-section-content">
+              
+              <div class="col-md-12">
+                <%= render partial: "/events/events", locals: { user: @user, events: @user.events } %>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- MY MEASUREMENTS ACCORDION -->
+          <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-3">MY MEASUREMENTS</a>
+            <div id="accordion-3" class="accordion-section-content">
+              
+              <div class="my-measurements-wrapper col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                  <div class="account-measurement-message-wrapper"></div>
+                  <% if @user.measurement.present? %>
+                    <%= render partial: "/spree/users/measurements/edit", locals: { user: @user } %>
+                  <% else %>
+                    <%= render partial: "/spree/users/measurements/new", locals: { user: @user } %>
+                  <% end %>
+                
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-4">MY FAVORITES <span class="accordian heart-wrapper favorite-heart red-heart"></span></a>
+
+            <div id="accordion-4" class="accordion-section-content">
+              <div class="my-measurements-wrapper col-lg-12 col-md-12 col-sm-12">
+                <div class="row">
+                  <div class="favorites thumbnail-block">
+                  <% if @favorites.present? %>
+                    <div class="row thumbnail-images-wrapper favorites">
+                    <% @favorites.each do |favorite|%>
+                      <a href=<%= "/catalog/products/#{favorite.product.slug}?variant_id=#{favorite.id}" %> >
+                        <% if favorite.images.present? %>
+                          <% image_url = favorite.images[0].attachment(:medium) %>
+                        <% else %>
+                          <% image_url = asset_url('spree/frontend/noimage.png') %>
+                        <% end  %>
+                        <div class="col-sm-3 favorites thumb-content" style="background-image: url(<%= image_url %>);">
+                          <div class="text-container">
+                            <h4><%= favorite.product.designer.titleize if favorite.product.designer.present? %></h4>
+                            <p><%= favorite.product.name.titleize %></p>
+                          </div>
+                        </div>
+                      </a>
+                    <% end %>
+                  </div>  
+                  <% else %>
+                    <p>You have not selected any items as favorites.</p>
+                  <% end %>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+
+          <!-- <div class="accordion-section">
+            <a class="accordion-section-title" href="#accordion-4">MY FAVORITES</a>
+            <div id="accordion-4" class="accordion-section-content">
+              
+              <div class="col-md-12 no-pad-left">
+                <p class="body-style-1">Morbi porta sagittis elementum. Sed malesuada interdum nisi at pretium. Donec a arcu et nunc condimentum tempus.</p>
+              </div> -->
+              
+            <!-- </div> --><!--end .accordion-section-content-->
+          <!-- </div> --><!--end .accordion-section-->
+
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div class="account-container container">  
+  
+=======
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 no-pad-left">
+      <%# link_to "Change your password?", recover_password_path %>
+    </div>  
+  </div>
+
+
+<div data-hook="account_my_orders" class="account-my-orders">
+  <h3><%#= Spree.t(:my_orders) %></h3>
+  <%# if @orders.present? %>
+    <table class="order-summary">
+      <thead>
+      <tr>
+        <th class="order-number"><%#= I18n.t(:number, :scope => 'activerecord.attributes.spree/order') %></th>
+        <th class="order-date"><%#= Spree.t(:date) %></th>
+        <th class="order-status"><%#= Spree.t(:status) %></th>
+        <th class="order-payment-state"><%#= Spree.t(:payment_state) %></th>
+        <th class="order-shipment-state"><%#= Spree.t(:shipment_state) %></th>
+        <th class="order-total"><%#= Spree.t(:total) %></th>
+      </tr>
+      </thead>
+      <tbody>
+      <%# @orders.each do |order| %>
+        <tr class="<%#= cycle('even', 'odd') %>">
+          <td class="order-number"><%#= link_to order.number, order_url(order) %></td>
+          <td class="order-date"><%#= l order.completed_at.to_date %></td>
+          <td class="order-status"><%#= Spree.t("order_state.#{order.state}").titleize %></td>
+          <td class="order-payment-state"><%#= Spree.t("payment_states.#{order.payment_state}").titleize if order.payment_state %></td>
+          <td class="order-shipment-state"><%#= Spree.t("shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></td>
+          <td class="order-total"><%#= order.display_total %></td>
+        </tr>
+      <%# end %>
+      </tbody>
+    </table>
+  <%# else %>
+    <p><%#= Spree.t(:you_have_no_orders_yet) %></p>
+  <%# end %>
+  <br />
+</div> -->

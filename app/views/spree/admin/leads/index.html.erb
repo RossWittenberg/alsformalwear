@@ -1,0 +1,30 @@
+<h2>Leads</h2>
+<%= button_to "Download Events", "/events/download.csv" %>
+<br>
+<%= button_to "Download Users", "/events/users_download.csv" %>
+<br>
+<%= button_to "Download Appointments", "/events/appointments_download.csv" %>
+<br>
+<%= button_to "Download General Discounts", "/discounts/general_discounts_download.csv" %>
+<br>
+<%= button_to "Download Wedding Discounts", "/discounts/wedding_discounts_download.csv" %>
+<br>
+<div id="tabs">
+  <ul>
+    <li><a href="#proms">Prom/Formals</a></li>
+    <li><a href="#weddings">Weddings</a></li>
+    <li><a href="#social-events">Social Events</a></li>
+    <li><a href="#qunice-and-other">Quince and Other</a></li>
+    <li><a href="#appointments">Appointments</a></li>
+    <li><a href="#discounts">Discounts</a></li>
+    <li><a href="#wedding_discounts">Wedding Discounts</a></li>
+  </ul>
+  <%= render partial: "spree/admin/leads/prom_table", locals: {proms: @proms} %>
+  <%= render partial: "spree/admin/leads/weddings_table", locals: {weddings: @weddings} %>
+  <%= render partial: "spree/admin/leads/social_events_table", locals: {social_events: @social_events} %>
+  <%= render partial: "spree/admin/leads/others_table", locals: {others: @others} %>
+  <%= render partial: "spree/admin/leads/appointments_table", locals: {appointments: @appointments} %>
+  <%= render partial: "spree/admin/leads/discounts_table", locals: {discounts: @discounts} %>
+  <%= render partial: "spree/admin/leads/wedding_discounts_table", locals: {wedding_discounts: @wedding_discounts} %>
+
+</div>

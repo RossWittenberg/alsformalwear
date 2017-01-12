@@ -1,0 +1,13 @@
+<div class="container">
+	<div class="col-md-12 col-lg-12 no-pad">
+		<a href="/catalog/admin/colors"><i class="fa fa-arrow-left"></i> Colors Dashboard </a>
+	</div>
+	<div class="col-md-12 col-lg-12">
+			<%= form_for :competitor_color, url: {action: :create} do |f| %>
+		    <%= render :partial => 'spree/admin/colors/form', :locals => { :f => f, parent_color: @parent_colors, color: @color } %>
+		    <%= hidden_field_tag :als, false %>
+		    <p><%= f.submit Spree.t(:create), :class => 'button-primary admin-content' %></p>
+			<% end %>
+		</div>
+	</div>	
+</div>

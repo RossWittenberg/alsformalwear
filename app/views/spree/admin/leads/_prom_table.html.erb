@@ -1,0 +1,153 @@
+<div class="leads-wrapper" id="proms" >
+  <table class="leads" >
+  	<thead class="leads-table-header">
+  		<tr>
+				<th>
+					<div class="inner-th-wrapper">
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School Name
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School Address
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School City	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School State	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School Zip	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Federal Tax ID	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Event Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Black Tie Event?	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Will Jr. Attend?	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						# Seniors	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						# Juniors	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Rep First Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Rep Last Name	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Rep Title 
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Phone
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Email	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Al's Store	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Group Code	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Date Submitted	
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						School Fundraiser?
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper">
+						Prom Rep?
+					</div>
+				</th>
+				<th>
+					<div class="inner-th-wrapper delete">
+						Delete event?
+					</div>
+				</th>
+  		</tr>
+  	</thead>
+    <% @proms.each_with_index do |prom, i| %>
+    	<tbody>
+    		<tr>
+					<td> <%= i + 1 %> </td>
+					<td> <%= prom.orgname || "N/A" %> </td>
+					<td> <%= prom.school_street_address || "N/A" %> </td>
+					<td> <%= prom.school_city || "N/A" %> </td>
+					<td> <%= prom.school_state || "N/A" %> </td>
+					<td> <%= prom.school_zip_code || "N/A" %> </td>
+					<td> <%= prom.tax_id  || "N/A" %> </td>
+					<td> <%= prom.event_name  || "N/A" %> </td>
+					<td> <%= prom.black_tie || "N/A" %> </td>
+					<td> <%= prom.juniors || "N/A" %> </td>
+					<td> <%= prom.number_seniors || "N/A"%> </td>
+					<td> <%= prom.number_juniors  || "N/A" %> </td>
+					<td> <%= prom.first_name  || "N/A" %> </td>
+					<td> <%= prom.last_name  || "N/A" %> </td>
+					<td> <%= prom.contact_title || "N/A"  %> </td>
+					<td> <%= prom.contact_phone  || "N/A" %> </td>
+					<% user = Spree::User.find prom.user_id %>
+					<td> <%= user && user.email  || "N/A" %> </td>
+					<td> <%= prom.location && prom.location.store_name || "N/A" %> </td>
+					<td> <%= prom.group_code && prom.group_code.number || "N/A" %> </td>
+					<td> <%= prom.created_at.strftime("%m/%d/%Y") %> </td>
+					<td> <%= prom.school_fundraiser %> </td>
+					<td> <%= prom.prom_rep || "false" %> </td>
+					<td><%= button_to('Delete Event', "/events/#{prom.id}?admin=true",
+          method: "delete", data: { confirm: 'Are you sure?', disable_with: 'loading...' }, form_class: 'delete-event-form') %></td>
+    		</tr>
+    	</tbody>
+		<% end %>  
+  </table>
+</div>

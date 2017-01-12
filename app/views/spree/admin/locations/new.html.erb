@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="col-md-12 col-lg-12 no-pad">
+		<a href="/catalog/admin/locations"><i class="fa fa-arrow-left"></i> Locations Dashboard </a><br><br>
+	</div>
+	<div class="col-md-12 col-lg-12">
+			<%= form_for :location, url: {action: :create} do |f| %>
+			    <%= render :partial => 'spree/admin/locations/form', :locals => { :f => f, states: @states } %>
+			    <p><%= f.submit Spree.t(:create), :class => 'button-primary admin-content' %></p>
+			<% end %>
+		</div>
+	</div>	
+</div>
